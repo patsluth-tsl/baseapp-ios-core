@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'baseapp-ios-core-v1_Example' do
+  pod 'baseapp-ios-core-v1', :path => '../'
+
+  target 'baseapp-ios-core-v1_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
