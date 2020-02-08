@@ -1,0 +1,65 @@
+# Directories to lint
+included:
+  - ../baseapp-ios-core-v1
+  - baseapp-ios-core-v1
+  - Tests
+
+# Directories to not lint
+excluded:
+  - Pods
+  - fastlane
+
+# Rules to enabled that aren't by default
+opt_in_rules:
+  - closure_spacing
+  - empty_count
+  - explicit_init
+  - fatal_error_message
+  - first_where
+  - multiline_parameters
+  - overridden_super_call
+  - private_outlet
+  - sorted_imports
+  - trailing_closure
+  - vertical_parameter_alignment_on_call
+
+# Disable default rules
+disabled_rules:
+  - cyclomatic_complexity
+  - empty_enum_arguments
+  - file_length
+  - function_body_length
+  - multiple_closures_with_trailing_closure
+  - private_over_fileprivate
+  - todo
+  - trailing_whitespace
+  - valid_ibinspectable
+  - vertical_whitespace
+  - inert_defer
+  - redundant_optional_initialization
+  - identifier_name
+  - shorthand_operator
+  - superfluous_disable_command
+  - unused_optional_binding
+  - unused_capture_list
+  - trailing_closure
+  - closure_end_indentation
+  - operator_usage_whitespace
+  - empty_parentheses_with_trailing_closure
+
+# Where to report warnings and errors
+reporter: "xcode"
+
+# Customize default rules
+function_parameter_count: 6
+large_tuple: 4
+line_length:
+  warning: 110
+  ignores_comments: true
+type_body_length: 100
+warning_threshold: 1
+private_outlet:
+  allow_private_set: true
+#identifier_name:
+#  allowed_symbols: "_"
+#  validates_start_with_lowercase: false

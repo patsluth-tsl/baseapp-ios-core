@@ -1,0 +1,149 @@
+{
+  "name": "baseapp-ios-core-v1",
+  "version": "0.1.0",
+  "summary": "A short description of baseapp-ios-core-v1.",
+  "description": "A short description of baseapp-ios-core-v1.",
+  "homepage": "https://bitbucket.org/silverlogic/baseapp-ios-core-v1",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "patsluth": "ps@tsl.io"
+  },
+  "source": {
+    "git": "https://bitbucket.org/silverlogic/baseapp-ios-core-v1",
+    "tag": "0.1.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.11"
+  },
+  "default_subspecs": "Default",
+  "source_files": "baseapp-ios-core-v1/Classes/**/*",
+  "subspecs": [
+    {
+      "name": "Default",
+      "ios": {
+        "dependencies": {
+          "RxSwift": [
+
+          ],
+          "RxCocoa": [
+
+          ],
+          "RxSwiftExt": [
+
+          ],
+          "PromiseKit": [
+
+          ],
+          "CancelForPromiseKit": [
+
+          ],
+          "Kingfisher": [
+            "~> 5.9.0"
+          ],
+          "SwiftDate": [
+
+          ],
+          "SwiftyBeaver": [
+
+          ],
+          "R.swift": [
+
+          ],
+          "SegueManager/R.swift": [
+
+          ]
+        },
+        "frameworks": [
+          "Foundation",
+          "CoreFoundation",
+          "CoreGraphics",
+          "CoreLocation",
+          "UIKit",
+          "SystemConfiguration",
+          "AVKit"
+        ],
+        "resources": "baseapp-ios-core-v1/Resources/**/*",
+        "source_files": [
+          "baseapp-ios-core-v1/Classes/Default/**/*",
+          "baseapp-ios-core-v1/Classes/Default/**/*",
+          "baseapp-ios-core-v1/Resources/**/*"
+        ]
+      },
+      "osx": {
+        "frameworks": [
+          "Foundation",
+          "CoreFoundation",
+          "CoreGraphics",
+          "CoreLocation",
+          "SystemConfiguration"
+        ],
+        "source_files": "baseapp-ios-core-v1/Classes/Default/**/*",
+        "resources": "baseapp-ios-core-v1/Resources/**/*"
+      }
+    },
+    {
+      "name": "simd",
+      "dependencies": {
+        "baseapp-ios-core-v1/Default": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "CoreFoundation"
+      ],
+      "ios": {
+        "source_files": "baseapp-ios-core-v1/Classes/simd/**/*"
+      }
+    },
+    {
+      "name": "SceneKit",
+      "dependencies": {
+        "baseapp-ios-core-v1/Default": [
+
+        ],
+        "baseapp-ios-core-v1/simd": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "CoreFoundation",
+        "SceneKit"
+      ],
+      "ios": {
+        "source_files": "baseapp-ios-core-v1/Classes/SceneKit/**/*"
+      }
+    },
+    {
+      "name": "ARKit",
+      "dependencies": {
+        "baseapp-ios-core-v1/Default": [
+
+        ],
+        "baseapp-ios-core-v1/SceneKit": [
+
+        ],
+        "baseapp-ios-core-v1/simd": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "CoreFoundation",
+        "ARKit"
+      ],
+      "ios": {
+        "source_files": "baseapp-ios-core-v1/Classes/ARKit/**/*"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

@@ -1,5 +1,5 @@
+import baseapp_ios_core_v1_Example
 import XCTest
-import baseapp-ios-core-v1
 
 class Tests: XCTestCase {
     

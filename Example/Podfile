@@ -1,11 +1,16 @@
-use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'baseapp-ios-core-v1_Example' do
+  platform :ios, '10.0'
+  use_frameworks!
+  inhibit_all_warnings!
+  
   pod 'baseapp-ios-core-v1', :path => '../'
+  pod 'baseapp-ios-core-v1/ARKit', :path => '../'
+  pod 'SwiftLint'
 
   target 'baseapp-ios-core-v1_Tests' do
     inherit! :search_paths
-
-    
   end
+
 end
