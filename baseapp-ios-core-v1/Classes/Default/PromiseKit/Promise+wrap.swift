@@ -6,46 +6,34 @@
 //  Copyright © 2017 patsluth. All rights reserved.
 //
 
-import Foundation
-
-import PromiseKit
 import CancelForPromiseKit
+import Foundation
+import PromiseKit
 
-
-
-
-
-
-public extension Promise
-{
+public extension Promise {
     static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                        _ block: @escaping () throws -> T) -> Promise<T>
-	{
+                        _ block: @escaping () throws -> T) -> Promise<T> {
         return promise_wrap(on: dispatchQueue, block)
-	}
-	
-	static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                        _ block: @escaping (Resolver<T>) -> Void) -> Promise<T>
-	{
-		let (promise, resolver) = Promise<T>.pending()
+    }
+    
+    static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
+                        _ block: @escaping (Resolver<T>) -> Void) -> Promise<T> {
+        let (promise, resolver) = Promise<T>.pending()
         dispatchQueue.async(execute: {
             block(resolver)
         })
-		return promise
-	}
+        return promise
+    }
 }
 
-public extension Guarantee
-{
-	static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                        _ block: @escaping () -> T) -> Guarantee<T>
-	{
-		return promise_wrap(block)
-	}
+public extension Guarantee {
+    static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
+                        _ block: @escaping () -> T) -> Guarantee<T> {
+        return promise_wrap(block)
+    }
     
     static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                        _ block: @escaping ((T) -> Void) -> Void) -> Guarantee<T>
-    {
+                        _ block: @escaping ((T) -> Void) -> Void) -> Guarantee<T> {
         let (guarantee, resolver) = Guarantee<T>.pending()
         dispatchQueue.async(execute: {
             block(resolver)
@@ -54,40 +42,30 @@ public extension Guarantee
     }
 }
 
-
-
-
-
-public extension CancellablePromise
-{
-	static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                        _ block: @escaping () throws -> T) -> CancellablePromise<T>
-	{
-		return promise_wrap(block)
-	}
-	
-	static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                        _ block: @escaping (Resolver<T>) -> Void) -> CancellablePromise<T>
-	{
-		let (promise, resolver) = CancellablePromise<T>.pending()
+public extension CancellablePromise {
+    static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
+                        _ block: @escaping () throws -> T) -> CancellablePromise<T> {
+        return promise_wrap(block)
+    }
+    
+    static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
+                        _ block: @escaping (Resolver<T>) -> Void) -> CancellablePromise<T> {
+        let (promise, resolver) = CancellablePromise<T>.pending()
         dispatchQueue.async(execute: {
             block(resolver)
         })
-		return promise
-	}
+        return promise
+    }
 }
 
-public extension CancellableGuarantee
-{
-	static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                        _ block: @escaping () -> T) -> CancellableGuarantee<T>
-	{
-		return promise_wrap(block)
-	}
+public extension CancellableGuarantee {
+    static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
+                        _ block: @escaping () -> T) -> CancellableGuarantee<T> {
+        return promise_wrap(block)
+    }
     
     static func wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                        _ block: @escaping ((T) -> Void) -> Void) -> CancellableGuarantee<T>
-    {
+                        _ block: @escaping ((T) -> Void) -> Void) -> CancellableGuarantee<T> {
         let (guarantee, resolver) = CancellableGuarantee<T>.pending()
         dispatchQueue.async(execute: {
             block(resolver)
@@ -96,13 +74,8 @@ public extension CancellableGuarantee
     }
 }
 
-
-
-
-
 public func promise_wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                            _ block: @escaping () throws -> T) -> Promise<T>
-{
+                            _ block: @escaping () throws -> T) -> Promise<T> {
     let (promise, resolver) = Promise<T>.pending()
     dispatchQueue.async(execute: {
         do {
@@ -115,22 +88,16 @@ public func promise_wrap<T>(on dispatchQueue: DispatchQueue = .main,
 }
 
 public func promise_wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                            _ block: @escaping () -> T) -> Guarantee<T>
-{
+                            _ block: @escaping () -> T) -> Guarantee<T> {
     let (guarantee, resolver) = Guarantee<T>.pending()
-	dispatchQueue.async(execute: {
+    dispatchQueue.async(execute: {
         resolver(block())
     })
     return guarantee
 }
 
-
-
-
-
 public func promise_wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                            _ block: @escaping () throws -> T) -> CancellablePromise<T>
-{
+                            _ block: @escaping () throws -> T) -> CancellablePromise<T> {
     let (promise, resolver) = CancellablePromise<T>.pending()
     dispatchQueue.async(execute: {
         do {
@@ -143,8 +110,7 @@ public func promise_wrap<T>(on dispatchQueue: DispatchQueue = .main,
 }
 
 public func promise_wrap<T>(on dispatchQueue: DispatchQueue = .main,
-                            _ block: @escaping () -> T) -> CancellableGuarantee<T>
-{
+                            _ block: @escaping () -> T) -> CancellableGuarantee<T> {
     let (guarantee, resolver) = CancellableGuarantee<T>.pending()
     dispatchQueue.async(execute: {
         resolver(block())
@@ -153,38 +119,34 @@ public func promise_wrap<T>(on dispatchQueue: DispatchQueue = .main,
 }
 
 //public func promise_wrap<T>(_ block: () throws -> T) -> CancellablePromise<T>
-//	where T: CancellableTask
+//    where T: CancellableTask
 //{
-//	return CancellablePromise<T>(resolver: { resolver in
-//		do {
-//			resolver.fulfill(try block())
-//		} catch {
-//			resolver.reject(error)
-//		}
-//	})
+//    return CancellablePromise<T>(resolver: { resolver in
+//        do {
+//            resolver.fulfill(try block())
+//        } catch {
+//            resolver.reject(error)
+//        }
+//    })
 //}
 //
 //public func promise_wrap<T>(_ block: () -> T) -> CancellableGuarantee<T>
-//	where T: CancellableTask
+//    where T: CancellableTask
 //{
-//	return CancellableGuarantee<T>(resolver: { resolver in
-//		resolver(block())
-//	})
+//    return CancellableGuarantee<T>(resolver: { resolver in
+//        resolver(block())
+//    })
 //}
 
 //func testCancellable<T>(_ t: T) -> DispatchWorkItem
 //{
-//	let task = DispatchWorkItem(qos: .background, flags: .enforceQoS, block: {
-//		Thread.sleep(forTimeInterval: 3)
-//		sw.log(t)
-//	})
+//    let task = DispatchWorkItem(qos: .background, flags: .enforceQoS, block: {
+//        Thread.sleep(forTimeInterval: 3)
+//        sw.log(t)
+//    })
 //
-//	DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
-//		.async(execute: task)
+//    DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+//        .async(execute: task)
 //
-//	return task
+//    return task
 //}
-
-
-
-
