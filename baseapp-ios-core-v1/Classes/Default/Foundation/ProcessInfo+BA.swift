@@ -16,22 +16,25 @@ public enum ProcessInfoKey: String {
 
 public extension ProcessInfo {
     /// Determines if the application is running unit tests.
-    @available(*, deprecated, renamed: "ProcessInfo.subscript(key:)")
     static var isRunningUnitTests: Bool {
-        return self[ProcessInfoKey.runningUnitTests, "FALSE"] == "TRUE"
+        return self[env: ProcessInfoKey.runningUnitTests, "FALSE"] == "TRUE"
     }
     
     /// Determines if the application is running integration tests.
-    @available(*, deprecated, renamed: "ProcessInfo.subscript(key:)")
     static var isRunningIntegrationTests: Bool {
-        return self[ProcessInfoKey.runningIntegrationTests, "FALSE"] == "TRUE"
+        return self[env: ProcessInfoKey.runningIntegrationTests, "FALSE"] == "TRUE"
     }
     
-    static subscript(key: ProcessInfoKey) -> String? {
+    /// Determines if the application is running integration tests.
+    static var isRunningUITests: Bool {
+        return self[env: ProcessInfoKey.runningUITests, "FALSE"] == "TRUE"
+    }
+    
+    static subscript(env key: ProcessInfoKey) -> String? {
         return processInfo.environment[key.rawValue]
     }
     
-    static subscript(key: ProcessInfoKey, _ _default: String) -> String {
-        return self[key] ?? _default
+    static subscript(env key: ProcessInfoKey, _ _default: String) -> String {
+        return self[env: key] ?? _default
     }
 }

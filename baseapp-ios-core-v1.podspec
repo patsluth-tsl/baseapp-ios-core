@@ -45,6 +45,9 @@ Pod::Spec.new do |s|
       ss.ios.dependency 'SwiftyBeaver'
       ss.ios.dependency 'R.swift'
       ss.ios.dependency 'SegueManager/R.swift'
+      ss.ios.dependency 'Alertift'
+      ss.ios.dependency 'AssistantKit'
+      ss.ios.dependency 'SnapKit'
       
       ss.ios.frameworks = 'Foundation',
       'CoreFoundation',
