@@ -42,13 +42,11 @@ public class PersistantVariable<T>: ObservableType {
 	
 	func readValue() -> Element {
 		let value = userDefaults.value(forKey: key) as? T
-//		base.log(sender: self, "\(key) = \(value)")
 		return value
 	}
 	
 	func write(value: Element) {
         userDefaults.setValue(value, forKey: key)
-//		base.log(sender: self, "\(key) = \(value)")
 	}
 	
 	public func accept(_ event: E) {

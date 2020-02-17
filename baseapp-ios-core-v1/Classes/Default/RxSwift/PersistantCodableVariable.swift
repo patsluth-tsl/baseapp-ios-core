@@ -29,7 +29,6 @@ public final class PersistantCodableVariable<T, RawType>: PersistantVariable<T>
         } catch {
             logger.log(error: error)
         }
-//        base.log(sender: self, "\(self.key) = \(value)")
         return value
     }
     
@@ -37,7 +36,6 @@ public final class PersistantCodableVariable<T, RawType>: PersistantVariable<T>
         do {
             let rawValue = try value?.encode(RawType.self)
             self.userDefaults.setValue(rawValue, forKey: self.key)
-//            base.log(sender: self, "\(self.key) = \(value)")
         } catch {
             logger.log(error: error)
         }

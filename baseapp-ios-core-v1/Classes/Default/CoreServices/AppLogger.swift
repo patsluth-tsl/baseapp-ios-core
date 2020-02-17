@@ -40,7 +40,7 @@ public final class AppLogger {
     /// Initializes a shared instance of `AppLogger`.
     private init() {
         _swiftyLogger = SwiftyBeaver.self
-        configureLogging()
+//        configureLogging()
     }
 }
 
@@ -56,13 +56,14 @@ public extension AppLogger {
     ///   - logLevelType: A `LogLevelType` representing the log level type to use when logging.
     ///   - debugOnly: A `Bool` indicating if it should log only when the application is running in `DEBUG`
     ///                or not.
-    @available(*, deprecated, message: "New example usage logger(.info, .debugOnly).log(message)")
+    @available(*, deprecated, message: "New example usage logger.log(level: .verbose, when: .debugOnly, message)")
     func logMessage(_ message: String, for logLevelType: LogLevelType, debugOnly: Bool = false) {
-        #if !DEBUG
-            if debugOnly { return }
-        #endif
         guard let logLevel = SwiftyBeaver.Level(rawValue: logLevelType.rawValue) else { return }
-        _swiftyLogger.custom(level: logLevel, message: message)
+        logger.log(
+            level: logLevel,
+            when: (debugOnly) ? .debugOnly : .always,
+            message
+        )
     }
 }
 
