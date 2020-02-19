@@ -7,10 +7,31 @@
 
 import Rswift
 import UIKit
+import PromiseKit
 
 public extension StoryboardResourceWithInitialControllerType {
-    func instantiate(initial viewController: (InitialController) -> Void) {
-        guard let initialViewController = self.instantiateInitialViewController() else { return }
-        viewController(initialViewController)
+    @discardableResult
+    func instantiate(initial _viewController: (InitialController) -> Void) -> InitialController {
+        let viewController = instantiateInitialViewController()!
+        _viewController(viewController)
+        return viewController
+    }
+    
+    func instantiateInitial() -> Guarantee<InitialController> {
+        return Guarantee<InitialController>(resolver: { resolver in
+            self.instantiate(initial: {
+                resolver($0)
+            })
+        })
+    }
+}
+
+public extension StoryboardResourceType {
+    func instantiate<T>(resource: (Self) -> StoryboardViewControllerResource<T>) -> Guarantee<T> {
+        let viewController = UIKit.UIStoryboard(resource: self)
+            .instantiateViewController(withResource: resource(self))!
+        return Guarantee<T>(resolver: {
+            $0(viewController)
+        })
     }
 }
