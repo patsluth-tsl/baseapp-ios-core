@@ -5,9 +5,9 @@
 //  Created by Pat Sluth on 2019-02-25.
 //
 
+import PromiseKit
 import Rswift
 import UIKit
-import PromiseKit
 
 public extension StoryboardResourceWithInitialControllerType {
     @discardableResult

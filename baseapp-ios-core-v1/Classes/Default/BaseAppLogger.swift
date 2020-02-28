@@ -80,7 +80,7 @@ public extension BaseLogger {
         error: T
     ) -> Self where T: Error {
         return log(
-            file:file,
+            file: file,
             function: function,
             line: line,
             level: .error,

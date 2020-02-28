@@ -56,6 +56,7 @@ public extension AppLogger {
     ///   - logLevelType: A `LogLevelType` representing the log level type to use when logging.
     ///   - debugOnly: A `Bool` indicating if it should log only when the application is running in `DEBUG`
     ///                or not.
+    // swiftlint:disable:next line_length
     @available(*, deprecated, message: "New example usage logger.log(level: .verbose, when: .debugOnly, message)")
     func logMessage(_ message: String, for logLevelType: LogLevelType, debugOnly: Bool = false) {
         guard let logLevel = SwiftyBeaver.Level(rawValue: logLevelType.rawValue) else { return }
