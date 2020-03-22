@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum Errors: Error {
+public enum Errors: LocalizedError {
     case Init(Any.Type)
     case Message(String)
     
@@ -33,10 +33,27 @@ public enum Errors: Error {
 extension Errors: CustomStringConvertible {
     public var description: String {
         switch self {
+        case Errors.Message(let message):
+            return message
+        default:
+            return debugDescription
+        }
+    }
+}
+
+extension Errors: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        switch self {
         case Errors.Init(let type):
             return "Error.Init(\(type))"
         case Errors.Message(let message):
             return "Error.Message(\(message))"
         }
+    }
+}
+
+extension LocalizedError where Self: CustomStringConvertible {
+    public var errorDescription: String? {
+        return description
     }
 }
