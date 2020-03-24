@@ -1,6 +1,6 @@
 //
 //  UIColor+RGBA.swift
-//  Sluthware
+//  BaseApp
 //
 //  Created by Pat Sluth on 2017-11-02.
 //  Copyright © 2017 patsluth. All rights reserved.
