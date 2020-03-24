@@ -17,15 +17,15 @@ import UIKit
 /// A class for picking images/video from the device
 @available(iOS 11.0, *)
 public final class MediaPicker: NSObject {
-    struct MediaItem {
-        let type: MediaPicker.MediaType
-        let fileURL: URL
+    public struct MediaItem {
+        public let type: MediaPicker.MediaType
+        public let fileURL: URL
     }
-
-    enum MediaType: String, CaseIterable {
+    
+    public enum MediaType: String, CaseIterable {
         case image
         case video
-
+        
         // CoreServices type for UIImagePickerController
         fileprivate var kUTType: String {
             switch self {
@@ -34,34 +34,34 @@ public final class MediaPicker: NSObject {
             }
         }
     }
-
-
-
+    
+    
+    
     private let (promise, resolver) = CancellablePromise<MediaItem>.pending()
-
+    
     private var viewController: UIViewController? {
         didSet {
             viewController?.set(associatedObject: "\(type(of: self))", object: self)
-
+            
             if viewController == nil {
                 self.imagePickerController.dismiss(animated: true, completion: nil)
             }
         }
     }
-
+    
     private(set) lazy var imagePickerController = UIImagePickerController.make({
         $0.delegate = self
         $0.allowsEditing = true
     })
-
-
-
-
-
+    
+    
+    
+    
+    
     private override init() {
         fatalError("\(#function) not supported")
     }
-
+    
     private init(viewController: UIViewController, _ mediaTypes: Set<MediaType>, tintColor: UIColor? = nil) {
         super.init()
         
@@ -74,7 +74,7 @@ public final class MediaPicker: NSObject {
             self.imagePickerController.mediaTypes = mediaTypes.map({ $0.kUTType })
             self.imagePickerController.present(from: viewController)
         }
-
+        
         guard !Device.isSimulator else {
             executeAction(.photoLibrary)
             return
@@ -98,7 +98,7 @@ public final class MediaPicker: NSObject {
 
 // MARK: - Class Methods
 @available(iOS 11.0, *)
-extension MediaPicker {
+public extension MediaPicker {
     @discardableResult
     class func pick(from viewController: UIViewController,
                     _ mediaTypes: Set<MediaType>) -> CancellablePromise<MediaItem> {
@@ -127,7 +127,7 @@ extension MediaPicker: UINavigationControllerDelegate & UIImagePickerControllerD
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
     ) {
         var output: MediaItem?
-
+        
         if let image = (info[.editedImage] ?? info[.originalImage]) as? UIImage {
             if let data = image.pngData() {
                 let fileURL = FileManager.default.temporaryDirectory
@@ -144,10 +144,10 @@ extension MediaPicker: UINavigationControllerDelegate & UIImagePickerControllerD
         } else if let fileURL = info[.mediaURL] as? URL {
             output = MediaItem(type: .video, fileURL: fileURL)
         }
-
+        
         didSelect(output: output)
     }
-
+    
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         didSelect(output: nil)
     }
