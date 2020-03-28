@@ -67,17 +67,25 @@ public extension UITableView {
     
     func dequeue<T>(
         _ type: T.Type,
-        reuseIdentifier: String = "\(T.self)"
+        reuseIdentifier: String = "\(T.self)",
+        _ configure: ((T) -> Void)? = nil
     ) -> T? where T: UITableViewCell {
-        return dequeueReusableCell(withIdentifier: reuseIdentifier) as? T
+        let cell = dequeueReusableCell(withIdentifier: reuseIdentifier) as? T
+        if let cell = cell {
+            configure?(cell)
+        }
+        return cell
     }
     
     func dequeue<T>(
         _ type: T.Type,
         for indexPath: IndexPath,
-        reuseIdentifier: String = "\(T.self)"
+        reuseIdentifier: String = "\(T.self)",
+        _ configure: ((T) -> Void)? = nil
     ) -> T where T: UITableViewCell {
-        return dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! T
+        let cell = dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! T
+        configure?(cell)
+        return cell
     }
     
     func dequeueHeaderFooter<T>(
