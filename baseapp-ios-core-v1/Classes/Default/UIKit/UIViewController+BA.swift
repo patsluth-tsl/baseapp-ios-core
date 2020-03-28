@@ -9,17 +9,26 @@
 import Foundation
 
 public extension NSObjectProtocol
-	where Self: UIViewController {
-	@discardableResult
-	func embedIn(parent vc: UIViewController, superview: UIView) -> Self {
-		willMove(toParent: vc)
-		vc.addChild(self)
-		if let stackView = superview as? UIStackView {
-			stackView.add(view)
-		} else {
-			superview.addSubview(view)
-		}
-		didMove(toParent: vc)
-		return self
-	}
+where Self: UIViewController {
+    @discardableResult
+    func embedIn(parent vc: UIViewController, superview: UIView) -> Self {
+        willMove(toParent: vc)
+        vc.addChild(self)
+        if let stackView = superview as? UIStackView {
+            stackView.add(view)
+        } else {
+            superview.addSubview(view)
+        }
+        didMove(toParent: vc)
+        return self
+    }
+    
+    @discardableResult
+    func unEmbed() -> Self {
+        willMove(toParent: nil)
+        removeFromParent()
+        view.removeFromSuperview()
+        didMove(toParent: nil)
+        return self
+    }
 }

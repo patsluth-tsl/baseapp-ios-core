@@ -27,6 +27,16 @@ public extension StoryboardResourceWithInitialControllerType {
 }
 
 public extension StoryboardResourceType {
+    func instantiate<T>(
+        resource: (Self) -> StoryboardViewControllerResource<T>,
+        _ _viewController: (T) -> Void
+    ) -> T {
+        let viewController = UIKit.UIStoryboard(resource: self)
+            .instantiateViewController(withResource: resource(self))!
+        _viewController(viewController)
+        return viewController
+    }
+    
     func instantiate<T>(resource: (Self) -> StoryboardViewControllerResource<T>) -> Guarantee<T> {
         let viewController = UIKit.UIStoryboard(resource: self)
             .instantiateViewController(withResource: resource(self))!
