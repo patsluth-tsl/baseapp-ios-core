@@ -38,7 +38,7 @@ public class UITableViewWithEmbeddedContentCell<T>: UITableView.BaseCell, UIView
 		embedded = T.make({
 			self.contentView.addSubview($0)
 		}).make(constraints: {
-			$0.edges.equalTo(self.contentView)
+            $0.edges.equalTo(self.contentView.snp.margins)
 		})
 		
 		backgroundColor = nil
