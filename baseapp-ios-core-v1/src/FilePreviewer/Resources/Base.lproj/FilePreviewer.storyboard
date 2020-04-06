@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BKp-63-bFq">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PDF View Controller-->
+        <scene sceneID="49G-f5-hCz">
+            <objects>
+                <viewController storyboardIdentifier="FilePreviewController" automaticallyAdjustsScrollViewInsets="NO" id="BKp-63-bFq" userLabel="PDF View Controller" customClass="FilePreviewController" customModule="baseapp_ios_core_v1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PeO-Ci-PlM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="q4I-We-Rrq"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems>
+                        <barButtonItem systemItem="bookmarks" id="Vdq-L9-rp2">
+                            <connections>
+                                <action selector="documentSelectionButtonClicked:" destination="BKp-63-bFq" id="gg8-XW-xqk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="cji-G8-hjT"/>
+                        <barButtonItem systemItem="action" id="XZa-59-3lG">
+                            <connections>
+                                <action selector="actionButtonClicked:" destination="BKp-63-bFq" id="TbD-4d-92I"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="1ns-df-5xk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="L86-ec-BWl">
+                            <connections>
+                                <action selector="doneButtonClicked:" destination="BKp-63-bFq" id="vwL-nn-LKj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <segue destination="fLE-q7-qpp" kind="popoverPresentation" identifier="FileSelectionViewController" popoverAnchorView="PeO-Ci-PlM" id="03p-EM-Dp9">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6DI-rI-Jvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="965.02463054187194"/>
+        </scene>
+        <!--File Selection View Controller-->
+        <scene sceneID="YzF-fY-Edm">
+            <objects>
+                <viewController id="b4H-7M-XEO" customClass="FileSelectionViewController" customModule="baseapp_ios_core_v1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FfF-Ut-ffP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iVU-XS-dqe">
+                                <rect key="frame" x="0.0" y="56" width="375" height="668"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nt6-h1-cav">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="b4H-7M-XEO" id="41g-Kf-x5U"/>
+                                    <outlet property="delegate" destination="b4H-7M-XEO" id="fL4-pp-s5b"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="18w-zB-XAU" firstAttribute="trailing" secondItem="iVU-XS-dqe" secondAttribute="trailing" id="7J1-mx-Z9x"/>
+                            <constraint firstItem="iVU-XS-dqe" firstAttribute="leading" secondItem="18w-zB-XAU" secondAttribute="leading" id="9om-dK-8Ae"/>
+                            <constraint firstItem="iVU-XS-dqe" firstAttribute="top" secondItem="18w-zB-XAU" secondAttribute="top" id="AVT-L5-or5"/>
+                            <constraint firstItem="18w-zB-XAU" firstAttribute="bottom" secondItem="iVU-XS-dqe" secondAttribute="bottom" id="jUK-uv-aWv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="18w-zB-XAU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z6g-uB-gNq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="SBI-62-cSq">
+                            <connections>
+                                <action selector="cancelButtonClicked:" destination="b4H-7M-XEO" id="f0p-O5-MlP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="iVU-XS-dqe" id="7dH-IJ-0jP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2sq-l1-q44" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2121" y="966"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="a03-pf-Qnx">
+            <objects>
+                <navigationController id="fLE-q7-qpp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l71-S0-CVE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="b4H-7M-XEO" kind="relationship" relationship="rootViewController" id="hEN-hC-Oe1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjG-oT-jXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169" y="966"/>
+        </scene>
+    </scenes>
+</document>

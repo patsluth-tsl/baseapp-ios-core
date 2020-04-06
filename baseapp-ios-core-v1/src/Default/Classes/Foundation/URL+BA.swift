@@ -85,7 +85,7 @@ public extension URL {
         return try? FileManager.default.attributesOfItem(atPath: absoluteURL.path)
     }
     
-    var fileSize: UInt64 {
-        return fileAttributes?[.size] as? UInt64 ?? 0
+    var fileSize: Int64 {
+        return fileAttributes?[.size] as? Int64 ?? 0
     }
 }

@@ -45,14 +45,17 @@ public struct ControlObservableWrapper<Base, Element>
 			})
 	}
 	
-	/// Edit the current observable, to apply debounce or throttle for example
     // swiftlint:disable:next line_length
-	public func prepare(changes: (Observable<Element>) -> Observable<Element>) -> ControlObservableWrapper<Base, Element> {
+	/// Edit the current observable, to apply debounce or throttle for example
+	public func prepare(
+        changes: (Observable<Element>) -> Observable<Element>
+    ) -> ControlObservableWrapper<Base, Element> {
 		return ControlObservableWrapper(base, changes(observable))
 	}
 	
-	public func map<O>(_ block: @escaping (Base, Element) -> O) -> ControlObservableWrapper<Base, O.Element>
-		where O: ObservableConvertibleType {
+	public func map<O>(
+        _ block: @escaping (Base, Element) -> O
+    ) -> ControlObservableWrapper<Base, O.Element> where O: ObservableConvertibleType {
 		let _observable = observable
 			.flatMapLatest({ [unowned base = base] in
 				block(base, $0)
@@ -61,8 +64,9 @@ public struct ControlObservableWrapper<Base, Element>
 		return ControlObservableWrapper<Base, O.Element>(base, _observable)
 	}
 	
-	public func map<O>(_ block: @escaping (Base) -> O) -> ControlObservableWrapper<Base, O.Element>
-		where O: ObservableConvertibleType {
+	public func map<O>(
+        _ block: @escaping (Base) -> O
+    ) -> ControlObservableWrapper<Base, O.Element> where O: ObservableConvertibleType {
 		let _observable = observable
 			.flatMapLatest({ [unowned base = base] _ in
 				block(base)
@@ -71,7 +75,9 @@ public struct ControlObservableWrapper<Base, Element>
 		return ControlObservableWrapper<Base, O.Element>(base, _observable)
 	}
 	
-	public func on(_ event: @escaping (Base, Element) -> Void) -> DisposableWrapper<Base> {
+	public func on(
+        _ event: @escaping (Base, Element) -> Void
+    ) -> DisposableWrapper<Base> {
 		let _disposable = finalize()
 			.drive(onNext: { [unowned base = base] in
 				event(base, $0)
@@ -80,8 +86,10 @@ public struct ControlObservableWrapper<Base, Element>
 		return DisposableWrapper(base, _disposable)
 	}
 	
-	public func on(_ event: @escaping (Base) -> Void) -> DisposableWrapper<Base> {
-		let _disposable = self.finalize()
+	public func on(
+        _ event: @escaping (Base) -> Void
+    ) -> DisposableWrapper<Base> {
+		let _disposable = finalize()
 			.drive(onNext: { [unowned base = base] _ in
 				event(base)
 			})

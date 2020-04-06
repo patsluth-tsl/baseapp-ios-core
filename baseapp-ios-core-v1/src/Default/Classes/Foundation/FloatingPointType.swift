@@ -150,3 +150,29 @@ public extension FloatingPointType {
 //		self.init(_value)
 //	}
 //}
+
+
+public extension FloatingPointType {
+    func value(percentage: Self, between min: Self, and max: Self) -> Self {
+        return ((percentage * (max - min)) + min)
+    }
+    
+    func percentage(between min: Self, and max: Self) -> Self {
+        return ((self - min) / (max - min))
+    }
+    
+    func rounded(to places: Int) -> Self {
+        let divisor = Self(pow(10.0, Double(places)))
+        return (self * divisor).rounded() / divisor
+    }
+}
+
+
+public extension FloatingPointType {
+    public typealias Parts = (integer: Int, decimal: Self)
+    
+    var parts: Parts {
+        return Parts(integer: Int(floor(self)),
+                     decimal: truncatingRemainder(dividingBy: 1.0))
+    }
+}

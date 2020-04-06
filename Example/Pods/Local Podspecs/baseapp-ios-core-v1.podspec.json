@@ -23,7 +23,15 @@
     "osx": "10.11"
   },
   "default_subspecs": "Default",
-  "source_files": "baseapp-ios-core-v1/Classes/**/*",
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "UIKit",
+      "QuickLook",
+      "PDFKit",
+      "AVKit"
+    ]
+  },
   "subspecs": [
     {
       "name": "Default",
@@ -78,12 +86,8 @@
           "SystemConfiguration",
           "AVKit"
         ],
-        "resources": "baseapp-ios-core-v1/Resources/**/*",
-        "source_files": [
-          "baseapp-ios-core-v1/Classes/Default/**/*",
-          "baseapp-ios-core-v1/Classes/Default/**/*",
-          "baseapp-ios-core-v1/Resources/**/*"
-        ]
+        "source_files": "baseapp-ios-core-v1/src/Default/Classes/**/*",
+        "resources": "baseapp-ios-core-v1/src/Default/Resources/**/*"
       },
       "osx": {
         "frameworks": [
@@ -93,8 +97,8 @@
           "CoreLocation",
           "SystemConfiguration"
         ],
-        "source_files": "baseapp-ios-core-v1/Classes/Default/**/*",
-        "resources": "baseapp-ios-core-v1/Resources/**/*"
+        "source_files": "baseapp-ios-core-v1/src/Default/Classes/**/*",
+        "resources": "baseapp-ios-core-v1/src/Default/Resources/**/*"
       }
     },
     {
@@ -109,7 +113,8 @@
         "CoreFoundation"
       ],
       "ios": {
-        "source_files": "baseapp-ios-core-v1/Classes/simd/**/*"
+        "source_files": "baseapp-ios-core-v1/src/simd/Classes/**/*",
+        "resources": "baseapp-ios-core-v1/src/simd/Resources/**/*"
       }
     },
     {
@@ -128,7 +133,8 @@
         "SceneKit"
       ],
       "ios": {
-        "source_files": "baseapp-ios-core-v1/Classes/SceneKit/**/*"
+        "source_files": "baseapp-ios-core-v1/src/SceneKit/Classes/**/*",
+        "resources": "baseapp-ios-core-v1/src/SceneKit/Resources/**/*"
       }
     },
     {
@@ -150,7 +156,20 @@
         "ARKit"
       ],
       "ios": {
-        "source_files": "baseapp-ios-core-v1/Classes/ARKit/**/*"
+        "source_files": "baseapp-ios-core-v1/src/ARKit/Classes/**/*",
+        "resources": "baseapp-ios-core-v1/src/ARKit/Resources/**/*"
+      }
+    },
+    {
+      "name": "FilePreviewer",
+      "dependencies": {
+        "baseapp-ios-core-v1/Default": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "baseapp-ios-core-v1/src/FilePreviewer/Classes/**/*",
+        "resources": "baseapp-ios-core-v1/src/FilePreviewer/Resources/**/*"
       }
     }
   ],

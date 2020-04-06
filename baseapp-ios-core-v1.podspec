@@ -25,10 +25,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.11'
   
   s.default_subspecs = 'Default'
-
-  s.source_files = 'baseapp-ios-core-v1/Classes/**/*'
-  
-  s.default_subspecs = 'Default'
   
   
   
@@ -62,11 +58,11 @@ Pod::Spec.new do |s|
       'CoreLocation',
       'SystemConfiguration'
       
-      ss.ios.source_files = 'baseapp-ios-core-v1/Classes/Default/**/*',
-      ss.osx.source_files = 'baseapp-ios-core-v1/Classes/Default/**/*',
+      ss.ios.source_files = 'baseapp-ios-core-v1/src/Default/Classes/**/*'
+      ss.osx.source_files = 'baseapp-ios-core-v1/src/Default/Classes/**/*'
       
-      ss.ios.resource = 'baseapp-ios-core-v1/Resources/**/*'
-      ss.osx.resource = 'baseapp-ios-core-v1/Resources/**/*'
+      ss.ios.resource = 'baseapp-ios-core-v1/src/Default/Resources/**/*'
+      ss.osx.resource = 'baseapp-ios-core-v1/src/Default/Resources/**/*'
       # ss.resource_bundles = {
       #   'baseapp-ios-core-v1' => ['baseapp-ios-core-v1/Assets/*.png']
       # }
@@ -78,7 +74,8 @@ Pod::Spec.new do |s|
       ss.frameworks = 'Foundation',
       'CoreFoundation'
       
-      ss.ios.source_files = 'baseapp-ios-core-v1/Classes/simd/**/*'
+      ss.ios.source_files = 'baseapp-ios-core-v1/src/simd/Classes/**/*'
+      ss.ios.resource = 'baseapp-ios-core-v1/src/simd/Resources/**/*'
   end
   
   s.subspec 'SceneKit' do |ss|
@@ -89,7 +86,8 @@ Pod::Spec.new do |s|
       'CoreFoundation',
       'SceneKit'
       
-      ss.ios.source_files = 'baseapp-ios-core-v1/Classes/SceneKit/**/*'
+      ss.ios.source_files = 'baseapp-ios-core-v1/src/SceneKit/Classes/**/*'
+      ss.ios.resource = 'baseapp-ios-core-v1/src/SceneKit/Resources/**/*'
   end
   
   s.subspec 'ARKit' do |ss|
@@ -101,7 +99,17 @@ Pod::Spec.new do |s|
       'CoreFoundation',
       'ARKit'
       
-      ss.ios.source_files = 'baseapp-ios-core-v1/Classes/ARKit/**/*'
+      ss.ios.source_files = 'baseapp-ios-core-v1/src/ARKit/Classes/**/*'
+      ss.ios.resource = 'baseapp-ios-core-v1/src/ARKit/Resources/**/*'
+  end
+  
+  s.subspec 'FilePreviewer' do |ss|
+      ss.dependency 'baseapp-ios-core-v1/Default'
+      
+      s.ios.frameworks = 'Foundation', 'UIKit', 'QuickLook', 'PDFKit', 'AVKit'
+      
+      ss.ios.source_files = 'baseapp-ios-core-v1/src/FilePreviewer/Classes/**/*'
+      ss.ios.resource = 'baseapp-ios-core-v1/src/FilePreviewer/Resources/**/*'
   end
 
 end

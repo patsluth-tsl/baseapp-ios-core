@@ -26,7 +26,10 @@ where Self: UIView {
     
     func installNib() {
         guard self.get(associatedObject: "nibProviderView", UIView.self) == nil else { return }
-        guard let nibView = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }
+        guard let nibView = Self.nib.instantiate(
+            withOwner: self,
+            options: nil
+        ).first as? UIView else { return }
         
         setNeedsLayout()
         

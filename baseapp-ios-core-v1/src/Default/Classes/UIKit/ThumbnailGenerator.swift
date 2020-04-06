@@ -228,7 +228,7 @@ struct PDFThumbnailGenerator: ThumbnailGeneratorProtocol {
         let backgroundColor: UIColor
         
         static var defaultOptions: Options {
-            return Options(page: 1, backgroundColor: UIColor.clear)
+            return Options(page: 1, backgroundColor: UIColor.white)
         }
     }
     

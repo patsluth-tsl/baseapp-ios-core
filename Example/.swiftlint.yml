@@ -46,6 +46,8 @@ disabled_rules:
   - closure_end_indentation
   - operator_usage_whitespace
   - empty_parentheses_with_trailing_closure
+  - orphaned_doc_comment
+  - deployment_target
 
 # Where to report warnings and errors
 reporter: "xcode"

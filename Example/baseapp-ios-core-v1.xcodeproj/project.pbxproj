@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E32E729243ABE11009D9E62 /* job-1-3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2E32E725243ABE11009D9E62 /* job-1-3.pdf */; };
+		2E32E72A243ABE11009D9E62 /* job-1-3 copy 2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2E32E726243ABE11009D9E62 /* job-1-3 copy 2.pdf */; };
+		2E32E72B243ABE11009D9E62 /* job-1-3 copy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2E32E727243ABE11009D9E62 /* job-1-3 copy.pdf */; };
+		2E32E72C243ABE11009D9E62 /* job-1-3 copy 3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2E32E728243ABE11009D9E62 /* job-1-3 copy 3.pdf */; };
 		6061185D83FC1A0507FE7982 /* Pods_baseapp_ios_core_v1_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD74A8A8DB1AEB0D933624E3 /* Pods_baseapp_ios_core_v1_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -30,6 +34,10 @@
 /* Begin PBXFileReference section */
 		0ED32CE304B56ECA81D1194A /* Pods-baseapp-ios-core-v1_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baseapp-ios-core-v1_Tests.release.xcconfig"; path = "Target Support Files/Pods-baseapp-ios-core-v1_Tests/Pods-baseapp-ios-core-v1_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		16E98E5650F784F56FEAEAEE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		2E32E725243ABE11009D9E62 /* job-1-3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "job-1-3.pdf"; sourceTree = "<group>"; };
+		2E32E726243ABE11009D9E62 /* job-1-3 copy 2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "job-1-3 copy 2.pdf"; sourceTree = "<group>"; };
+		2E32E727243ABE11009D9E62 /* job-1-3 copy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "job-1-3 copy.pdf"; sourceTree = "<group>"; };
+		2E32E728243ABE11009D9E62 /* job-1-3 copy 3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "job-1-3 copy 3.pdf"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* baseapp-ios-core-v1_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "baseapp-ios-core-v1_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +126,10 @@
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				2E32E726243ABE11009D9E62 /* job-1-3 copy 2.pdf */,
+				2E32E728243ABE11009D9E62 /* job-1-3 copy 3.pdf */,
+				2E32E727243ABE11009D9E62 /* job-1-3 copy.pdf */,
+				2E32E725243ABE11009D9E62 /* job-1-3.pdf */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for baseapp-ios-core-v1";
@@ -172,6 +184,7 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				FFFA5C4C2285D635FDB636CC /* [CP] Embed Pods Frameworks */,
 				2EEF7AF923CF6D290080FB37 /* Swiftlint */,
+				1A26AEE6FECECA926129BF8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,10 +237,9 @@
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "baseapp-ios-core-v1" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -247,8 +259,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E32E72B243ABE11009D9E62 /* job-1-3 copy.pdf in Resources */,
+				2E32E729243ABE11009D9E62 /* job-1-3.pdf in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				2E32E72C243ABE11009D9E62 /* job-1-3 copy 3.pdf in Resources */,
+				2E32E72A243ABE11009D9E62 /* job-1-3 copy 2.pdf in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +279,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1A26AEE6FECECA926129BF8F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-baseapp-ios-core-v1_Example/Pods-baseapp-ios-core-v1_Example-resources.sh",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/FilePreviewer.storyboard",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/FileCollectionViewCell.xib",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/InvalidFileViewController.xib",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/PDFFileViewController.xib",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/VideoFileViewController.xib",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FilePreviewer.storyboardc",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FileCollectionViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/InvalidFileViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PDFFileViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/VideoFileViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Base.lproj",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-baseapp-ios-core-v1_Example/Pods-baseapp-ios-core-v1_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		25BC5F75D8CC4F51310B6EEF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -524,6 +568,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "baseapp-ios-core-v1/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -539,6 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "baseapp-ios-core-v1/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";

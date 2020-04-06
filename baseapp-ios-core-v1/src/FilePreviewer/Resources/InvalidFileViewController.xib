@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InvalidFileViewController" customModule="FilePreviewer" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="JXT-LA-Gqs" id="l1h-kh-gf8"/>
+                <outlet property="view" destination="Vw5-EO-ox2" id="NPp-z5-i5Z"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Vw5-EO-ox2">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JXT-LA-Gqs">
+                    <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="NFI-hg-RDm" firstAttribute="bottom" secondItem="JXT-LA-Gqs" secondAttribute="bottom" id="LW6-KK-pl6"/>
+                <constraint firstItem="JXT-LA-Gqs" firstAttribute="leading" secondItem="NFI-hg-RDm" secondAttribute="leading" id="MAv-3h-I7F"/>
+                <constraint firstItem="NFI-hg-RDm" firstAttribute="trailing" secondItem="JXT-LA-Gqs" secondAttribute="trailing" id="crd-n0-dPT"/>
+                <constraint firstItem="JXT-LA-Gqs" firstAttribute="top" secondItem="NFI-hg-RDm" secondAttribute="top" id="tN1-cB-VwI"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="NFI-hg-RDm"/>
+            <point key="canvasLocation" x="51" y="31"/>
+        </view>
+    </objects>
+</document>

@@ -3,10 +3,6 @@ PODS:
   - AssistantKit (0.6.1)
   - baseapp-ios-core-v1 (0.1.0):
     - baseapp-ios-core-v1/Default (= 0.1.0)
-  - baseapp-ios-core-v1/ARKit (0.1.0):
-    - baseapp-ios-core-v1/Default
-    - baseapp-ios-core-v1/SceneKit
-    - baseapp-ios-core-v1/simd
   - baseapp-ios-core-v1/Default (0.1.0):
     - Alertift
     - AssistantKit
@@ -21,10 +17,7 @@ PODS:
     - SnapKit
     - SwiftDate
     - SwiftyBeaver
-  - baseapp-ios-core-v1/SceneKit (0.1.0):
-    - baseapp-ios-core-v1/Default
-    - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/simd (0.1.0):
+  - baseapp-ios-core-v1/FilePreviewer (0.1.0):
     - baseapp-ios-core-v1/Default
   - CancelForPromiseKit (1.1.0):
     - CancelForPromiseKit/CorePromise (= 1.1.0)
@@ -49,12 +42,12 @@ PODS:
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
-  - RxCocoa (5.0.1):
+  - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxRelay (5.0.1):
+  - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.0.1)
+  - RxSwift (5.1.1)
   - RxSwiftExt (5.2.0):
     - RxSwiftExt/Core (= 5.2.0)
     - RxSwiftExt/RxCocoa (= 5.2.0)
@@ -69,12 +62,12 @@ PODS:
     - SegueManager/iOS
   - SnapKit (5.0.1)
   - SwiftDate (6.1.0)
-  - SwiftLint (0.38.0)
-  - SwiftyBeaver (1.8.4)
+  - SwiftLint (0.39.2)
+  - SwiftyBeaver (1.9.0)
 
 DEPENDENCIES:
   - baseapp-ios-core-v1 (from `../`)
-  - baseapp-ios-core-v1/ARKit (from `../`)
+  - baseapp-ios-core-v1/FilePreviewer (from `../`)
   - SwiftLint
 
 SPEC REPOS:
@@ -103,22 +96,22 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alertift: 950483ca193717cc8bb508a7dbbe34f4af321daf
   AssistantKit: 7dd40c019e9a06e93555ed58498a2d212fcb408d
-  baseapp-ios-core-v1: 48b0b060467dbd55ed819f13227dfdd3fd7e626d
+  baseapp-ios-core-v1: 02912a10823c4cdcc5f4e57b32c3e5347fc3f8c9
   CancelForPromiseKit: 753c8798c31519ab324dad33974b7f8e4a92257b
   Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
-  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
-  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
   SegueManager: 4f0c9e8237fe4b925129f17964caf81d1d6341bf
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
-  SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
-  SwiftyBeaver: f9a9aba96a6a6166e21682377804d728b0d20b95
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
+  SwiftyBeaver: d39e7c376bf15e9fffca8263b8fd1f42ea56aa2d
 
-PODFILE CHECKSUM: 53c2d3e1e0dcbf6aec067e57b260254b643eaf8e
+PODFILE CHECKSUM: 309f9b9e04b56b0673c405ffc43a79269e15f46d
 
 COCOAPODS: 1.8.4
