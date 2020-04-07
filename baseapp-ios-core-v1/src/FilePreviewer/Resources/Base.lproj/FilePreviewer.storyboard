@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--FilePreviewController-->
+        <!--PDF View Controller-->
         <scene sceneID="49G-f5-hCz">
             <objects>
-                <viewController storyboardIdentifier="FilePreviewController" automaticallyAdjustsScrollViewInsets="NO" id="BKp-63-bFq" userLabel="FilePreviewController" customClass="FilePreviewController" customModule="baseapp_ios_core_v1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilePreviewController" automaticallyAdjustsScrollViewInsets="NO" id="BKp-63-bFq" userLabel="PDF View Controller" customClass="FilePreviewController" customModule="baseapp_ios_core_v1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PeO-Ci-PlM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

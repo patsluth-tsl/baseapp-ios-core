@@ -17,49 +17,49 @@ import UIKit
 #endif
 
 public enum FilePreviewer {
-	public static func canPreview(fileURL: URL) -> Bool {
-		return fileURL.isReachableFile && (fileURL.isPDFURL || fileURL.isVideoURL)
-	}
-	
-	#if os(iOS)
-	
+    public static func canPreview(fileURL: URL) -> Bool {
+        return fileURL.isReachableFile && (fileURL.isPDFURL || fileURL.isVideoURL)
+    }
+    
+    #if os(iOS)
+    
     public static func preview<T: UIViewController>(
         from: T,
         fileURLs: [URL],
         initialPreviewIndex: Int = 0
-    ) { //where T: FilePreviewerDataSource & FilePreviewerDelegate {
-//		guard let initialFileURL = from.previewItem(at: initialIndexPath) as? URL else { return }
-//
-//        guard !initialFileURL.isVideoURL else {
-//			let avPlayerViewController = AVPlayerViewController()
-//
-//			avPlayerViewController.allowsPictureInPicturePlayback = true
-//			avPlayerViewController.updatesNowPlayingInfoCenter = false
-//			avPlayerViewController.player = AVPlayer(url: initialFileURL)
-//			avPlayerViewController.player?.allowsExternalPlayback = true
-//			avPlayerViewController.navigationController?.navigationBar.isHidden = true
-//			avPlayerViewController.navigationController?.toolbar.isHidden = true
-//			avPlayerViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-//
-//			from.present(avPlayerViewController, animated: true, completion: {
-//				avPlayerViewController.player?.play()
-//			})
-//
-//			return
-//		}
+        ) { //where T: FilePreviewerDataSource & FilePreviewerDelegate {
+        //        guard let initialFileURL = from.previewItem(at: initialIndexPath) as? URL else { return }
+        //
+        //        guard !initialFileURL.isVideoURL else {
+        //            let avPlayerViewController = AVPlayerViewController()
+        //
+        //            avPlayerViewController.allowsPictureInPicturePlayback = true
+        //            avPlayerViewController.updatesNowPlayingInfoCenter = false
+        //            avPlayerViewController.player = AVPlayer(url: initialFileURL)
+        //            avPlayerViewController.player?.allowsExternalPlayback = true
+        //            avPlayerViewController.navigationController?.navigationBar.isHidden = true
+        //            avPlayerViewController.navigationController?.toolbar.isHidden = true
+        //            avPlayerViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        //
+        //            from.present(avPlayerViewController, animated: true, completion: {
+        //                avPlayerViewController.player?.play()
+        //            })
+        //
+        //            return
+        //        }
         
-//		if #available(iOS 11.0, *), !forceLegacy {
+        //        if #available(iOS 11.0, *), !forceLegacy {
         if #available(iOS 11.0, *) {
-//            FilePreviewController.present(from: from, initialIndexPath: initialIndexPath)
+            //            FilePreviewController.present(from: from, initialIndexPath: initialIndexPath)
             
             let bundle = Bundle(for: FilePreviewController.classForCoder())
             let storyboard = UIStoryboard(name: "FilePreviewer", bundle: bundle)
             // swiftlint:disable:next force_cast
             let viewController = storyboard.instantiateInitialViewController() as! FilePreviewController
             
-//            filePreviewController.qlDataSource = from
-//            filePreviewController.qlDelegate = from
-//            filePreviewController.qlPreviewController.section = initialIndexPath.section
+            //            filePreviewController.qlDataSource = from
+            //            filePreviewController.qlDelegate = from
+            //            filePreviewController.qlPreviewController.section = initialIndexPath.section
             viewController.fileURLs = fileURLs
             viewController.currentPreviewItemIndex = initialPreviewIndex
             viewController.loadViewIfNeeded()
@@ -69,41 +69,41 @@ public enum FilePreviewer {
             navigationController.hidesBarsOnSwipe = false
             navigationController.setNavigationBarHidden(false, animated: false)
             navigationController.setToolbarHidden(false, animated: false)
-//            navigationController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+            navigationController.modalPresentationStyle = .fullScreen
             
             navigationController.present(from: from)
-//            navigationController.show(self, sender: nil)
-//            from.present(navigationController, animated: true, completion: nil)
+            //            navigationController.show(self, sender: nil)
+            //            from.present(navigationController, animated: true, completion: nil)
             
-		}
-//            else {
-//			let filePreviewController = FilePreviewControllerLegacy()
-//			filePreviewController.dataSource = from
-//			filePreviewController.delegate = from
-//			filePreviewController.section = initialIndexPath.section
-//			filePreviewController.currentPreviewItemIndex = initialIndexPath.item
-//
-//			from.present(filePreviewController, animated: true, completion: nil)
-//		}
-	}
-	
-	#endif
+        }
+        //            else {
+        //            let filePreviewController = FilePreviewControllerLegacy()
+        //            filePreviewController.dataSource = from
+        //            filePreviewController.delegate = from
+        //            filePreviewController.section = initialIndexPath.section
+        //            filePreviewController.currentPreviewItemIndex = initialIndexPath.item
+        //
+        //            from.present(filePreviewController, animated: true, completion: nil)
+        //        }
+    }
+    
+    #endif
 }
 
 
 #if os(iOS)
 
 public protocol FilePreviewerDataSource: QLPreviewControllerDataSource {
-	func previewItem(at indexPath: IndexPath) -> QLPreviewItem
+    func previewItem(at indexPath: IndexPath) -> QLPreviewItem
 }
 
 public protocol FilePreviewerDelegate: QLPreviewControllerDelegate {
-//	func previewController<T>(_ controller: QLPreviewController,
-//							  styleProviderType type: T.Type) -> UIBarStyleProvider?
-//		where T: UINavigationBar
-//	func previewController<T>(_ controller: QLPreviewController,
-//							  styleProviderType type: T.Type) -> UIBarStyleProvider?
-//		where T: UIToolbar
+    //    func previewController<T>(_ controller: QLPreviewController,
+    //                              styleProviderType type: T.Type) -> UIBarStyleProvider?
+    //        where T: UINavigationBar
+    //    func previewController<T>(_ controller: QLPreviewController,
+    //                              styleProviderType type: T.Type) -> UIBarStyleProvider?
+    //        where T: UIToolbar
 }
 
 #endif
