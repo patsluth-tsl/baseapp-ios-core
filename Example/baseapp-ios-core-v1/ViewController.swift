@@ -11,8 +11,6 @@ import QuickLook
 import UIKit
 
 class ViewController: UIViewController {
-    fileprivate var fileURLs = [URL]()
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -30,8 +28,6 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.fileURLs.removeAll()
-        
         guard let resourceURL = Bundle.main.resourceURL else { return }
         
         guard let fileURLs = try? FileManager.default.contentsOfDirectory(
@@ -42,10 +38,6 @@ class ViewController: UIViewController {
                 .skipsSubdirectoryDescendants
             ]
         ) else { return }
-        
-        self.fileURLs = fileURLs.filter({
-            FilePreviewer.canPreview(fileURL: $0)
-        })
         
         FilePreviewer.preview(
             from: self,
