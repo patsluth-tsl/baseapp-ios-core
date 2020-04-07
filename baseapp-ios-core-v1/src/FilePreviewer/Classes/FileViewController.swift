@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import ObjectiveC
 import UIKit
 
 @available(iOS 11.0, *)
 public class FileViewController: UIViewController {
-    public var fileURL: URL? = nil {
+    public var fileURL: URL! {
         didSet {
+//            print(fileURL)
+//            if fileURL.isPDFURL {
+//                object_setClass(self, PDFFileViewController.self)
+//            }
             navigationItem.title = fileURL?.fileName
         }
     }
@@ -30,36 +35,69 @@ public class FileViewController: UIViewController {
     
     
     
-    class func viewControllerClassStringFor(fileURL: URL) -> String {
-        if fileURL.isPDFURL {
-            return String(describing: PDFFileViewController.self)
-        } else if fileURL.isVideoURL {
-            return String(describing: VideoFileViewController.self)
-        } else {
-            return String(describing: InvalidFileViewController.self)
-        }
-    }
-    
+//    class func viewControllerClassStringFor(fileURL: URL) -> String {
+//        if fileURL.isPDFURL {
+//            return String(describing: PDFFileViewController.self)
+//        } else if fileURL.isVideoURL {
+//            return String(describing: VideoFileViewController.self)
+//        } else {
+//            return String(describing: InvalidFileViewController.self)
+//        }
+//    }
+//
     class func createViewControllerFor(fileURL: URL) -> FileViewController {
         if fileURL.isPDFURL {
-            return PDFFileViewController(nibName: "PDFFileViewController",
-                                         bundle: Bundle(for: FileViewController.classForCoder()))
+            return PDFFileViewController.make({
+                $0.fileURL = fileURL
+            })
+//            return PDFFileViewController(nibName: "PDFFileViewController",
+//                                         bundle: Bundle(for: FileViewController.classForCoder()))
         } else if fileURL.isVideoURL {
-            return VideoFileViewController(nibName: "VideoFileViewController",
-                                           bundle: Bundle(for: FileViewController.classForCoder()))
+            return VideoFileViewController.make({
+                $0.fileURL = fileURL
+            })
+//            return VideoFileViewController(nibName: "VideoFileViewController",
+//                                           bundle: Bundle(for: FileViewController.classForCoder()))
+        } else {
+            return InvalidFileViewController.make({
+                $0.fileURL = fileURL
+            })
         }
-        
-        return InvalidFileViewController(nibName: "InvalidFileViewController",
-                                         bundle: Bundle(for: FileViewController.classForCoder()))
+
+//        return InvalidFileViewController(nibName: "InvalidFileViewController",
+//                                         bundle: Bundle(for: FileViewController.classForCoder()))
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
+//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+//    public override func loadView() {
+//        super.loadView()
+//        if fileURL.isPDFURL {
+//            object_setClass(self, PDFFileViewController.self)
+//            UINib(
+//                nibName: "PDFFileViewController",
+//                bundle: Bundle(for: self.classForCoder)
+//            ).instantiate(withOwner: self, options: nil)
+//        } else if fileURL.isVideoURL {
+//            object_setClass(self, VideoFileViewController.self)
+//            UINib(
+//                nibName: "VideoFileViewController",
+//                bundle: Bundle(for: self.classForCoder)
+//            ).instantiate(withOwner: self, options: nil)
+//        } else {
+//            object_setClass(self, InvalidFileViewController.self)
+//            UINib(
+//                nibName: "InvalidFileViewController",
+//                bundle: Bundle(for: self.classForCoder)
+//            ).instantiate(withOwner: self, options: nil)
+//        }
+//    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()

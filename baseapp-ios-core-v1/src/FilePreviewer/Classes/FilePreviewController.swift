@@ -179,10 +179,11 @@ internal class FilePreviewController: UIViewController {
             var fileURLs = [URL]()
             for i in stride(from: 0,
                             to: qlDataSource.numberOfPreviewItems(in: qlPreviewController),
-                            by: 1) {
-                                let previewItem = qlDataSource.previewController(qlPreviewController, previewItemAt: i)
-                                let fileURL = previewItem as? URL ?? URL(fileURLWithPath: "")
-                                fileURLs.append(fileURL)
+                            by: 1
+                ) {
+                    let previewItem = qlDataSource.previewController(qlPreviewController, previewItemAt: i)
+                    let fileURL = previewItem as? URL ?? URL(fileURLWithPath: "")
+                    fileURLs.append(fileURL)
             }
             
             viewController.delegate = self
@@ -249,27 +250,33 @@ private extension FilePreviewController {
         guard (0..<numberOfPreviewItems).contains(index) else { return nil }
         let previewItem = qlDataSource?.previewController(qlPreviewController, previewItemAt: index)
         guard let fileURL = previewItem as? URL else { return nil }
+//
+//        var fileViewController: FileViewController! = nil
         
-        var fileViewController: FileViewController! = nil
+//        if let index = fileViewControllers.index(where: { _fileViewController -> Bool in
+//            guard _fileViewController.parent == nil else { return false }
+//            let classStringA = String(describing: _fileViewController.classForCoder)
+//            let classStringB = FileViewController.viewControllerClassStringFor(fileURL: fileURL)
+//            // swiftlint:disable:next line_length
+//            return (classStringA == classStringB)
+//        }) {
+//            fileViewController = fileViewControllers[index]
+//        } else {
+//            fileViewController = FileViewController.createViewControllerFor(fileURL: fileURL)
+////            print("Creating new", String(describing: fileViewController.classForCoder))
+//            //            self.fileViewControllers.append(fileViewController)
+//        }
         
-        if let index = fileViewControllers.index(where: { _fileViewController -> Bool in
-            guard _fileViewController.parent == nil else { return false }
-            let classStringA = String(describing: _fileViewController.classForCoder)
-            let classStringB = FileViewController.viewControllerClassStringFor(fileURL: fileURL)
-            // swiftlint:disable:next line_length
-            return (classStringA == classStringB)
-        }) {
-            fileViewController = fileViewControllers[index]
-        } else {
-            fileViewController = FileViewController.createViewControllerFor(fileURL: fileURL)
-            print("Creating new", String(describing: fileViewController.classForCoder))
-            //            self.fileViewControllers.append(fileViewController)
-        }
+//        fileViewController.view.tag = index
+//        fileViewController.fileURL = fileURL
         
-        fileViewController.view.tag = index
-        fileViewController.fileURL = fileURL
-        
-        return fileViewController
+        let f = FileViewController.createViewControllerFor(fileURL: fileURL)
+        f.loadViewIfNeeded()
+        f.view.tag = index
+        return f
+//        return FileViewController.make({
+//            $0.fileURL = fileURL
+//        })
     }
 }
 
@@ -305,6 +312,7 @@ extension FilePreviewController: UIPageViewControllerDataSource {
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController
     ) -> UIViewController? {
+//        guard let viewController = viewController as? FileViewController else { return nil }
         return fileViewControllerFor(index: viewController.view.tag - 1)
     }
     

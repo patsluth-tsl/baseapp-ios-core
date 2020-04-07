@@ -12,7 +12,7 @@ import QuickLook
 import UIKit
 
 @available(iOS 11.0, *)
-public class PDFFileViewController: FileViewController {
+internal class PDFFileViewController: FileViewController {
 	private var pdfView: PDFView!
 	@IBOutlet private var pageIndicatorView: PDFPageIndicatorView!
 	@IBOutlet private var pageSelectionView: PDFPageSelectionView!
@@ -26,12 +26,12 @@ public class PDFFileViewController: FileViewController {
             bundle: Bundle(for: PDFFileViewController.classForCoder())
         )
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
 		pdfView = PDFView()
@@ -66,13 +66,13 @@ public class PDFFileViewController: FileViewController {
 		tap.require(toFail: doubleTap)
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 		
 		updateForNavigationBars(false)
     }
 	
-	public override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
 		view.setNeedsLayout()
@@ -81,11 +81,11 @@ public class PDFFileViewController: FileViewController {
 		pdfView.scaleToFit(true)
 	}
 	
-	public override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 	}
 	
-	public override func didMove(toParent parent: UIViewController?) {
+    override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         
 		defer {
@@ -94,6 +94,7 @@ public class PDFFileViewController: FileViewController {
 			pdfView.scrollView?.contentOffset = CGPoint.zero
 		}
 		
+        loadViewIfNeeded()
         pdfView.document = nil
 		pdfView.autoScales = true
 		

@@ -15,7 +15,10 @@ internal class VideoFileViewController: FileViewController {
     fileprivate var avPlayerViewController: AVPlayerViewController!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        super.init(
+            nibName: "VideoFileViewController",
+            bundle: Bundle(for: PDFFileViewController.classForCoder())
+        )
     }
     
     required init?(coder aDecoder: NSCoder) {

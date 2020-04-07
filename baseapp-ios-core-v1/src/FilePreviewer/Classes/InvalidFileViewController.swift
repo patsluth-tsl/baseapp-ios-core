@@ -15,8 +15,11 @@ import UIKit
 internal class InvalidFileViewController: FileViewController {
 	@IBOutlet fileprivate var label: UILabel!
     
-	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(
+            nibName: "InvalidFileViewController",
+            bundle: Bundle(for: PDFFileViewController.classForCoder())
+        )
     }
     
     required init?(coder aDecoder: NSCoder) {

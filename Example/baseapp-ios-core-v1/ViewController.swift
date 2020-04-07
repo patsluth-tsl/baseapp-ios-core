@@ -71,7 +71,7 @@ class ViewController: UIViewController {
 
 extension ViewController: FilePreviewerDataSource {
     func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
-        return 1
+        return fileURLs.count
     }
     
     func previewController(_ controller: QLPreviewController,

@@ -65,6 +65,7 @@
                         </subviews>
                     </view>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.26920114436619719" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="hXg-ZX-qOt" secondAttribute="height" multiplier="2.5:1" id="P5C-hr-uWT"/>
                         <constraint firstAttribute="width" constant="75" id="hkW-U0-NZV"/>
@@ -76,6 +77,7 @@
                 </visualEffectView>
             </subviews>
             <color key="backgroundColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="7XN-VH-tRN" firstAttribute="top" secondItem="NFI-hg-RDm" secondAttribute="top" id="3nv-bl-R38"/>
                 <constraint firstItem="hXg-ZX-qOt" firstAttribute="top" secondItem="NFI-hg-RDm" secondAttribute="top" constant="20" id="LTy-1u-kQq"/>
