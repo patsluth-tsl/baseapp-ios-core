@@ -22,42 +22,37 @@ internal class FilePreviewController: UIViewController {
         case FileSelectionViewController
     }
     
-    
-    
-    
-    
-    fileprivate var qlPreviewController: QLPreviewController! = QLPreviewController()
-    fileprivate weak var qlDataSource: QLPreviewControllerDataSource? = nil
-    fileprivate weak var qlDelegate: QLPreviewControllerDelegate? = nil
-    
-    fileprivate(set) var currentPreviewItemIndex: Int = NSNotFound {
+    var fileURLs: [URL]!
+    var currentPreviewItemIndex: Int = NSNotFound {
         didSet {
             navigationItem.title = nil
             
-            let numberOfPreviewItems = qlDataSource?.numberOfPreviewItems(in: qlPreviewController) ?? 0
-            guard (0..<numberOfPreviewItems).contains(currentPreviewItemIndex) else { return }
-            let previewItem = qlDataSource?.previewController(
-                qlPreviewController,
-                previewItemAt: currentPreviewItemIndex
-            )
-            guard let fileURL = previewItem as? URL else { return }
+//            let numberOfPreviewItems = qlDataSource?.numberOfPreviewItems(in: qlPreviewController) ?? 0
+//            guard (0..<numberOfPreviewItems).contains(currentPreviewItemIndex) else { return }
+//            let previewItem = qlDataSource?.previewController(
+//                qlPreviewController,
+//                previewItemAt: currentPreviewItemIndex
+//            )
+//            guard let fileURL = previewItem as? URL else { return }
+            
+            guard let fileURL = fileURLs[safe: currentPreviewItemIndex] else { return }
             
             var title = fileURL.fileName
-            if numberOfPreviewItems > 1 {
-                title = "\(currentPreviewItemIndex + 1) of \(numberOfPreviewItems)"
+            if fileURLs.count > 1 {
+                title = "\(currentPreviewItemIndex + 1) of \(fileURLs.count)"
             }
-            self.navigationItem.title = title
+            navigationItem.title = title
         }
     }
     
-    fileprivate var documentInteractionController: UIDocumentInteractionController? = nil
+    private var documentInteractionController: UIDocumentInteractionController? = nil
     
-    fileprivate var pageViewController: UIPageViewController! {
+    private var pageViewController: UIPageViewController! {
         didSet {
             oldValue?.dataSource = nil
             oldValue?.delegate = nil
             
-            guard let pageViewController = self.pageViewController else { return }
+            guard let pageViewController = pageViewController else { return }
             
             pageViewController.dataSource = self
             pageViewController.delegate = self
@@ -94,38 +89,38 @@ internal class FilePreviewController: UIViewController {
     
     
     
-    class func present<T: UIViewController>(
-        from: T, initialIndexPath: IndexPath
-    ) where T: FilePreviewerDataSource, T: FilePreviewerDelegate {
-        let bundle = Bundle(for: self.classForCoder())
-        let storyboard = UIStoryboard(name: "FilePreviewer", bundle: bundle)
-        // swiftlint:disable:next force_cast
-        let filePreviewController = storyboard.instantiateInitialViewController() as! FilePreviewController
-        
-        filePreviewController.qlDataSource = from
-        filePreviewController.qlDelegate = from
-        filePreviewController.qlPreviewController.section = initialIndexPath.section
-        filePreviewController.currentPreviewItemIndex = initialIndexPath.item
-        
-        filePreviewController.loadViewIfNeeded()
-        
-        let navigationController = UINavigationController(rootViewController: filePreviewController)
-        navigationController.hidesBarsOnTap = false
-        navigationController.hidesBarsOnSwipe = false
-        navigationController.setNavigationBarHidden(false, animated: false)
-        navigationController.setToolbarHidden(false, animated: false)
-        navigationController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        
-        from.present(navigationController, animated: true, completion: nil)
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+//    class func present<T: UIViewController>(
+//        from: T, initialIndexPath: IndexPath
+//    ) where T: FilePreviewerDataSource, T: FilePreviewerDelegate {
+//        let bundle = Bundle(for: self.classForCoder())
+//        let storyboard = UIStoryboard(name: "FilePreviewer", bundle: bundle)
+//        // swiftlint:disable:next force_cast
+//        let filePreviewController = storyboard.instantiateInitialViewController() as! FilePreviewController
+//
+//        filePreviewController.qlDataSource = from
+//        filePreviewController.qlDelegate = from
+//        filePreviewController.qlPreviewController.section = initialIndexPath.section
+//        filePreviewController.currentPreviewItemIndex = initialIndexPath.item
+//
+//        filePreviewController.loadViewIfNeeded()
+//
+//        let navigationController = UINavigationController(rootViewController: filePreviewController)
+//        navigationController.hidesBarsOnTap = false
+//        navigationController.hidesBarsOnSwipe = false
+//        navigationController.setNavigationBarHidden(false, animated: false)
+//        navigationController.setToolbarHidden(false, animated: false)
+//        navigationController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+//
+//        from.present(navigationController, animated: true, completion: nil)
+//    }
+//
+//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,7 +139,7 @@ internal class FilePreviewController: UIViewController {
     }
     
     deinit {
-        qlPreviewController = nil
+//        qlPreviewController = nil
         fileViewControllers.removeAll()
     }
     
@@ -174,17 +169,17 @@ internal class FilePreviewController: UIViewController {
         case SegueIdentifiers.FileSelectionViewController:
             guard let destination = segue.destination as? UINavigationController else { return }
             guard let viewController = destination.topViewController as? FileSelectionViewController else { return }
-            guard let qlDataSource = qlDataSource else { return }
+//            guard let qlDataSource = qlDataSource else { return }
             
-            var fileURLs = [URL]()
-            for i in stride(from: 0,
-                            to: qlDataSource.numberOfPreviewItems(in: qlPreviewController),
-                            by: 1
-                ) {
-                    let previewItem = qlDataSource.previewController(qlPreviewController, previewItemAt: i)
-                    let fileURL = previewItem as? URL ?? URL(fileURLWithPath: "")
-                    fileURLs.append(fileURL)
-            }
+//            var fileURLs = [URL]()
+//            for i in stride(from: 0,
+//                            to: qlDataSource.numberOfPreviewItems(in: qlPreviewController),
+//                            by: 1
+//                ) {
+//                    let previewItem = qlDataSource.previewController(qlPreviewController, previewItemAt: i)
+//                    let fileURL = previewItem as? URL ?? URL(fileURLWithPath: "")
+//                    fileURLs.append(fileURL)
+//            }
             
             viewController.delegate = self
             viewController.fileURLs = fileURLs
@@ -199,11 +194,13 @@ internal class FilePreviewController: UIViewController {
 @available(iOS 11.0, *)
 private extension FilePreviewController {
     @IBAction func actionButtonClicked(_ sender: UIBarButtonItem) {
-        let previewItem = qlDataSource?.previewController(
-            qlPreviewController,
-            previewItemAt: self.currentPreviewItemIndex
-        )
-        guard let fileURL = previewItem as? URL else { return }
+//        let previewItem = qlDataSource?.previewController(
+//            qlPreviewController,
+//            previewItemAt: self.currentPreviewItemIndex
+//        )
+//        guard let fileURL = previewItem as? URL else { return }
+        
+        guard let fileURL = fileURLs[safe: currentPreviewItemIndex] else { return }
         
         let documentInteractionController = UIDocumentInteractionController(url: fileURL)
         documentInteractionController.delegate = self
@@ -212,10 +209,10 @@ private extension FilePreviewController {
     }
     
     @IBAction func doneButtonClicked(_ sender: UIBarButtonItem) {
-        qlDelegate?.previewControllerWillDismiss?(qlPreviewController)
+//        qlDelegate?.previewControllerWillDismiss?(qlPreviewController)
         
         dismiss(animated: true, completion: {
-            self.qlDelegate?.previewControllerDidDismiss?(self.qlPreviewController)
+//            self.qlDelegate?.previewControllerDidDismiss?(self.qlPreviewController)
         })
     }
     
@@ -246,10 +243,12 @@ extension FilePreviewController: UIDocumentInteractionControllerDelegate {
 @available(iOS 11.0, *)
 private extension FilePreviewController {
     func fileViewControllerFor(index: Int) -> FileViewController? {
-        let numberOfPreviewItems = qlDataSource?.numberOfPreviewItems(in: qlPreviewController) ?? 0
-        guard (0..<numberOfPreviewItems).contains(index) else { return nil }
-        let previewItem = qlDataSource?.previewController(qlPreviewController, previewItemAt: index)
-        guard let fileURL = previewItem as? URL else { return nil }
+//        let numberOfPreviewItems = qlDataSource?.numberOfPreviewItems(in: qlPreviewController) ?? 0
+//        guard (0..<numberOfPreviewItems).contains(index) else { return nil }
+//        let previewItem = qlDataSource?.previewController(qlPreviewController, previewItemAt: index)
+//        guard let fileURL = previewItem as? URL else { return nil }
+        
+        guard let fileURL = fileURLs[safe: index] else { return nil }
 //
 //        var fileViewController: FileViewController! = nil
         
@@ -270,10 +269,11 @@ private extension FilePreviewController {
 //        fileViewController.view.tag = index
 //        fileViewController.fileURL = fileURL
         
-        let f = FileViewController.createViewControllerFor(fileURL: fileURL)
-        f.loadViewIfNeeded()
-        f.view.tag = index
-        return f
+        return FileViewController.createViewControllerFor(fileURL: fileURL)
+//        let f = FileViewController.createViewControllerFor(fileURL: fileURL)
+//        f.loadViewIfNeeded()
+//        f.view.tag = index
+//        return f
 //        return FileViewController.make({
 //            $0.fileURL = fileURL
 //        })
@@ -312,15 +312,20 @@ extension FilePreviewController: UIPageViewControllerDataSource {
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController
     ) -> UIViewController? {
-//        guard let viewController = viewController as? FileViewController else { return nil }
-        return fileViewControllerFor(index: viewController.view.tag - 1)
+        guard let viewController = viewController as? FileViewController else { return nil }
+        guard let index = fileURLs.firstIndex(of: viewController.fileURL) else { return nil }
+        return fileViewControllerFor(index: index - 1)
+//        return fileViewControllerFor(index: viewController.view.tag - 1)
     }
     
     func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerAfter viewController: UIViewController
     ) -> UIViewController? {
-        return fileViewControllerFor(index: viewController.view.tag + 1)
+        guard let viewController = viewController as? FileViewController else { return nil }
+        guard let index = fileURLs.firstIndex(of: viewController.fileURL) else { return nil }
+        return fileViewControllerFor(index: index + 1)
+//        return fileViewControllerFor(index: viewController.view.tag + 1)
     }
 }
 
@@ -344,9 +349,11 @@ extension FilePreviewController: UIPageViewControllerDelegate {
     ) {
         guard completed else { return }
         
-        guard let fileViewController = pageViewController.viewControllers?
+        guard let viewController = pageViewController.viewControllers?
             .first as? FileViewController else { return }
-        currentPreviewItemIndex = fileViewController.view.tag
+        guard let index = fileURLs.firstIndex(of: viewController.fileURL) else { return }
+        currentPreviewItemIndex = index
+//        currentPreviewItemIndex = fileViewController.view.tag
     }
 }
 

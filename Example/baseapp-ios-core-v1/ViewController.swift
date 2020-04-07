@@ -47,16 +47,13 @@ class ViewController: UIViewController {
             FilePreviewer.canPreview(fileURL: $0)
         })
         
-//        if #available(iOS 11.0, *) {
-//            PDFFileViewController.make({
-//                $0.fileURL = self.fileURLs.first!
-//            }).map({
-//                UINavigationController(rootViewController: $0)
-//            })
-//                .present(from: self)
-//        }
-        FilePreviewer.preview(from: self,
-                              initialIndexPath: IndexPath(item: 0, section: 0))
+        FilePreviewer.preview(
+            from: self,
+            fileURLs: fileURLs.filter({
+                FilePreviewer.canPreview(fileURL: $0)
+            }),
+            initialPreviewIndex: 0
+        )
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -69,34 +66,34 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: FilePreviewerDataSource {
-    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
-        return fileURLs.count
-    }
-    
-    func previewController(_ controller: QLPreviewController,
-                           previewItemAt index: Int) -> QLPreviewItem {
-        return fileURLs[index] as NSURL
-    }
-    
-    func previewItem(at indexPath: IndexPath) -> QLPreviewItem {
-        return fileURLs[indexPath.item] as NSURL
-    }
-}
-
-
-extension ViewController: FilePreviewerDelegate {
-//    func previewController<T>(_ controller: QLPreviewController,
-//                              styleProviderType type: T.Type) -> UIBarStyleProvider?
-//        where T : UINavigationBar
-//    {
-//        return UINavigationBar.appearance()
+//extension ViewController: FilePreviewerDataSource {
+//    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+//        return fileURLs.count
 //    }
 //
-//    func previewController<T>(_ controller: QLPreviewController,
-//                              styleProviderType type: T.Type) -> UIBarStyleProvider?
-//        where T : UIToolbar
-//    {
-//        return UIToolbar.appearance()
+//    func previewController(_ controller: QLPreviewController,
+//                           previewItemAt index: Int) -> QLPreviewItem {
+//        return fileURLs[index] as NSURL
 //    }
-}
+//
+//    func previewItem(at indexPath: IndexPath) -> QLPreviewItem {
+//        return fileURLs[indexPath.item] as NSURL
+//    }
+//}
+//
+//
+//extension ViewController: FilePreviewerDelegate {
+////    func previewController<T>(_ controller: QLPreviewController,
+////                              styleProviderType type: T.Type) -> UIBarStyleProvider?
+////        where T : UINavigationBar
+////    {
+////        return UINavigationBar.appearance()
+////    }
+////
+////    func previewController<T>(_ controller: QLPreviewController,
+////                              styleProviderType type: T.Type) -> UIBarStyleProvider?
+////        where T : UIToolbar
+////    {
+////        return UIToolbar.appearance()
+////    }
+//}

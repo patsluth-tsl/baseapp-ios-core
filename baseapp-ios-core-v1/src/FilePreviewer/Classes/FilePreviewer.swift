@@ -25,40 +25,66 @@ public enum FilePreviewer {
 	
     public static func preview<T: UIViewController>(
         from: T,
-        initialIndexPath: IndexPath,
-        forceLegacy: Bool = false
-    ) where T: FilePreviewerDataSource & FilePreviewerDelegate {
-		guard let initialFileURL = from.previewItem(at: initialIndexPath) as? URL else { return }
-		
-        guard !initialFileURL.isVideoURL else {
-			let avPlayerViewController = AVPlayerViewController()
-			
-			avPlayerViewController.allowsPictureInPicturePlayback = true
-			avPlayerViewController.updatesNowPlayingInfoCenter = false
-			avPlayerViewController.player = AVPlayer(url: initialFileURL)
-			avPlayerViewController.player?.allowsExternalPlayback = true
-			avPlayerViewController.navigationController?.navigationBar.isHidden = true
-			avPlayerViewController.navigationController?.toolbar.isHidden = true
-			avPlayerViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-			
-			from.present(avPlayerViewController, animated: true, completion: {
-				avPlayerViewController.player?.play()
-			})
-			
-			return
-		}
+        fileURLs: [URL],
+        initialPreviewIndex: Int = 0
+    ) { //where T: FilePreviewerDataSource & FilePreviewerDelegate {
+//		guard let initialFileURL = from.previewItem(at: initialIndexPath) as? URL else { return }
+//
+//        guard !initialFileURL.isVideoURL else {
+//			let avPlayerViewController = AVPlayerViewController()
+//
+//			avPlayerViewController.allowsPictureInPicturePlayback = true
+//			avPlayerViewController.updatesNowPlayingInfoCenter = false
+//			avPlayerViewController.player = AVPlayer(url: initialFileURL)
+//			avPlayerViewController.player?.allowsExternalPlayback = true
+//			avPlayerViewController.navigationController?.navigationBar.isHidden = true
+//			avPlayerViewController.navigationController?.toolbar.isHidden = true
+//			avPlayerViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//
+//			from.present(avPlayerViewController, animated: true, completion: {
+//				avPlayerViewController.player?.play()
+//			})
+//
+//			return
+//		}
         
-		if #available(iOS 11.0, *), !forceLegacy {
-			FilePreviewController.present(from: from, initialIndexPath: initialIndexPath)
-		} else {
-			let filePreviewController = FilePreviewControllerLegacy()
-			filePreviewController.dataSource = from
-			filePreviewController.delegate = from
-			filePreviewController.section = initialIndexPath.section
-			filePreviewController.currentPreviewItemIndex = initialIndexPath.item
-			
-			from.present(filePreviewController, animated: true, completion: nil)
+//		if #available(iOS 11.0, *), !forceLegacy {
+        if #available(iOS 11.0, *) {
+//            FilePreviewController.present(from: from, initialIndexPath: initialIndexPath)
+            
+            let bundle = Bundle(for: FilePreviewController.classForCoder())
+            let storyboard = UIStoryboard(name: "FilePreviewer", bundle: bundle)
+            // swiftlint:disable:next force_cast
+            let viewController = storyboard.instantiateInitialViewController() as! FilePreviewController
+            
+//            filePreviewController.qlDataSource = from
+//            filePreviewController.qlDelegate = from
+//            filePreviewController.qlPreviewController.section = initialIndexPath.section
+            viewController.fileURLs = fileURLs
+            viewController.currentPreviewItemIndex = initialPreviewIndex
+            viewController.loadViewIfNeeded()
+            
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.hidesBarsOnTap = false
+            navigationController.hidesBarsOnSwipe = false
+            navigationController.setNavigationBarHidden(false, animated: false)
+            navigationController.setToolbarHidden(false, animated: false)
+//            navigationController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+            
+            navigationController.present(from: from)
+//            navigationController.show(self, sender: nil)
+//            from.present(navigationController, animated: true, completion: nil)
+            
 		}
+//            else {
+//			let filePreviewController = FilePreviewControllerLegacy()
+//			filePreviewController.dataSource = from
+//			filePreviewController.delegate = from
+//			filePreviewController.section = initialIndexPath.section
+//			filePreviewController.currentPreviewItemIndex = initialIndexPath.item
+//
+//			from.present(filePreviewController, animated: true, completion: nil)
+//		}
 	}
 	
 	#endif
