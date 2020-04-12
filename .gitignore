@@ -19,9 +19,6 @@ DerivedData
 *.hmap
 *.ipa
 
-# Bundler
-.bundle
-
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 
@@ -30,8 +27,38 @@ Carthage/Build
 # We recommend against adding the Pods directory to your .gitignore. However
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
-# 
+#
 # Note: if you ignore the Pods directory, make sure to uncomment
 # `pod install` in .travis.yml
 #
 # Pods/
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/.build
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Rswift
+*.generated.swift
+
+## Ruby
+vendor/bundle

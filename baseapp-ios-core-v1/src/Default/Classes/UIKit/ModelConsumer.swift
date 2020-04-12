@@ -15,6 +15,11 @@ public protocol ModelConsumer {
 	var model: Model! { get set }
 }
 
+public protocol SelectableModelConsumer: ModelConsumer {
+    associatedtype BaseModel
+    typealias Model = SelectableModel<BaseModel>
+}
+
 //public typealias ModelViewController = UIViewController & ModelConsumer
 //public typealias ModelView = UIView & ModelConsumer
 public protocol ModelViewController: ModelConsumer
@@ -29,12 +34,16 @@ public protocol ModelView: ModelConsumer
 	where Self: UIView {
 }
 
+public protocol SelectableModelView: SelectableModelConsumer
+    where Self: UIView {
+}
+
 public extension UITableView {
 	typealias ModelCell = UITableViewCell & ModelView
-	//	typealias SelectableModelCell = UITableView.ModelCell & SelectableModelViewProtocol
+	typealias SelectableModelCell = UITableViewCell & SelectableModelView
 }
 
 public extension UICollectionView {
 	typealias ModelCell = UICollectionViewCell & ModelView
-	//	typealias SelectableModelCell = UICollectionView.ModelCell & SelectableModelViewProtocol
+	typealias SelectableModelCell = UICollectionViewCell & SelectableModelView
 }

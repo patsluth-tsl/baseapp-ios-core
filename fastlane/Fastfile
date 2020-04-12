@@ -1,0 +1,414 @@
+# require_relative './scan'
+# require_relative '../Scripts/xcodeproj'
+# require_relative '../Scripts/ReleaseHistory'
+
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version '2.69.2'
+
+default_platform :ios
+
+platform :ios do
+	module SharedValues
+   		SELECTED_BUMP_TYPE = nil
+ 	end
+
+	BUMP_TYPES = [
+		'patch',
+		'minor',
+		'major',
+	].freeze
+
+	# xcode_project = Xcodeproj::Project.open_dir('../')
+	# history = ReleaseHistory.new('../release_history.json')
+	# build_dir = File.realdirpath('./.build')
+
+	# Called before requested lane runs
+
+	# Avaliable Lanes
+
+	desc "Select Version bump_type"
+	private_lane :select_bump_type_if_needed do |options|
+		bump_type = options[:bump_type]
+		if bump_type == nil && UI.interactive?
+			bump_type = UI.select 'Select Version Bump Type:', BUMP_TYPES
+		end
+		validate_bump_type(bump_type: bump_type)
+		lane_context[SharedValues::SELECTED_BUMP_TYPE] = bump_type
+	end
+
+	desc "Validate Version bump_type"
+	private_lane :validate_bump_type do |options|
+		bump_type = options[:bump_type] || ''
+		if BUMP_TYPES.include?(bump_type) == false
+			UI.user_error!('Invalid Version Bump Type!: \'%s\' Valid Types: %s' % [bump_type, BUMP_TYPES.join(', ')])
+		end
+	end
+
+	desc "Create a new version"
+  	lane :version do |options|
+	    # ensure_git_status_clean
+		# git_branch = 'master'
+	    # ensure_git_branch(branch: git_branch)
+	    # # test
+
+		bump_type = select_bump_type_if_needed(bump_type: options[:bump_type])
+
+		project_dir = File.realdirpath('../')
+		podspec_file = Dir.glob(File.join(project_dir, '*.podspec'))[0]
+		puts(project_dir)
+		puts(podspec_file)
+		puts(bump_type)
+
+		version = version_bump_podspec(path: podspec_file, bump_type: bump_type)
+
+		git_origin = sh('git remote', log: false).strip
+		git_branch = sh('git branch --show-current', log: false).strip
+		git_tag_name = '%s' % [version]
+
+		sh('cd %s; git add . > /dev/null' % [project_dir])
+		sh('cd %s; git add -A > /dev/null')
+		sh('cd %s; git commit -m \'%s\' 2> /dev/null; exit 0' % [project_dir, git_tag_name])
+		sh('cd %s; git push %s $s 2> /dev/null; exit 0' % [project_dir, git_origin, git_branch])
+		sh('cd %s; git tag --delete \'%s\' 2> /dev/null; exit 0' % [project_dir, git_tag_name])
+		sh('cd %s; git push --delete %s \'%s\' 2> /dev/null; exit 0' % [project_dir, git_origin, git_tag_name])
+		sh('cd %s; git tag %s > /dev/null' % [project_dir, git_tag_name])
+		sh('cd %s; git push %s --tags > /dev/null' % [project_dir, git_origin])
+
+		# podspec_file = Dir.glob(File.join(File.dirname(__FILE__).parent, '*.xcodeproj'))[0]
+	    # version = version_bump_podspec(path: "Sheeeeeeeeet.podspec", bump_type: bump_type)
+	    # increment_version_number(version_number: version)
+		#
+	    # git_commit(
+		# 	path: "*",
+		# 	message: "Bump to #{version}"
+	    # )
+		#
+	    # add_git_tag(tag: version)
+	    # push_git_tags()
+	    # push_to_git_remote()
+	    # pod_push()
+  	end
+
+	# desc 'Deploy'
+	# lane :deploy do |options|
+	#
+	# 	# Read in values set from .env file
+	# 	apple_developer_email = ENV['APPLE_DEVELOPER_EMAIL']
+	# 	apple_developer_team_id = ENV['APPLE_DEVELOPER_TEAM_ID']
+	# 	apple_itc_id = ENV['APPLE_ITC_ID']
+	# 	ENV['FASTLANE_ITC_TEAM_ID'] = apple_itc_id
+	# 	fabric_developer_email = ENV['FABRIC_DEVELOPER_EMAIL']
+	# 	fabric_developer_team_id = ENV['FABRIC_DEVELOPER_TEAM_ID']
+	# 	fabric_api_token = ENV['FABRIC_API_TOKEN']
+	# 	fabric_build_secret = ENV['FABRIC_BUILD_SECRET']
+	#
+	# 	deploy_type = select_deploy_type_if_needed(deploy_type: options[:deploy_type])
+	# 	case deploy_type
+	# 		when 'fabric'
+	# 			application_target = select_target_if_needed(
+	# 				target_name: options[:target_name],
+	# 				fallback_target_name: ENV['APPLICATION_SCHEME_NAME_STAGING']
+	# 			)
+	# 			ENV['SIGH_AD_HOC'] = 'TRUE'
+	# 		when 'firebase'
+	# 			application_target = select_target_if_needed(
+	# 				target_name: options[:target_name],
+	# 				fallback_target_name: ENV['APPLICATION_SCHEME_NAME_STAGING']
+	# 			)
+	# 			ENV['SIGH_AD_HOC'] = 'TRUE'
+	# 		when 'testflight'
+	# 			application_target = select_target_if_needed(
+	# 				target_name: options[:target_name],
+	# 				fallback_target_name: ENV['APPLICATION_SCHEME_NAME_PRODUCTION']
+	# 			)
+	# 			ENV['SIGH_AD_HOC'] = 'FALSE'
+	# 		when 'itunes_connect'
+	# 			application_target = select_target_if_needed(
+	# 				target_name: options[:target_name],
+	# 				fallback_target_name: ENV['APPLICATION_SCHEME_NAME_PRODUCTION']
+	# 			)
+	# 			ENV['SIGH_AD_HOC'] = 'FALSE'
+	# 	end
+	# 	application_name = xcode_project.get_build_setting(
+	# 		target: application_target,
+	# 		setting: 'DISPLAY_NAME'
+	# 	)
+	# 	application_bundle_identifier = xcode_project.get_build_setting(
+	# 		target: application_target,
+	# 		setting: 'PRODUCT_BUNDLE_IDENTIFIER'
+	# 	)
+	# 	application_version = xcode_project.version_string(target: application_target)
+	# 	release_notes = get_release_notes(
+	# 		target_name: application_target.name,
+	# 		target_version: application_version
+	# 	)
+	#
+	#     cocoapods
+	#
+	# 	# Create the application on Apple Developer Portal
+	# 	produce(
+	# 		username: apple_developer_email,
+	# 		team_id: apple_developer_team_id,
+	# 		app_identifier: application_bundle_identifier,
+	# 		app_name: application_name,
+	# 		skip_itc: true
+	# 	)
+	# 	update_test_devices
+	# 	cert(
+  	# 		username: fabric_developer_email,
+	# 		team_id: fabric_developer_team_id,
+	# 		output_path: build_dir
+	# 	)
+	# 	sigh(
+	# 		username: fabric_developer_email,
+	# 		team_id: fabric_developer_team_id,
+	# 		app_identifier: application_bundle_identifier,
+	# 		force: true,
+	# 		output_path: build_dir
+	# 	)
+	# 	build_app(
+	# 		scheme: application_target.name,
+	# 		clean: false,
+	# 		output_directory: build_dir,
+	# 		build_path: build_dir,
+	# 		derived_data_path: build_dir,
+	# 	)
+	#
+	# 	case deploy_type
+	# 		when 'fabric'
+	# 			crashlytics(
+	# 				api_token: fabric_api_token,
+	# 				build_secret: fabric_build_secret,
+	# 				notes: release_notes,
+	# 				groups: ['fav', 'loki', 'sparkle', ENV['FABRIC_CLIENT_GROUP_ALIAS']]
+	# 			)
+	# 		when 'firebase'
+	# 			file_refs = application_target.resources_build_phase().files_references()
+	# 			file_ref = file_refs.select { |file_ref|
+	# 				File.basename(file_ref.real_path) == "GoogleService-Info.plist"
+	# 			}[0]
+	# 			if !file_ref.is_a? Xcodeproj::Project::Object::PBXFileReference
+	# 				UI.user_error!('%s not found in %s\'s resource build phase!' % [
+	# 					"GoogleService-Info.plist",
+	# 					application_target.name
+	# 				])
+	# 			end
+	# 			google_service_plist = Xcodeproj::Plist.read_from_path(file_ref.real_path)
+	# 			%x[firebase login]
+	# 			firebase_app_distribution(
+	# 	            app: google_service_plist["GOOGLE_APP_ID"],
+	# 	            testers: "ps@tsl.io",
+	# 	            release_notes: release_notes,
+	# 				testers_file: File.realpath('./firebase_testers.txt')
+	# 	        )
+	# 		when 'testflight'
+	# 			default_app_info = {
+	# 				feedback_email: "Ronaldgfarah1@gmail.com",
+	# 				marketing_url: "https://tsl.io",
+	# 				privacy_policy_url: "https://tsl.io",
+	# 				description: "%s Beta" % [application_name],
+	# 			}
+	# 			default_build_info = {
+	# 				whats_new: release_notes
+	# 			}
+	# 			pilot(
+	# 				username: apple_developer_email,
+	# 				team_id: apple_itc_id,
+	# 				skip_waiting_for_build_processing: false,
+	# 				localized_app_info: {
+	# 					'default': default_app_info,
+	# 					'en-US': default_app_info,
+	# 				},
+	# 				localized_build_info: {
+	# 					'default': default_build_info,
+	# 					'en-US': default_build_info,
+	# 				},
+	# 				beta_app_review_info: {
+	# 				    contact_email: "ps@tsl.io",
+	# 				    contact_first_name: "Apple",
+	# 				    contact_last_name: "TSL",
+	# 				    contact_phone: "5875775388",
+	# 				    notes: release_notes,
+	# 				},
+	# 				changelog: release_notes,
+	# 				# distribute_external: true
+	# 		    )
+	# 		when 'itunes_connect'
+	# 			deliver(
+	# 				username: apple_developer_email,
+	# 				team_id: apple_itc_id,
+	# 				app_identifier: application_bundle_identifier,
+	# 				price_tier: 0,
+	# 				app_icon: './fastlane/metadata/AppIcon.png',
+	# 				languages: [
+	# 					'en-US'
+	# 				],
+	# 				release_notes: {
+	# 					'default': release_notes,
+	# 					'en-US': release_notes
+	# 				},
+	# 				app_rating_config_path: './fastlane/metadata/itunes_rating_config.json',
+	# 				automatic_release: false,
+	# 				submit_for_review: false,
+	# 				skip_app_version_update: true
+	# 			)
+	# 	end
+	#
+	# 	xcode_project.increment_version(target: application_target)
+	# 	xcode_project.increment_build_number(target: application_target)
+	#
+	# 	if options[:skip_git_tag] != true
+	# 		git_tag(
+	# 			tag_name: "#{application_target.name}_#{application_version}"
+	# 		)
+	# 	end
+  	# end
+	#
+	# desc 'Get Release Notes'
+  	# lane :get_release_notes do |options|
+	# 	application_target = select_target_if_needed(
+	# 		target_name: options[:target_name]
+	# 	)
+	# 	application_version = options[:target_version]
+	# 	if application_version == nil
+	# 		application_version = xcode_project.version_string(target: application_target)
+	# 	end
+	# 	release_notes = history.get_changes(
+	# 		target_name: application_target.name,
+	# 		target_version: application_version
+	# 	)
+	# 	input_release_notes = options[:append] == true
+	# 	if release_notes.nil? || release_notes.empty? || input_release_notes
+	# 		if UI.interactive? && (input_release_notes || UI.confirm('Append release notes?'))
+	# 			release_notes = prompt(
+	# 				text: "Release Notes: ",
+	# 				multi_line_end_keyword: "END"
+	# 			)
+	# 			release_notes = append_release_notes(
+	# 				target_name: application_target.name,
+	# 				target_version: application_version,
+	# 				message: release_notes.strip
+	# 			)
+	# 		end
+	# 	end
+	# 	if release_notes.nil? || release_notes.empty?
+	# 		release_notes = "Release notes not available"
+	# 	end
+	# 	UI.important("------- %s %s -------\n%s" % [
+	# 		application_target.name,
+	# 		application_version,
+	# 		release_notes.strip
+	# 	])
+	# 	lane_context[SharedValues::RELEASE_NOTES] = release_notes.strip
+  	# end
+	#
+	# desc 'Append Release Notes'
+  	# lane :append_release_notes do |options|
+	# 	application_target = select_target_if_needed(
+	# 		target_name: options[:target_name]
+	# 	)
+	# 	application_version = options[:target_version]
+	# 	if application_version == nil
+	# 		application_version = xcode_project.version_string(target: application_target)
+	# 	end
+	# 	history.append(
+	# 		target_name: application_target.name,
+	# 		target_version: application_version,
+	# 		message: options[:message]
+	# 	)
+	# 	if lane_context[:LANE_NAME].include? 'append_release_notes'
+	# 		release_notes = get_release_notes(
+	# 			target_name: application_target.name,
+	# 			target_version: application_version
+	# 		)
+	# 	else
+	# 		release_notes = history.get_changes(
+	# 			target_name: application_target.name,
+	# 			target_version: application_version
+	# 		)
+	# 	end
+	# 	lane_context[SharedValues::RELEASE_NOTES] = release_notes.strip
+  	# end
+	#
+	# desc 'Create tag and increment version'
+	# lane :git_tag do |options|
+	#
+	# 	git_tag_name = options[:tag_name]
+	# 	if git_tag_name == nil
+	# 		next
+	# 	end
+	# 	git_origin = sh('git remote', log: false).strip
+	# 	git_branch = sh('git branch --show-current', log: false).strip
+	#
+	# 	clean
+	#
+	# 	sh('cd ..; git add . > /dev/null')
+	# 	sh('cd ..; git add -A > /dev/null')
+	# 	sh('cd ..; git commit -m \'%s\' 2> /dev/null; exit 0' % [git_tag_name])
+	# 	sh('cd ..; git push %s $s 2> /dev/null; exit 0' % [git_origin, git_branch])
+	# 	sh('cd ..; git tag --delete \'%s\' 2> /dev/null; exit 0' % [git_tag_name])
+	# 	sh('cd ..; git push --delete %s \'%s\' 2> /dev/null; exit 0' % [git_origin, git_tag_name])
+	# 	sh('cd ..; git tag %s > /dev/null' % [git_tag_name])
+	# 	sh('cd ..; git push %s --tags > /dev/null' % [git_origin])
+	# end
+	#
+	# # Called if each lane runs successfully
+	# after_each do |lane, options|
+	# 	case lane
+	# 		when :update_test_devices
+	# 			message = 'Successfully updated provisiong profile with test devices! 🎉'
+	# 		when :deploy
+	# 			case lane_context[SharedValues::SELECTED_DEPLOY_TYPE]
+	# 				when 'fabric'
+	# 					message = 'Successfully deployed to Fabric! 🎉'
+	# 				when 'firebase'
+	# 					message = 'Successfully deployed to Firebase! 🔥'
+	# 				when 'testflight'
+	# 					message = 'Successfully deployed to Testflight! 🎉'
+	# 				when 'itunes_connect'
+	# 					message = 'Successfully deployed to iTunes Connec! 🎉'
+	# 			end
+	# 	end
+	#
+	# 	if !message.nil?
+	# 		UI.success(message)
+	# 		if lane_context[SharedValues::SKIP_SLACK] != true
+	# 			slack(message: message)
+	# 		end
+	# 	end
+	#
+	# 	# if "#{lane_context[:PLATFORM_NAME]} #{lane}" != lane_context[:LANE_NAME]
+	# 	# 	if lane != clean
+	# 	# 		clean
+	# 	# 	end
+	# 	# end
+	# end
+	#
+	# after_all do |lane, options|
+	# 	clean
+	# end
+	#
+	# # Called if requested lane failed
+	# error do |lane, exception, options|
+	# 	# clean
+	# 	if lane_context[SharedValues::SKIP_SLACK] != true
+	# 		slack(
+	# 			message: exception.message,
+	# 			success: false,
+	# 			# attachment_properties: {
+	# 			# 	fields: [{
+	# 			# 		title: "Backtrace",
+	# 			# 		value: exception.backtrace.to_s,
+	# 			# 	}]
+	# 			# }
+	# 		)
+	# 	end
+	# end
+
+end
