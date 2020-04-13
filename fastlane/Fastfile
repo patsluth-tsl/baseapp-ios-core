@@ -22,8 +22,8 @@ platform :ios do
 
 	# Avaliable Lanes
 
-	desc "Create a new version"
-  	lane :version do |options|
+	desc "Release a new version"
+  	lane :release do |options|
 	    # ensure_git_status_clean
 		# git_branch = 'master'
 	    # ensure_git_branch(branch: git_branch)
@@ -33,9 +33,6 @@ platform :ios do
 
 		project_dir = File.realdirpath('../')
 		podspec_file = Dir.glob(File.join(project_dir, '*.podspec'))[0]
-		puts(project_dir)
-		puts(podspec_file)
-		puts(bump_type)
 
 		version = version_bump_podspec(path: podspec_file, bump_type: bump_type)
 

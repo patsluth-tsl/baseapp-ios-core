@@ -13,11 +13,12 @@ import RxCocoa
 import RxSwift
 import UIKit
 
+
 public struct SelectableModel<Base> {
     public let base: Base
     public let isSelected: BehaviorRelay<Bool>
     
-    init(_ base: Base, isSelected: Bool) {
+    public init(_ base: Base, isSelected: Bool) {
         self.base = base
         self.isSelected = BehaviorRelay<Bool>(value: isSelected)
     }
