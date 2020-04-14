@@ -93,21 +93,27 @@ public extension UICollectionView {
     func dequeue<T>(
         _ type: T.Type,
         for indexPath: IndexPath,
-        reuseIdentifier: String = "\(T.self)"
+        reuseIdentifier: String = "\(T.self)",
+        _ configure: ((T) -> Void)? = nil
     ) -> T where T: UICollectionViewCell {
-        return dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
-                                   for: indexPath) as! T
+        let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
+                                       for: indexPath) as! T
+        configure?(cell)
+        return cell
     }
     
     func dequeueSupplementary<T>(
         _ type: T.Type,
         kind: String,
         for indexPath: IndexPath,
-        reuseIdentifier: String = "\(T.self)"
+        reuseIdentifier: String = "\(T.self)",
+        _ configure: ((T) -> Void)? = nil
     ) -> T where T: UICollectionReusableView {
-        return dequeueReusableSupplementaryView(ofKind: kind,
-                                                withReuseIdentifier: reuseIdentifier,
-                                                for: indexPath) as! T
+        let view = dequeueReusableSupplementaryView(ofKind: kind,
+                                                    withReuseIdentifier: reuseIdentifier,
+                                                    for: indexPath) as! T
+        configure?(view)
+        return view
     }
     
     func cell<T>(
