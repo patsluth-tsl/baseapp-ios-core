@@ -62,7 +62,7 @@ public final class LocationManager: NSObject {
         }
     }
     
-    func requestLocation() {
+    public func requestLocation() {
         coreLocationManager.requestLocation()
     }
 }
