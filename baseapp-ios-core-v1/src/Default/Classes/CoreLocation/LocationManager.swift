@@ -13,35 +13,35 @@ import RxSwift
 
 /// A singleton that provides access the the device location.
 public final class LocationManager: NSObject {
-    static let shared = LocationManager()
+    public static let shared = LocationManager()
     
     let coreLocationManager: CLLocationManager
     
     private let _currentLocation = BehaviorRelay<CLLocation?>(value: nil)
-    var currentLocation: CLLocation? {
+    public var currentLocation: CLLocation? {
         return _currentLocation.value
     }
-    var onCurrentLocation: Observable<CLLocation> {
+    public var onCurrentLocation: Observable<CLLocation> {
         return _currentLocation
             .asObservable()
             .startWith(currentLocation)
             .unwrap()
     }
     private let _currentHeading = BehaviorRelay<CLHeading?>(value: nil)
-    var currentHeading: CLHeading? {
+    public var currentHeading: CLHeading? {
         return _currentHeading.value
     }
-    var onCurrentHeading: Observable<CLHeading> {
+    public var onCurrentHeading: Observable<CLHeading> {
         return _currentHeading
             .asObservable()
             .startWith(currentHeading)
             .unwrap()
     }
-    var onUpdate: Observable<(CLLocation, CLHeading)> {
+    public var onUpdate: Observable<(CLLocation, CLHeading)> {
         return Observable.combineLatest(onCurrentLocation, onCurrentHeading)
     }
     private let _onError = PublishSubject<Error>()
-    var onError: Observable<Error> {
+    public var onError: Observable<Error> {
         return _onError.asObservable()
     }
     
@@ -70,8 +70,8 @@ public final class LocationManager: NSObject {
 
 // MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
-    public func locationManager(_ manager: CLLocationManager,
-                                didChangeAuthorization status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager,
+                         didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             coreLocationManager.startUpdatingLocation()
@@ -85,21 +85,21 @@ extension LocationManager: CLLocationManagerDelegate {
         }
     }
     
-    public func locationManager(_ manager: CLLocationManager,
-                                didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
         //        _currentLocation.accept(locations.min(by: {
         //            $0.horizontalAccuracy < $1.horizontalAccuracy
         //        }))
         _currentLocation.accept(manager.location)
     }
     
-    public func locationManager(_ manager: CLLocationManager,
-                                didUpdateHeading newHeading: CLHeading) {
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateHeading newHeading: CLHeading) {
         _currentHeading.accept(newHeading)
     }
     
-    public func locationManager(_ manager: CLLocationManager,
-                                didFailWithError error: Error) {
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
         _onError.onNext(error)
     }
 }
