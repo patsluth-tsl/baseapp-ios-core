@@ -70,8 +70,8 @@ public final class LocationManager: NSObject {
 
 // MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager,
-                         didChangeAuthorization status: CLAuthorizationStatus) {
+    public func locationManager(_ manager: CLLocationManager,
+                                didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             coreLocationManager.startUpdatingLocation()
@@ -85,21 +85,21 @@ extension LocationManager: CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager,
-                         didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager,
+                                didUpdateLocations locations: [CLLocation]) {
         //        _currentLocation.accept(locations.min(by: {
         //            $0.horizontalAccuracy < $1.horizontalAccuracy
         //        }))
         _currentLocation.accept(manager.location)
     }
     
-    func locationManager(_ manager: CLLocationManager,
-                         didUpdateHeading newHeading: CLHeading) {
+    public func locationManager(_ manager: CLLocationManager,
+                                didUpdateHeading newHeading: CLHeading) {
         _currentHeading.accept(newHeading)
     }
     
-    func locationManager(_ manager: CLLocationManager,
-                         didFailWithError error: Error) {
+    public func locationManager(_ manager: CLLocationManager,
+                                didFailWithError error: Error) {
         _onError.onNext(error)
     }
 }
