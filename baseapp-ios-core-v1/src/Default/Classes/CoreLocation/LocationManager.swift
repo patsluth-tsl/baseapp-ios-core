@@ -65,6 +65,16 @@ public final class LocationManager: NSObject {
     public func requestLocation() {
         coreLocationManager.requestLocation()
     }
+    
+    public func start() {
+        coreLocationManager.startUpdatingLocation()
+        coreLocationManager.startUpdatingHeading()
+    }
+    
+    public func stop() {
+        coreLocationManager.stopUpdatingLocation()
+        coreLocationManager.stopUpdatingHeading()
+    }
 }
 
 
@@ -74,8 +84,7 @@ extension LocationManager: CLLocationManagerDelegate {
                                 didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            coreLocationManager.startUpdatingLocation()
-            coreLocationManager.startUpdatingHeading()
+            start()
         case .notDetermined, .restricted:
             coreLocationManager.requestWhenInUseAuthorization()
         case .denied:
@@ -87,9 +96,6 @@ extension LocationManager: CLLocationManagerDelegate {
     
     public func locationManager(_ manager: CLLocationManager,
                                 didUpdateLocations locations: [CLLocation]) {
-        //        _currentLocation.accept(locations.min(by: {
-        //            $0.horizontalAccuracy < $1.horizontalAccuracy
-        //        }))
         _currentLocation.accept(manager.location)
     }
     
