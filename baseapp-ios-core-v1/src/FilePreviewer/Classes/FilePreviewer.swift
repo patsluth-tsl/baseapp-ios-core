@@ -18,7 +18,6 @@ import UIKit
 
 public enum FilePreviewer {
     public static func canPreview(fileURL: URL) -> Bool {
-        guard fileURL.isReachableFile else { return false }
         return fileURL.isPDFURL || fileURL.isVideoURL || fileURL.isImageURL
     }
     
@@ -51,8 +50,6 @@ public enum FilePreviewer {
         
         //        if #available(iOS 11.0, *), !forceLegacy {
         if #available(iOS 11.0, *) {
-            //            FilePreviewController.present(from: from, initialIndexPath: initialIndexPath)
-            
             let bundle = Bundle(for: FilePreviewController.classForCoder())
             let storyboard = UIStoryboard(name: "FilePreviewer", bundle: bundle)
             // swiftlint:disable:next force_cast

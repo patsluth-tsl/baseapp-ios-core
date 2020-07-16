@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'baseapp-ios-core-v1'
-  s.version          = '0.1.16'
+  s.version          = '0.1.17'
   s.summary          = 'A short description of baseapp-ios-core-v1.'
   s.description      = s.summary
   s.homepage         = 'https://bitbucket.org/silverlogic/baseapp-ios-core-v1'
@@ -27,15 +27,14 @@ Pod::Spec.new do |s|
   s.default_subspecs = 'Default'
   
   
-  
-  
-  
   s.subspec 'Default' do |ss|
       ss.ios.dependency 'RxSwift'
       ss.ios.dependency 'RxCocoa'
       ss.ios.dependency 'RxSwiftExt'
       ss.ios.dependency 'PromiseKit'
       ss.ios.dependency 'CancelForPromiseKit'
+      ss.ios.dependency 'Alamofire'
+      ss.ios.dependency 'CancelForPromiseKit/Alamofire'
       ss.ios.dependency 'Kingfisher', '~> 5.9.0'
       ss.ios.dependency 'SwiftDate'
       ss.ios.dependency 'SwiftyBeaver'
@@ -63,9 +62,6 @@ Pod::Spec.new do |s|
       
       ss.ios.resource = 'baseapp-ios-core-v1/src/Default/Resources/**/*'
       ss.osx.resource = 'baseapp-ios-core-v1/src/Default/Resources/**/*'
-      # ss.resource_bundles = {
-      #   'baseapp-ios-core-v1' => ['baseapp-ios-core-v1/Assets/*.png']
-      # }
   end
   
   s.subspec 'simd' do |ss|

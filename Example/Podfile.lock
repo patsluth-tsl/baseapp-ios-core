@@ -1,12 +1,15 @@
 PODS:
+  - Alamofire (4.9.1)
   - Alertift (4.1.1)
   - AssistantKit (0.6.1)
-  - baseapp-ios-core-v1 (0.1.15):
-    - baseapp-ios-core-v1/Default (= 0.1.15)
-  - baseapp-ios-core-v1/Default (0.1.15):
+  - baseapp-ios-core-v1 (0.1.16):
+    - baseapp-ios-core-v1/Default (= 0.1.16)
+  - baseapp-ios-core-v1/Default (0.1.16):
+    - Alamofire
     - Alertift
     - AssistantKit
     - CancelForPromiseKit
+    - CancelForPromiseKit/Alamofire
     - Kingfisher (~> 5.9.0)
     - PromiseKit
     - R.swift
@@ -17,11 +20,15 @@ PODS:
     - SnapKit
     - SwiftDate
     - SwiftyBeaver
-  - baseapp-ios-core-v1/FilePreviewer (0.1.15):
+  - baseapp-ios-core-v1/FilePreviewer (0.1.16):
     - baseapp-ios-core-v1/Default
   - CancelForPromiseKit (1.1.0):
     - CancelForPromiseKit/CorePromise (= 1.1.0)
     - CancelForPromiseKit/Foundation (= 1.1.0)
+  - CancelForPromiseKit/Alamofire (1.1.0):
+    - Alamofire (~> 4.0)
+    - CancelForPromiseKit/CorePromise
+    - PromiseKit/Alamofire (~> 6.0)
   - CancelForPromiseKit/CorePromise (1.1.0):
     - PromiseKit/CorePromise (~> 6.0)
   - CancelForPromiseKit/Foundation (1.1.0):
@@ -34,6 +41,9 @@ PODS:
     - PromiseKit/CorePromise (= 6.13.1)
     - PromiseKit/Foundation (= 6.13.1)
     - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/Alamofire (6.13.1):
+    - Alamofire (~> 4.0)
+    - PromiseKit/CorePromise
   - PromiseKit/CorePromise (6.13.1)
   - PromiseKit/Foundation (6.13.1):
     - PromiseKit/CorePromise
@@ -72,6 +82,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
     - Alertift
     - AssistantKit
     - CancelForPromiseKit
@@ -94,9 +105,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alertift: 950483ca193717cc8bb508a7dbbe34f4af321daf
   AssistantKit: 7dd40c019e9a06e93555ed58498a2d212fcb408d
-  baseapp-ios-core-v1: e022e79ea64cc7835bf7176800322110a409d7d6
+  baseapp-ios-core-v1: 5712da38c72d4852f015c035336ce1c2175aca39
   CancelForPromiseKit: 753c8798c31519ab324dad33974b7f8e4a92257b
   Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db

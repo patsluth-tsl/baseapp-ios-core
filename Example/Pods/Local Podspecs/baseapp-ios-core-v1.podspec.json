@@ -1,6 +1,6 @@
 {
   "name": "baseapp-ios-core-v1",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "summary": "A short description of baseapp-ios-core-v1.",
   "description": "A short description of baseapp-ios-core-v1.",
   "homepage": "https://bitbucket.org/silverlogic/baseapp-ios-core-v1",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://bitbucket.org/silverlogic/baseapp-ios-core-v1",
-    "tag": "0.1.15"
+    "tag": "0.1.16"
   },
   "swift_versions": "5.0",
   "requires_arc": true,
@@ -50,6 +50,12 @@
 
           ],
           "CancelForPromiseKit": [
+
+          ],
+          "Alamofire": [
+
+          ],
+          "CancelForPromiseKit/Alamofire": [
 
           ],
           "Kingfisher": [
