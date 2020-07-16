@@ -10,6 +10,7 @@ import CoreLocation
 import Foundation
 import RxCocoa
 import RxSwift
+import RxSwiftExt
 
 /// A singleton that provides access the the device location.
 public final class LocationManager: NSObject {
