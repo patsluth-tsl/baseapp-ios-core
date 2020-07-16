@@ -14,10 +14,7 @@ import UIKit
 public class FileViewController: UIViewController {
     public var fileURL: URL! {
         didSet {
-//            print(fileURL)
-//            if fileURL.isPDFURL {
-//                object_setClass(self, PDFFileViewController.self)
-//            }
+            loadViewIfNeeded()
             navigationItem.title = fileURL?.fileName
         }
     }
@@ -50,22 +47,19 @@ public class FileViewController: UIViewController {
             return PDFFileViewController.make({
                 $0.fileURL = fileURL
             })
-//            return PDFFileViewController(nibName: "PDFFileViewController",
-//                                         bundle: Bundle(for: FileViewController.classForCoder()))
         } else if fileURL.isVideoURL {
             return VideoFileViewController.make({
                 $0.fileURL = fileURL
             })
-//            return VideoFileViewController(nibName: "VideoFileViewController",
-//                                           bundle: Bundle(for: FileViewController.classForCoder()))
-        } else {
-            return InvalidFileViewController.make({
+        } else if fileURL.isImageURL {
+            return ImageFileViewController.make({
                 $0.fileURL = fileURL
             })
         }
-
-//        return InvalidFileViewController(nibName: "InvalidFileViewController",
-//                                         bundle: Bundle(for: FileViewController.classForCoder()))
+        
+        return InvalidFileViewController.make({
+            $0.fileURL = fileURL
+        })
     }
     
 //    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

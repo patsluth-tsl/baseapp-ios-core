@@ -97,19 +97,21 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/FileCollectionViewCell.xib"
   install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/FilePreviewer.storyboard"
-  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/FileCollectionViewCell.xib"
-  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/InvalidFileViewController.xib"
-  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/PDFFileViewController.xib"
-  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/VideoFileViewController.xib"
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/ImageFileViewController.xib"
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/InvalidFileViewController.xib"
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/PDFFileViewController.xib"
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/VideoFileViewController.xib"
   install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/FileCollectionViewCell.xib"
   install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/FilePreviewer.storyboard"
-  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/FileCollectionViewCell.xib"
-  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/InvalidFileViewController.xib"
-  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/PDFFileViewController.xib"
-  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/VideoFileViewController.xib"
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/ImageFileViewController.xib"
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/InvalidFileViewController.xib"
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/PDFFileViewController.xib"
+  install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/VideoFileViewController.xib"
   install_resource "${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj"
 fi
 

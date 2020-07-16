@@ -286,17 +286,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-baseapp-ios-core-v1_Example/Pods-baseapp-ios-core-v1_Example-resources.sh",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/FileCollectionViewCell.xib",
 				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/FilePreviewer.storyboard",
-				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/FileCollectionViewCell.xib",
-				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/InvalidFileViewController.xib",
-				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/PDFFileViewController.xib",
-				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/VideoFileViewController.xib",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/ImageFileViewController.xib",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/InvalidFileViewController.xib",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/PDFFileViewController.xib",
+				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj/VideoFileViewController.xib",
 				"${PODS_ROOT}/../../baseapp-ios-core-v1/src/FilePreviewer/Resources/Base.lproj",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FilePreviewer.storyboardc",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FileCollectionViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FilePreviewer.storyboardc",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ImageFileViewController.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/InvalidFileViewController.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PDFFileViewController.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/VideoFileViewController.nib",

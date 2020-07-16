@@ -18,7 +18,8 @@ import UIKit
 
 public enum FilePreviewer {
     public static func canPreview(fileURL: URL) -> Bool {
-        return fileURL.isReachableFile && (fileURL.isPDFURL || fileURL.isVideoURL)
+        guard fileURL.isReachableFile else { return false }
+        return fileURL.isPDFURL || fileURL.isVideoURL || fileURL.isImageURL
     }
     
     #if os(iOS)

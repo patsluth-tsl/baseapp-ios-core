@@ -10,6 +10,8 @@ import baseapp_ios_core_v1
 import QuickLook
 import UIKit
 
+// swiftlint:disable line_length
+
 class ViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
@@ -28,22 +30,31 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let resourceURL = Bundle.main.resourceURL else { return }
-        
-        guard let fileURLs = try? FileManager.default.contentsOfDirectory(
-            at: resourceURL,
-            includingPropertiesForKeys: nil,
-            options: [
-                .skipsHiddenFiles,
-                .skipsSubdirectoryDescendants
-            ]
-        ) else { return }
+//        guard let resourceURL = Bundle.main.resourceURL else { return }
+//
+//        guard let fileURLs = try? FileManager.default.contentsOfDirectory(
+//            at: resourceURL,
+//            includingPropertiesForKeys: nil,
+//            options: [
+//                .skipsHiddenFiles,
+//                .skipsSubdirectoryDescendants
+//            ]
+//        ) else { return }
+//
+//        FilePreviewer.preview(
+//            from: self,
+//            fileURLs: fileURLs.filter({
+//                FilePreviewer.canPreview(fileURL: $0)
+//            }),
+//            initialPreviewIndex: 0
+//        )
         
         FilePreviewer.preview(
             from: self,
-            fileURLs: fileURLs.filter({
-                FilePreviewer.canPreview(fileURL: $0)
-            }),
+            fileURLs: [
+                URL(string: "http://api.flult.local/media/generic_attachments/content/ffed3050-bd5e-4755-a5b5-614e1081b8e6.png")!,
+                URL(string: "https://i.cbc.ca/1.5256404.1566499707!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cat-behaviour.jpg")!
+            ],
             initialPreviewIndex: 0
         )
     }

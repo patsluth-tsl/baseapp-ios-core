@@ -18,7 +18,7 @@ internal class InvalidFileViewController: FileViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(
             nibName: "InvalidFileViewController",
-            bundle: Bundle(for: PDFFileViewController.classForCoder())
+            bundle: Bundle(for: InvalidFileViewController.classForCoder())
         )
     }
     
