@@ -6,17 +6,29 @@
 //  Copyright © 2018 Pat Sluth. All rights reserved.
 //
 
+import CancelForPromiseKit
 import CoreLocation
 import Foundation
 import RxCocoa
 import RxSwift
 import RxSwiftExt
 
+public enum LocationManagerErrors: Error {
+    case unauthorized
+}
+
 /// A singleton that provides access the the device location.
 public final class LocationManager: NSObject {
     public static let shared = LocationManager()
     
     let coreLocationManager: CLLocationManager
+    
+    private let _authorizationStatus: BehaviorRelay<CLAuthorizationStatus>
+    public var onAuthorizationStatus: Observable<CLAuthorizationStatus> {
+        return _authorizationStatus
+            .asObservable()
+            .distinct()
+    }
     
     private let _currentLocation = BehaviorRelay<CLLocation?>(value: nil)
     public var currentLocation: CLLocation? {
@@ -47,12 +59,16 @@ public final class LocationManager: NSObject {
     }
     
     private override init() {
+        
         coreLocationManager = CLLocationManager.make({
             $0.pausesLocationUpdatesAutomatically = false
             $0.distanceFilter = kCLDistanceFilterNone
             $0.headingFilter = kCLHeadingFilterNone
             $0.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         })
+        _authorizationStatus = BehaviorRelay<CLAuthorizationStatus>(
+            value: CLLocationManager.authorizationStatus()
+        )
         
         super.init()
         
@@ -63,8 +79,20 @@ public final class LocationManager: NSObject {
         }
     }
     
-    public func requestLocation() {
-        coreLocationManager.requestLocation()
+    public func requestLocation() -> CancellablePromise<CLLocation> {
+        defer {
+            coreLocationManager.requestLocation()
+        }
+        return onCurrentLocation.or(LocationManager.shared.onError)
+            .asCancellablePromise()
+            .map({ locationResult -> CLLocation in
+                switch locationResult {
+                case .A(let location):
+                    return location
+                case .B(let error):
+                    throw error
+                }
+            })
     }
     
     public func start() {
@@ -83,6 +111,7 @@ public final class LocationManager: NSObject {
 extension LocationManager: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager,
                                 didChangeAuthorization status: CLAuthorizationStatus) {
+        _authorizationStatus.accept(status)
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             start()

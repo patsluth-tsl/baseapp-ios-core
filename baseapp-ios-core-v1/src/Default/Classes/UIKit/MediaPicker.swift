@@ -62,7 +62,12 @@ public final class MediaPicker: NSObject {
         fatalError("\(#function) not supported")
     }
     
-    private init(viewController: UIViewController, _ mediaTypes: Set<MediaType>, tintColor: UIColor? = nil) {
+    private init(
+        viewController: UIViewController,
+        anchorView: UIView? = nil,
+        tintColor: UIColor? = nil,
+        _ mediaTypes: Set<MediaType>
+    ) {
         super.init()
         
         defer {
@@ -80,10 +85,13 @@ public final class MediaPicker: NSObject {
             return
         }
         
-        Alertift.actionSheet(title: nil, message: nil)
-            .action(.cancel("Cancel"), handler: { _, _ in
-                self.didSelect(output: nil)
-            })
+        let alert = (anchorView == nil) ?
+            Alertift.actionSheet(title: nil, message: nil) :
+            Alertift.actionSheet(title: nil, message: nil, anchorView: anchorView!)
+        
+        alert.action(.cancel("Cancel"), handler: { _, _ in
+            self.didSelect(output: nil)
+        })
             .action(.default("Choose from library"), handler: { _, _ in
                 executeAction(.photoLibrary)
             })
@@ -100,9 +108,18 @@ public final class MediaPicker: NSObject {
 @available(iOS 11.0, *)
 public extension MediaPicker {
     @discardableResult
-    class func pick(from viewController: UIViewController,
-                    _ mediaTypes: Set<MediaType>) -> CancellablePromise<MediaItem> {
-        return MediaPicker(viewController: viewController, mediaTypes).promise
+    class func pick(
+        from viewController: UIViewController,
+        anchorView: UIView? = nil,
+        tintColor: UIColor? = nil,
+        _ mediaTypes: Set<MediaType>
+    ) -> CancellablePromise<MediaItem> {
+        return MediaPicker(
+            viewController: viewController,
+            anchorView: anchorView,
+            tintColor: tintColor,
+            mediaTypes
+        ).promise
     }
 }
 
