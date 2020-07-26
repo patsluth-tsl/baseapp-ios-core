@@ -62,6 +62,12 @@ public final class MediaPicker: NSObject {
         fatalError("\(#function) not supported")
     }
     
+    deinit {
+        if promise.isPending {
+            resolver.reject(PMKError.cancelled)
+        }
+    }
+    
     private init(
         viewController: UIViewController,
         anchorView: UIView? = nil,
