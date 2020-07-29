@@ -94,10 +94,10 @@ public final class MediaPicker: NSObject {
         let alert = (anchorView == nil) ?
             Alertift.actionSheet(title: nil, message: nil) :
             Alertift.actionSheet(title: nil, message: nil, anchorView: anchorView!)
-        
-        alert.action(.cancel("Cancel"), handler: { _, _ in
-            self.didSelect(output: nil)
-        })
+        alert
+            .action(.cancel("Cancel"), handler: { _, _ in
+                self.didSelect(output: nil)
+            })
             .action(.default("Choose from library"), handler: { _, _ in
                 executeAction(.photoLibrary)
             })

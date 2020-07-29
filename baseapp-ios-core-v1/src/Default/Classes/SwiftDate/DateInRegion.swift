@@ -11,10 +11,10 @@ import SwiftDate
 public extension DateInRegion {
     /// String representation of date in provided region, defaults to current device region.
     func toString(_ format: String, _ region: Region = Region.local) -> String {
-        if region == region {
+        if self.region == region {
             return toFormat(format, locale: region.locale)
         } else {
-            return convertTo(region: region).toFormat(format)
+            return convertTo(region: region).toFormat(format, locale: region.locale)
         }
     }
 }
