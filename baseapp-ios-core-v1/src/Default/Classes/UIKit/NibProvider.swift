@@ -9,8 +9,31 @@
 import Foundation
 import UIKit
 
+public extension UINib {
+    public enum InstantiationType {
+        case firstView
+        case fileOwner
+    }
+}
+
 public protocol NibProvider {
     static var nib: UINib { get }
+    static var instantiation: UINib.InstantiationType { get }
+}
+
+// MARK: - Defaults
+public extension NibProvider
+where Self: UIView {
+    static var instantiation: UINib.InstantiationType {
+        .firstView
+    }
+}
+
+public extension NibProvider
+where Self: UIViewController {
+    static var instantiation: UINib.InstantiationType {
+        .fileOwner
+    }
 }
 
 public extension UINib {
@@ -19,6 +42,23 @@ public extension UINib {
 
 public extension UINib.Provider
 where Self: UIView {
+    static func instantiate(
+        _ instantiation: UINib.InstantiationType = Self.instantiation
+    ) -> Self {
+        var _self: Self!
+        switch instantiation {
+        case .firstView:
+            _self = Self.nib.instantiate(withOwner: nil, options: nil).compactMap({
+                $0 as? Self
+            }).first ?? Self()
+        case .fileOwner:
+            _self = Self()
+            _self.translatesAutoresizingMaskIntoConstraints = false
+            _self.installNib()
+        }
+        return _self
+    }
+    
     @available(*, deprecated, renamed: "installNib")
     func installNibView() {
         installNib()
