@@ -9,9 +9,14 @@
 import Foundation
 
 public extension URLComponents {
-	var queryItemsByName: [String: URLQueryItem]? {
-		return self.queryItems?.reduce(into: [String: URLQueryItem]()) {
-			$0[$1.name] = $1
-		}
-	}
+    var queryItemsByName: [String: URLQueryItem]? {
+        return queryItems?.reduce(into: [String: URLQueryItem]()) {
+            $0[$1.name] = $1
+        }
+    }
+    
+    init?(url: URL?, resolvingAgainstBaseURL: Bool = true) {
+        guard let url = url else { return nil }
+        self.init(url: url, resolvingAgainstBaseURL: resolvingAgainstBaseURL)
+    }
 }
