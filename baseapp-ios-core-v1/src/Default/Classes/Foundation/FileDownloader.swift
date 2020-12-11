@@ -6,6 +6,8 @@
 //  Copyright © 2017 patsluth. All rights reserved.
 //
 
+#if os(iOS)
+
 import Alamofire
 import CancelForPromiseKit
 import Foundation
@@ -89,3 +91,5 @@ public extension FileDownloader {
             })
     }
 }
+
+#endif

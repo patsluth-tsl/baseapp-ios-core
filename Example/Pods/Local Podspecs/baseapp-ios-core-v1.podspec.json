@@ -1,6 +1,6 @@
 {
   "name": "baseapp-ios-core-v1",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "summary": "A short description of baseapp-ios-core-v1.",
   "description": "A short description of baseapp-ios-core-v1.",
   "homepage": "https://bitbucket.org/silverlogic/baseapp-ios-core-v1",
@@ -13,14 +13,15 @@
   },
   "source": {
     "git": "https://bitbucket.org/silverlogic/baseapp-ios-core-v1",
-    "tag": "0.1.25"
+    "tag": "0.1.26"
   },
-  "swift_versions": "5.0",
+  "swift_versions": "5.1",
   "requires_arc": true,
   "static_framework": true,
   "platforms": {
     "ios": "10.0",
-    "osx": "10.11"
+    "osx": "10.11",
+    "watchos": "3.0"
   },
   "default_subspecs": "Default",
   "ios": {
@@ -38,22 +39,22 @@
       "ios": {
         "dependencies": {
           "RxSwift": [
-
+            "~> 5.1.1"
           ],
           "RxCocoa": [
-
+            "~> 5.1.1"
           ],
           "RxSwiftExt": [
-
+            "~> 5.2.0"
           ],
           "PromiseKit": [
-
+            "~> 6.13.1"
           ],
           "CancelForPromiseKit": [
-
+            "~> 1.1.0"
           ],
           "Alamofire": [
-
+            "~> 4.9.1"
           ],
           "CancelForPromiseKit/Alamofire": [
 
@@ -61,26 +62,26 @@
           "Kingfisher": [
             "~> 5.9.0"
           ],
-          "SwiftDate": [
-
-          ],
           "SwiftyBeaver": [
-
+            "~> 1.9.3"
           ],
           "R.swift": [
-
+            "~> 5.3.0"
           ],
           "SegueManager/R.swift": [
 
           ],
           "Alertift": [
-
+            "~> 4.2.0"
           ],
           "AssistantKit": [
-
+            "~> 0.7.1"
           ],
           "SnapKit": [
-
+            "~> 5.0.1"
+          ],
+          "SwiftDate": [
+            "~> 6.3.1"
           ]
         },
         "frameworks": [
@@ -91,10 +92,52 @@
           "CoreData",
           "UIKit",
           "SystemConfiguration",
-          "AVKit"
+          "AVKit",
+          "AVFoundation"
         ],
         "source_files": "baseapp-ios-core-v1/src/Default/Classes/**/*",
         "resources": "baseapp-ios-core-v1/src/Default/Resources/**/*"
+      },
+      "watchos": {
+        "dependencies": {
+          "RxSwift": [
+            "~> 5.1.1"
+          ],
+          "RxCocoa": [
+            "~> 5.1.1"
+          ],
+          "RxSwiftExt": [
+            "~> 5.2.0"
+          ],
+          "PromiseKit": [
+            "~> 6.13.1"
+          ],
+          "CancelForPromiseKit": [
+            "~> 1.1.0"
+          ],
+          "SwiftyBeaver": [
+            "~> 1.9.3"
+          ],
+          "SwiftDate": [
+            "~> 6.3.1"
+          ]
+        },
+        "frameworks": [
+          "Foundation",
+          "CoreFoundation",
+          "CoreGraphics",
+          "AVKit",
+          "AVFoundation"
+        ],
+        "source_files": "baseapp-ios-core-v1/src/Default/Classes/**/*",
+        "exclude_files": [
+          "baseapp-ios-core-v1/src/Default/Classes/AVKit/**/*",
+          "baseapp-ios-core-v1/src/Default/Classes/CoreLocation/**/*",
+          "baseapp-ios-core-v1/src/Default/Classes/CoreData/**/*",
+          "baseapp-ios-core-v1/src/Default/Classes/MapKit/**/*",
+          "baseapp-ios-core-v1/src/Default/Classes/R.Swift/**/*",
+          "baseapp-ios-core-v1/src/Default/Classes/UIKit/**/*"
+        ]
       },
       "osx": {
         "frameworks": [
@@ -181,5 +224,5 @@
       }
     }
   ],
-  "swift_version": "5.0"
+  "swift_version": "5.1"
 }

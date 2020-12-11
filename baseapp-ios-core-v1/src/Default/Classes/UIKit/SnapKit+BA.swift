@@ -5,6 +5,8 @@
 //  Created by Pat Sluth on 2019-02-25.
 //
 
+#if os(iOS)
+
 import SnapKit
 import UIKit
 
@@ -59,3 +61,5 @@ public extension NSObjectProtocol
 		return self
 	}
 }
+
+#endif

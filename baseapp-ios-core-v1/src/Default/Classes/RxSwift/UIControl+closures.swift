@@ -128,6 +128,9 @@ public struct DisposableWrapper<Value> {
 	}
 }
 
+
+#if os(iOS)
+
 public extension NSObjectProtocol
 	where Self: UIControl {
 	@discardableResult
@@ -179,3 +182,5 @@ public extension NSObjectProtocol
 		return onTap().on(event)
 	}
 }
+
+#endif

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'baseapp-ios-core-v1'
-  s.version          = '0.1.26'
+  s.version          = '0.2.0'
   s.summary          = 'A short description of baseapp-ios-core-v1.'
   s.description      = s.summary
   s.homepage         = 'https://bitbucket.org/silverlogic/baseapp-ios-core-v1'
@@ -17,32 +17,41 @@ Pod::Spec.new do |s|
   s.author           = { 'patsluth' => 'ps@tsl.io' }
   s.source           = { :git => 'https://bitbucket.org/silverlogic/baseapp-ios-core-v1', :tag => s.version.to_s }
   
-  s.swift_version = '5.0'
+  s.swift_version = '5.1'
   s.requires_arc = true
   s.static_framework = true
 
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.11'
+  s.watchos.deployment_target = '3.0'
   
   s.default_subspecs = 'Default'
   
   
   s.subspec 'Default' do |ss|
-      ss.ios.dependency 'RxSwift'
-      ss.ios.dependency 'RxCocoa'
-      ss.ios.dependency 'RxSwiftExt'
-      ss.ios.dependency 'PromiseKit'
-      ss.ios.dependency 'CancelForPromiseKit'
-      ss.ios.dependency 'Alamofire'
+      ss.ios.dependency 'RxSwift', '~> 5.1.1'
+      ss.ios.dependency 'RxCocoa', '~> 5.1.1'
+      ss.ios.dependency 'RxSwiftExt', '~> 5.2.0'
+      ss.ios.dependency 'PromiseKit', '~> 6.13.1'
+      ss.ios.dependency 'CancelForPromiseKit', '~> 1.1.0'
+      ss.ios.dependency 'Alamofire', '~> 4.9.1'
       ss.ios.dependency 'CancelForPromiseKit/Alamofire'
       ss.ios.dependency 'Kingfisher', '~> 5.9.0'
-      ss.ios.dependency 'SwiftDate'
-      ss.ios.dependency 'SwiftyBeaver'
-      ss.ios.dependency 'R.swift'
+      ss.ios.dependency 'SwiftyBeaver', '~> 1.9.3'
+      ss.ios.dependency 'R.swift', '~> 5.3.0'
       ss.ios.dependency 'SegueManager/R.swift'
-      ss.ios.dependency 'Alertift'
-      ss.ios.dependency 'AssistantKit'
-      ss.ios.dependency 'SnapKit'
+      ss.ios.dependency 'Alertift', '~> 4.2.0'
+      ss.ios.dependency 'AssistantKit', '~> 0.7.1'
+      ss.ios.dependency 'SnapKit', '~> 5.0.1'
+      ss.ios.dependency 'SwiftDate', '~> 6.3.1'
+      
+      ss.watchos.dependency 'RxSwift', '~> 5.1.1'
+      ss.watchos.dependency 'RxCocoa', '~> 5.1.1'
+      ss.watchos.dependency 'RxSwiftExt', '~> 5.2.0'
+      ss.watchos.dependency 'PromiseKit', '~> 6.13.1'
+      ss.watchos.dependency 'CancelForPromiseKit', '~> 1.1.0'
+      ss.watchos.dependency 'SwiftyBeaver', '~> 1.9.3'
+      ss.watchos.dependency 'SwiftDate', '~> 6.3.1'
       
       ss.ios.frameworks = 'Foundation',
       'CoreFoundation',
@@ -51,16 +60,29 @@ Pod::Spec.new do |s|
       'CoreData',
       'UIKit',
       'SystemConfiguration',
-      'AVKit'
+      'AVKit',
+      'AVFoundation'
       ss.osx.frameworks = 'Foundation',
       'CoreFoundation',
       'CoreGraphics',
       'CoreLocation',
       'CoreData',
       'SystemConfiguration'
+      ss.watchos.frameworks = 'Foundation',
+      'CoreFoundation',
+      'CoreGraphics',
+      'AVKit',
+      'AVFoundation'
       
       ss.ios.source_files = 'baseapp-ios-core-v1/src/Default/Classes/**/*'
       ss.osx.source_files = 'baseapp-ios-core-v1/src/Default/Classes/**/*'
+      ss.watchos.source_files = 'baseapp-ios-core-v1/src/Default/Classes/**/*'
+      ss.watchos.exclude_files = 'baseapp-ios-core-v1/src/Default/Classes/AVKit/**/*',
+      'baseapp-ios-core-v1/src/Default/Classes/CoreLocation/**/*',
+      'baseapp-ios-core-v1/src/Default/Classes/CoreData/**/*',
+      'baseapp-ios-core-v1/src/Default/Classes/MapKit/**/*',
+      'baseapp-ios-core-v1/src/Default/Classes/R.Swift/**/*',
+      'baseapp-ios-core-v1/src/Default/Classes/UIKit/**/*'
       
       ss.ios.resource = 'baseapp-ios-core-v1/src/Default/Resources/**/*'
       ss.osx.resource = 'baseapp-ios-core-v1/src/Default/Resources/**/*'

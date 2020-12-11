@@ -6,6 +6,8 @@
 //  Copyright © 2018 Pat Sluth. All rights reserved.
 //
 
+#if os(iOS)
+
 import Alertift
 import AssistantKit
 import CancelForPromiseKit
@@ -175,3 +177,5 @@ extension MediaPicker: UINavigationControllerDelegate & UIImagePickerControllerD
         didSelect(output: nil)
     }
 }
+
+#endif

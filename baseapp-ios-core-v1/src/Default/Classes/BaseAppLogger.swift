@@ -6,7 +6,9 @@
 //  Copyright © 2017 SilverLogic. All rights reserved.
 //
 
+#if os(iOS)
 import AssistantKit
+#endif
 import Foundation
 import SwiftyBeaver
 
@@ -43,9 +45,12 @@ public final class BaseLogger {
         }))
         _logger.addDestination(configure(FileDestination(), {
             $0.format = (ProcessInfo.isRunningUnitTests) ? "$M" : format
+            #if os(iOS)
             if Device.isSimulator {
                 $0.logFileURL = URL(fileURLWithPath: "/tmp/swiftybeaver.log")
             }
+            #endif
+            // TODO: Add Watch session to send logs to device
         }))
     }
 }

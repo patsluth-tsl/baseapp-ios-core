@@ -5,6 +5,8 @@
 //  Created by Pat Sluth on 2019-02-25.
 //
 
+#if os(iOS)
+
 import PromiseKit
 import Rswift
 import UIKit
@@ -45,3 +47,5 @@ public extension StoryboardResourceType {
         })
     }
 }
+
+#endif

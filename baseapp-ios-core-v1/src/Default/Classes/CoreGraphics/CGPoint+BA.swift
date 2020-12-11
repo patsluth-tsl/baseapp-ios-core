@@ -6,6 +6,7 @@
 //  Copyright © 2017 Pat Sluth. All rights reserved.
 //
 
+import CoreGraphics
 import Foundation
 
 public extension CGPoint {

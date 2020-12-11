@@ -168,6 +168,9 @@ import UIKit
 /// Device.os9
 /// Device.os10
 /// Device.os11
+/// Device.os12
+/// Device.os13
+/// Device.os14
 /// ```
 public struct Device {
     // Implementations is grouped by extensions:
@@ -220,5 +223,29 @@ extension Device {
         guard Device.isPad else { return false }
         guard let rootWindow = UIApplication.shared.delegate?.window, let window = rootWindow else { return false }
         return !window.frame.equalTo(window.screen.bounds)
+    }
+}
+
+extension UIDevice {
+    
+    static public var isSafeAreaPhone: Bool {
+        return Device.isPhone && isSafeAreaDevice
+    }
+    
+    static public var isSafeAreaPad: Bool {
+        return Device.isPad && isSafeAreaDevice
+    }
+    
+    static public var isSafeAreaDevice: Bool {
+        // above iOS11 dont have safe area
+        guard #available(iOS 11.0, *) else { return false }
+        
+        guard let safeAreaInsets = UIApplication.shared.keyWindow?.safeAreaInsets else {
+            return false
+        }
+        
+        // iOS11 top value is 0,but iOS12 top is 20.
+        let hasSafeArea = (safeAreaInsets.top != 0 && safeAreaInsets.top != 20) || safeAreaInsets.bottom != 0 || safeAreaInsets.left != 0 || safeAreaInsets.right != 0
+        return  hasSafeArea
     }
 }

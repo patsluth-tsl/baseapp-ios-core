@@ -6,6 +6,7 @@
 //  Copyright © 2017 Pat Sluth. All rights reserved.
 //
 
+import AVFoundation
 import AVKit
 import Foundation
 

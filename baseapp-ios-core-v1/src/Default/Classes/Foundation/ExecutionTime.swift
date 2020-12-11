@@ -7,7 +7,9 @@
 //
 
 import Foundation
-import QuartzCore
+
+
+#if os(iOS)
 
 public enum ExecutionTime {
 	static func of(_ closure: () -> Void, completedIn: (TimeInterval) -> Void) {
@@ -16,3 +18,5 @@ public enum ExecutionTime {
 		completedIn(CACurrentMediaTime() - start)
 	}
 }
+
+#endif

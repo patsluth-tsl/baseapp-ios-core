@@ -6,6 +6,8 @@
 //  Copyright © 2017 Pat Sluth. All rights reserved.
 //
 
+#if os(iOS)
+
 import AVKit
 import CancelForPromiseKit
 import Foundation
@@ -299,3 +301,5 @@ extension MediaURL {
         }
     }
 }
+
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2017 patsluth. All rights reserved.
 //
 
+import CoreGraphics
 import Foundation
 
 extension CGRect: AreaCalculable {
