@@ -170,20 +170,8 @@ xcuserdata
 # ...none. Everything is now explained.
 
 ###
-# Pod Schemas
-Pods/Pods.xcodeproj/*
-Pods/*.xcconfig
-Pods/Pods-*-Private.xcconfig
-Pods/Pods-*-dummy.m
-Pods/Pods-*-prefix.pch
-Pods/Pods-*.xcconfig
-Pods/Pods-*-environment.h
-Pods/Pods-*-resources.shPods/Pods-*-prefix.pch
-Pods/Pods-*.xcconfig
-Pods/Pods-*-environment.h
-Pods/Pods-*-resources.sh
-Pods/*.xcconfig
-Pods/Target\ Support\ Files/*
+# Cocoapods
+Example/Pods
 
 # fastlane
 #

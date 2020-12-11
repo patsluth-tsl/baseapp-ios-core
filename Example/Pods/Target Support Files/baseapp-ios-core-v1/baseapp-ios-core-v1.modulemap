@@ -1,6 +1,0 @@
-framework module baseapp_ios_core_v1 {
-  umbrella header "baseapp-ios-core-v1-umbrella.h"
-
-  export *
-  module * { export * }
-}

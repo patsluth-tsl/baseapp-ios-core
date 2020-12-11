@@ -1,6 +1,0 @@
-framework module CancelForPromiseKit {
-  umbrella header "CancelForPromiseKit-umbrella.h"
-
-  export *
-  module * { export * }
-}
