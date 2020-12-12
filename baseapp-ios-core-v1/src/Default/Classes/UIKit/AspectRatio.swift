@@ -5,8 +5,11 @@
 //  Created by Pat Sluth on 2019-02-25.
 //
 
+import AVFoundation
 import AVKit
 import UIKit
+
+#if os(iOS)
 
 public enum AspectRatio {
     /// Width by Height
@@ -153,3 +156,5 @@ public extension AspectRatio {
         }
     }
 }
+
+#endif

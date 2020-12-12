@@ -7,6 +7,8 @@
 
 import UIKit
 
+#if os(iOS)
+
 @IBDesignable
 public class ShapeView: UIView {
 	private lazy var maskLayer: CAShapeLayer = {
@@ -68,3 +70,5 @@ public enum Shape: String {
 		return path
 	}
 }
+
+#endif

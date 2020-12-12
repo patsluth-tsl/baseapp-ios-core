@@ -6,6 +6,8 @@
 //  Copyright © 2017 Pat Sluth. All rights reserved.
 //
 
+#if os(iOS)
+
 /// A `UILabel` subclass that automatically adjusts it's text color to the tintColor
 public class UITintedLabel: UILabel {
 	override public func tintColorDidChange() {
@@ -13,3 +15,5 @@ public class UITintedLabel: UILabel {
 		textColor = tintColor
 	}
 }
+
+#endif

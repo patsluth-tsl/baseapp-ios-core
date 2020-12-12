@@ -7,6 +7,8 @@
 //
 
 import ClockKit
+import baseapp_ios_core_v1
+import UIKit
 
 
 class ComplicationController: NSObject, CLKComplicationDataSource {

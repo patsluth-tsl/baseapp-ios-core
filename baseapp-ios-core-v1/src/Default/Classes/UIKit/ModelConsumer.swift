@@ -20,6 +20,8 @@ public protocol SelectableModelConsumer: ModelConsumer {
     typealias Model = SelectableModel<BaseModel>
 }
 
+#if os(iOS)
+
 //public typealias ModelViewController = UIViewController & ModelConsumer
 //public typealias ModelView = UIView & ModelConsumer
 public protocol ModelViewController: ModelConsumer
@@ -47,3 +49,5 @@ public extension UICollectionView {
 	typealias ModelCell = UICollectionViewCell & ModelView
 	typealias SelectableModelCell = UICollectionViewCell & SelectableModelView
 }
+
+#endif

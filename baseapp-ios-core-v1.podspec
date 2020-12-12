@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'baseapp-ios-core-v1'
-  s.version          = '0.2.5'
+  s.version          = '0.2.6'
   s.summary          = 'A short description of baseapp-ios-core-v1.'
   s.description      = s.summary
   s.homepage         = 'https://bitbucket.org/silverlogic/baseapp-ios-core-v1'
@@ -81,8 +81,7 @@ Pod::Spec.new do |s|
       'baseapp-ios-core-v1/src/Default/Classes/CoreLocation/**/*',
       'baseapp-ios-core-v1/src/Default/Classes/CoreData/**/*',
       'baseapp-ios-core-v1/src/Default/Classes/MapKit/**/*',
-      'baseapp-ios-core-v1/src/Default/Classes/R.Swift/**/*',
-      'baseapp-ios-core-v1/src/Default/Classes/UIKit/**/*'
+      'baseapp-ios-core-v1/src/Default/Classes/R.Swift/**/*'
       
       ss.ios.resource = 'baseapp-ios-core-v1/src/Default/Resources/**/*'
       ss.osx.resource = 'baseapp-ios-core-v1/src/Default/Resources/**/*'

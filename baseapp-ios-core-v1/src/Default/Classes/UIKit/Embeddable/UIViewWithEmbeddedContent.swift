@@ -7,6 +7,8 @@
 
 import UIKit
 
+#if os(iOS)
+
 public protocol UIViewWithEmbeddedContent: UIView {
 	associatedtype Embedded: UIView
     
@@ -21,3 +23,5 @@ extension UIViewWithEmbeddedContent where Embedded: ModelConsumer {
 		set { self.embedded.model = newValue }
 	}
 }
+
+#endif

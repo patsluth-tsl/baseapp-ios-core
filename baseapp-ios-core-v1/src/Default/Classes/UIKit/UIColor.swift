@@ -6,7 +6,9 @@
 //  Copyright © 2017 patsluth. All rights reserved.
 //
 
+import CoreGraphics
 import Foundation
+import UIKit
 
 public extension UIColor {
     func with(alpha: CGFloat) -> UIColor {

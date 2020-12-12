@@ -10,6 +10,8 @@ import PromiseKit
 import UIKit
 import UserNotifications
 
+#if os(iOS)
+
 public extension UIApplication {
     static var sharedSafe: UIApplication? {
         let sharedSelector = NSSelectorFromString("shared")
@@ -64,3 +66,5 @@ public extension UIApplication {
             })
     }
 }
+
+#endif

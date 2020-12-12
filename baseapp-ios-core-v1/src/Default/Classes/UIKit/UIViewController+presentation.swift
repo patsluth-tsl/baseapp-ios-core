@@ -7,6 +7,9 @@
 
 import UIKit
 
+#if os(iOS)
+
+
 public extension NSObjectProtocol
 where Self: UIViewController {
     @discardableResult
@@ -60,3 +63,5 @@ where Self: UIViewController {
         return self
     }
 }
+
+#endif

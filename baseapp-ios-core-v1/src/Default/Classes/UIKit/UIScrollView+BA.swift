@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 public extension UIScrollView {
     var isAtStart: Bool {
         return (contentOffset.x <= 0.0)
@@ -25,3 +27,5 @@ public extension UIScrollView {
         return (contentOffset.y >= (contentSize.height - bounds.height))
     }
 }
+
+#endif

@@ -5,6 +5,8 @@
 //  Created by Pat Sluth on 2019-03-01.
 //
 
+#if os(iOS)
+
 import SnapKit
 import UIKit
 
@@ -75,3 +77,5 @@ public class UICollectionReusableWithEmbeddedContentView<T>: UICollectionView.Ba
 		prepareForReuse()
 	}
 }
+
+#endif

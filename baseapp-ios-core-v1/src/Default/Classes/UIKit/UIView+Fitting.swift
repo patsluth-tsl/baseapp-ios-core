@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+#if os(iOS)
+
+
 public extension UIView {
     public enum FittingType {
         case CompressedSize
@@ -116,3 +119,5 @@ public extension NSObjectProtocol
 		//							   vertical: .fittingSizeLevel)
 	}
 }
+
+#endif

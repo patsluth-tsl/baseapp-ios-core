@@ -10,6 +10,8 @@ import RxCocoa
 import RxSwift
 import UIKit
 
+#if os(iOS)
+
 extension UITableView {
 	open class BaseCell: UITableViewCell {
 		public private(set) var disposeBag = DisposeBag()
@@ -47,3 +49,5 @@ extension UITableView {
 //		}
 	}
 }
+
+#endif

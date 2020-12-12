@@ -8,6 +8,8 @@
 
 import UIKit
 
+#if os(iOS)
+
 public extension UIStackView {
 	@discardableResult
 	func axis(_ axis: NSLayoutConstraint.Axis) -> Self {
@@ -87,3 +89,5 @@ public extension UIStackView {
 		return self
 	}
 }
+
+#endif

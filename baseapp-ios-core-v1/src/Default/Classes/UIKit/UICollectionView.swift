@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 // swiftlint:disable force_cast
 
 public extension UICollectionView {
@@ -147,3 +149,5 @@ public extension UICollectionView {
         })
     }
 }
+
+#endif

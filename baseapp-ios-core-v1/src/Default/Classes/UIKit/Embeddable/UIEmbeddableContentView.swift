@@ -7,6 +7,8 @@
 
 import UIKit
 
+#if os(iOS)
+
 public protocol HighlightableViewProtocol: UIView {
 	var isHighlighted: Bool { get set }
 }
@@ -29,3 +31,5 @@ extension UIImageView: HighlightableViewProtocol {
 	where Self: UIView {
 	@objc optional func prepareForReuse()
 }
+
+#endif

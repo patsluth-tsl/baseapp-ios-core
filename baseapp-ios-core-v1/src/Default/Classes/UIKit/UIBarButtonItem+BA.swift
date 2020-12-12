@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 // MARK: - Init Helpers
 public extension UIBarButtonItem {
     convenience init(image: UIImage?,
@@ -43,3 +45,5 @@ public extension UIBarButtonItem {
                   action: nil)
     }
 }
+
+#endif

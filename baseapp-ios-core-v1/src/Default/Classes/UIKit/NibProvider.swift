@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+#if os(iOS)
+
 public extension UINib {
     public enum InstantiationType {
         case firstView
@@ -89,3 +91,5 @@ where Self: UIView {
         nibView.setNeedsLayout()
     }
 }
+
+#endif

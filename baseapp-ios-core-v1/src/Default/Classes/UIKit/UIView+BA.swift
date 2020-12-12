@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+#if os(iOS)
+
 public extension NSObjectProtocol
 	where Self: UIView {
     @discardableResult
@@ -43,3 +45,5 @@ where Self: UIView {
         return self
     }
 }
+
+#endif

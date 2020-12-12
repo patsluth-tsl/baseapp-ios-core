@@ -6,6 +6,8 @@
 //  Copyright © 2017 patsluth. All rights reserved.
 //
 
+#if os(iOS)
+
 import RxCocoa
 import RxSwift
 import UIKit
@@ -21,3 +23,5 @@ extension UICollectionView {
         }
     }
 }
+
+#endif

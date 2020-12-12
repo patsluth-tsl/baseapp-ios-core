@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 public extension UIScrollView {
     public struct Page {
         public let x: Int
@@ -52,3 +54,5 @@ public extension UIScrollView {
                        y: bounds.height * CGFloat(page.y))
     }
 }
+
+#endif

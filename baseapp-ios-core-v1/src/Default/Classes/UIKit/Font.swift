@@ -6,15 +6,19 @@
 //  Copyright © 2017 patsluth. All rights reserved.
 //
 
+import CoreGraphics
 import Foundation
+import UIKit
 
-#if os(iOS) || os(watchOS) || os(tvOS)
+#if os(iOS) || os(tvOS)
 public typealias Font = UIFont
 public typealias FontDescriptor = UIFontDescriptor
 #elseif os(macOS)
 public typealias Font = NSFont
 public typealias FontDescriptor = NSFontDescriptor
 #endif
+
+#if os(iOS) || os(tvOS) || os(macOS)
 
 public extension Font {
     func scaledBy(percent: CGFloat) -> Font! {
@@ -37,3 +41,4 @@ public extension Font {
         #endif
     }
 }
+#endif

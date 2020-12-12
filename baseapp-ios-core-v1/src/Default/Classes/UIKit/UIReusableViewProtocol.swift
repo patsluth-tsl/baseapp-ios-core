@@ -8,6 +8,8 @@
 
 import UIKit
 
+#if os(iOS)
+
 public protocol UIReusableViewProtocol {
 	func prepareForReuse()
 }
@@ -15,3 +17,5 @@ public protocol UIReusableViewProtocol {
 extension UITableViewCell: UIReusableViewProtocol { }
 
 extension UICollectionReusableView: UIReusableViewProtocol { }
+
+#endif

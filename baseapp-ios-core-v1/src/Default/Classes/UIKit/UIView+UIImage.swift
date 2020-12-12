@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 public extension UIView {
     func imageRepresentation(afterScreenUpdates: Bool = false,
                              opaque: Bool = false) -> UIImage? {
@@ -25,3 +27,5 @@ public extension UIView {
 		return image
 	}
 }
+
+#endif

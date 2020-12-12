@@ -9,6 +9,8 @@
 import Foundation
 import ObjectiveC
 
+#if os(iOS)
+
 // swiftlint:disable force_cast
 
 public extension UITableView {
@@ -137,3 +139,5 @@ public extension UITableView {
         })
     }
 }
+
+#endif

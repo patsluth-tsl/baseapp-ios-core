@@ -8,6 +8,8 @@
 
 import UIKit
 
+#if os(iOS)
+
 public extension UIGestureRecognizer {
     @discardableResult
     func add(to view: UIView) -> Self {
@@ -15,3 +17,5 @@ public extension UIGestureRecognizer {
         return self
     }
 }
+
+#endif

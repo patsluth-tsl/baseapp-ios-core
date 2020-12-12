@@ -7,9 +7,17 @@
 //
 
 import Foundation
+import UIKit
+#if os(watchOS)
+import WatchKit
+#endif
 
 public extension UIColor {
     static var systemTintColor: UIColor {
-		return UIButton(type: .system).tintColor
+        #if os(iOS)
+        return UIButton(type: .system).tintColor
+        #elseif os(watchOS)
+        return WKExtension.shared().globalTintColor
+        #endif
 	}
 }

@@ -8,6 +8,9 @@
 
 import UIKit
 
+#if os(iOS)
+
+
 public extension UIView {
 	var safeTopAnchor: NSLayoutYAxisAnchor {
 		if #available(iOS 11.0, *) {
@@ -57,3 +60,5 @@ public extension UIView {
 		}
 	}
 }
+
+#endif
