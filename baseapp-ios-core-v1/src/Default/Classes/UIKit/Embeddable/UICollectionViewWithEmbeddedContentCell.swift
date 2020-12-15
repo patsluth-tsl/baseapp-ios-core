@@ -85,10 +85,6 @@ public class UICollectionViewWithEmbeddedContentCell<T>: UICollectionView.BaseCe
 		
         embedded.prepareForInterfaceBuilder()
 	}
-	
-	deinit {
-		prepareForReuse()
-	}
 }
 
 #endif

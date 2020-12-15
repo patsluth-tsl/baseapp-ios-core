@@ -51,10 +51,6 @@ public class UITableViewHeaderFooterWithEmbeddedContentView<T>: UITableView.Base
 		
 		embedded.prepareForInterfaceBuilder()
 	}
-    
-	deinit {
-		prepareForReuse()
-	}
 }
 
 #endif

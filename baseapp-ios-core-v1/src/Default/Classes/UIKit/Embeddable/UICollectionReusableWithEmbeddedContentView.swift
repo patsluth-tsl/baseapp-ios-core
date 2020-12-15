@@ -72,10 +72,6 @@ public class UICollectionReusableWithEmbeddedContentView<T>: UICollectionView.Ba
 		
 		embedded.prepareForInterfaceBuilder()
 	}
-	
-	deinit {
-		prepareForReuse()
-	}
 }
 
 #endif

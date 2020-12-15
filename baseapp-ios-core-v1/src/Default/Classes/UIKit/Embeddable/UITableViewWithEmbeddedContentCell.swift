@@ -61,10 +61,6 @@ public class UITableViewWithEmbeddedContentCell<T>: UITableView.BaseCell, UIView
 		
 		embedded.prepareForInterfaceBuilder()
 	}
-	
-	deinit {
-		prepareForReuse()
-	}
 }
 
 #endif

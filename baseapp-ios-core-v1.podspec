@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'baseapp-ios-core-v1'
-  s.version          = '0.2.6'
+  s.version          = '0.2.7'
   s.summary          = 'A short description of baseapp-ios-core-v1.'
   s.description      = s.summary
   s.homepage         = 'https://bitbucket.org/silverlogic/baseapp-ios-core-v1'
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
       ss.ios.dependency 'Alamofire', '~> 4.9.1'
       ss.ios.dependency 'CancelForPromiseKit/Alamofire'
       ss.ios.dependency 'Kingfisher', '~> 5.9.0'
-      ss.ios.dependency 'SwiftyBeaver', '~> 1.9.3'
+      ss.ios.dependency ex'SwiftyBeaver', '~> 1.9.3'
       ss.ios.dependency 'R.swift', '~> 5.3.0'
       ss.ios.dependency 'SegueManager/R.swift'
       ss.ios.dependency 'Alertift', '~> 4.2.0'
