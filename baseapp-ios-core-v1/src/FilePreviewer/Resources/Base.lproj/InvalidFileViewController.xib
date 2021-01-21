@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InvalidFileViewController" customModule="FilePreviewer" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InvalidFileViewController" customModule="baseapp_ios_core_v1">
             <connections>
                 <outlet property="label" destination="JXT-LA-Gqs" id="l1h-kh-gf8"/>
                 <outlet property="view" destination="Vw5-EO-ox2" id="NPp-z5-i5Z"/>
@@ -28,6 +26,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="NFI-hg-RDm"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="NFI-hg-RDm" firstAttribute="bottom" secondItem="JXT-LA-Gqs" secondAttribute="bottom" id="LW6-KK-pl6"/>
@@ -35,7 +34,6 @@
                 <constraint firstItem="NFI-hg-RDm" firstAttribute="trailing" secondItem="JXT-LA-Gqs" secondAttribute="trailing" id="crd-n0-dPT"/>
                 <constraint firstItem="JXT-LA-Gqs" firstAttribute="top" secondItem="NFI-hg-RDm" secondAttribute="top" id="tN1-cB-VwI"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="NFI-hg-RDm"/>
             <point key="canvasLocation" x="51" y="31"/>
         </view>
     </objects>

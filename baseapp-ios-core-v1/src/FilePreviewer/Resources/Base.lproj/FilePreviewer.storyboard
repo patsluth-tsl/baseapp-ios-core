@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BKp-63-bFq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BKp-63-bFq">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,12 +11,12 @@
         <!--PDF View Controller-->
         <scene sceneID="49G-f5-hCz">
             <objects>
-                <viewController storyboardIdentifier="FilePreviewController" automaticallyAdjustsScrollViewInsets="NO" id="BKp-63-bFq" userLabel="PDF View Controller" customClass="FilePreviewController" customModule="baseapp_ios_core_v1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilePreviewController" automaticallyAdjustsScrollViewInsets="NO" id="BKp-63-bFq" userLabel="PDF View Controller" customClass="FilePreviewController" customModule="baseapp_ios_core_v1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PeO-Ci-PlM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="q4I-We-Rrq"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
@@ -54,7 +54,7 @@
         <!--File Selection View Controller-->
         <scene sceneID="YzF-fY-Edm">
             <objects>
-                <viewController id="b4H-7M-XEO" customClass="FileSelectionViewController" customModule="baseapp_ios_core_v1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="b4H-7M-XEO" customClass="FileSelectionViewController" customModule="baseapp_ios_core_v1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FfF-Ut-ffP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,6 +75,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="18w-zB-XAU"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="18w-zB-XAU" firstAttribute="trailing" secondItem="iVU-XS-dqe" secondAttribute="trailing" id="7J1-mx-Z9x"/>
@@ -82,7 +83,6 @@
                             <constraint firstItem="iVU-XS-dqe" firstAttribute="top" secondItem="18w-zB-XAU" secondAttribute="top" id="AVT-L5-or5"/>
                             <constraint firstItem="18w-zB-XAU" firstAttribute="bottom" secondItem="iVU-XS-dqe" secondAttribute="bottom" id="jUK-uv-aWv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="18w-zB-XAU"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z6g-uB-gNq">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="SBI-62-cSq">

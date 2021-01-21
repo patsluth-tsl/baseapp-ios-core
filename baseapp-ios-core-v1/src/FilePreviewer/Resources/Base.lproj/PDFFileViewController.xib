@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDFFileViewController" customModule="FilePreviewer" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDFFileViewController" customModule="baseapp_ios_core_v1">
             <connections>
                 <outlet property="pageIndicatorView" destination="hXg-ZX-qOt" id="D9T-HH-kuT"/>
                 <outlet property="pageSelectionView" destination="7XN-VH-tRN" id="Sa0-hC-h0K"/>
