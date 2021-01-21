@@ -23,7 +23,7 @@ internal class PDFFileViewController: FileViewController {
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(
             nibName: "PDFFileViewController",
-            bundle: Bundle(for: PDFFileViewController.classForCoder())
+            bundle: FilePreviewer.resourceBundle()
         )
     }
 

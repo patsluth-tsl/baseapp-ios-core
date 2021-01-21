@@ -48,7 +48,7 @@ internal class FileSelectionViewController: UIViewController {
         
         collectionView.registerCell(
             FileCollectionViewCell.self,
-            nib: UINib(nibName: "FileCollectionViewCell", bundle: Bundle(for: self.classForCoder))
+            nib: UINib(nibName: "FileCollectionViewCell", bundle: FilePreviewer.resourceBundle())
         )
     }
     

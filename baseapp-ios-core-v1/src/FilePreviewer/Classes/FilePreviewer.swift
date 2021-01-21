@@ -21,6 +21,15 @@ public enum FilePreviewer {
         return fileURL.isPDFURL || fileURL.isVideoURL || fileURL.isImageURL
     }
     
+    @available(iOS 11.0, *)
+    internal static func resourceBundle() -> Bundle? {
+        let bundleResourceURL = Bundle(for: FilePreviewController.classForCoder()).resourceURL
+        if let bundleURL = bundleResourceURL?.appendingPathComponent("FilePreviewer.bundle") {
+            return Bundle(url: bundleURL)
+        }
+        return nil
+    }
+    
     #if os(iOS)
     
     public static func preview<T: UIViewController>(
@@ -50,8 +59,7 @@ public enum FilePreviewer {
         
         //        if #available(iOS 11.0, *), !forceLegacy {
         if #available(iOS 11.0, *) {
-            let bundle = Bundle(for: FilePreviewController.classForCoder())
-            let storyboard = UIStoryboard(name: "FilePreviewer", bundle: bundle)
+            let storyboard = UIStoryboard(name: "FilePreviewer", bundle: FilePreviewer.resourceBundle())
             // swiftlint:disable:next force_cast
             let viewController = storyboard.instantiateInitialViewController() as! FilePreviewController
             

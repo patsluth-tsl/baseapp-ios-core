@@ -17,7 +17,7 @@ internal class VideoFileViewController: FileViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(
             nibName: "VideoFileViewController",
-            bundle: Bundle(for: VideoFileViewController.classForCoder())
+            bundle: FilePreviewer.resourceBundle()
         )
     }
     

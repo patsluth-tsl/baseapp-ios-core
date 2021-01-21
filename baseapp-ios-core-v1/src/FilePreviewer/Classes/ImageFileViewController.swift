@@ -29,7 +29,7 @@ internal class ImageFileViewController: FileViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(
             nibName: "ImageFileViewController",
-            bundle: Bundle(for: ImageFileViewController.classForCoder())
+            bundle: FilePreviewer.resourceBundle()
         )
     }
     

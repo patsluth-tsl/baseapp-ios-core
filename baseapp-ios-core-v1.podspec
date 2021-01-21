@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'baseapp-ios-core-v1'
-  s.version          = '0.2.8'
+  s.version          = '0.2.9'
   s.summary          = 'A short description of baseapp-ios-core-v1.'
   s.description      = s.summary
   s.homepage         = 'https://bitbucket.org/silverlogic/baseapp-ios-core-v1'
@@ -125,10 +125,13 @@ Pod::Spec.new do |s|
   s.subspec 'FilePreviewer' do |ss|
       ss.dependency 'baseapp-ios-core-v1/Default'
       
-      s.ios.frameworks = 'Foundation', 'UIKit', 'QuickLook', 'PDFKit', 'AVKit'
+      ss.ios.frameworks = 'Foundation', 'UIKit', 'QuickLook', 'PDFKit', 'AVKit'
       
       ss.ios.source_files = 'baseapp-ios-core-v1/src/FilePreviewer/Classes/**/*'
-      ss.ios.resource = 'baseapp-ios-core-v1/src/FilePreviewer/Resources/**/*'
+#      ss.ios.resource = 'baseapp-ios-core-v1/src/FilePreviewer/Resources/**/*'
+      ss.ios.resource_bundles = {
+          'FilePreviewer' => ['baseapp-ios-core-v1/src/FilePreviewer/Resources/**/*']
+      }
   end
 
 end
