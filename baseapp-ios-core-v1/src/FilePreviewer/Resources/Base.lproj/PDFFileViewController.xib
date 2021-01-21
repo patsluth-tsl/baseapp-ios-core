@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDFFileViewController" customModule="baseapp_ios_core_v1" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDFFileViewController" customModule="FilePreviewer" customModuleProvider="target">
             <connections>
                 <outlet property="pageIndicatorView" destination="hXg-ZX-qOt" id="D9T-HH-kuT"/>
                 <outlet property="pageSelectionView" destination="7XN-VH-tRN" id="Sa0-hC-h0K"/>
@@ -21,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XN-VH-tRN" customClass="PDFPageSelectionView" customModule="baseapp_ios_core_v1" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XN-VH-tRN" customClass="PDFPageSelectionView" customModule="baseapp_ios_core_v1">
                     <rect key="frame" x="325" y="44" width="50" height="734"/>
                     <subviews>
                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YfD-nL-PCb">
@@ -36,7 +37,7 @@
                         <constraint firstItem="YfD-nL-PCb" firstAttribute="top" secondItem="7XN-VH-tRN" secondAttribute="top" id="v1z-tD-Gcj"/>
                     </constraints>
                 </view>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXg-ZX-qOt" customClass="PDFPageIndicatorView" customModule="baseapp_ios_core_v1" customModuleProvider="target">
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXg-ZX-qOt" customClass="PDFPageIndicatorView" customModule="baseapp_ios_core_v1">
                     <rect key="frame" x="20" y="64" width="75" height="30"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ycb-6V-B3i">
                         <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
@@ -65,7 +66,7 @@
                         </subviews>
                     </view>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.26920114436619719" colorSpace="custom" customColorSpace="displayP3"/>
-                    <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                    <color key="tintColor" systemColor="lightTextColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="hXg-ZX-qOt" secondAttribute="height" multiplier="2.5:1" id="P5C-hr-uWT"/>
                         <constraint firstAttribute="width" constant="75" id="hkW-U0-NZV"/>
@@ -76,8 +77,9 @@
                     </connections>
                 </visualEffectView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="NFI-hg-RDm"/>
             <color key="backgroundColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" systemColor="systemOrangeColor"/>
             <constraints>
                 <constraint firstItem="7XN-VH-tRN" firstAttribute="top" secondItem="NFI-hg-RDm" secondAttribute="top" id="3nv-bl-R38"/>
                 <constraint firstItem="hXg-ZX-qOt" firstAttribute="top" secondItem="NFI-hg-RDm" secondAttribute="top" constant="20" id="LTy-1u-kQq"/>
@@ -86,8 +88,15 @@
                 <constraint firstItem="7XN-VH-tRN" firstAttribute="bottom" secondItem="NFI-hg-RDm" secondAttribute="bottom" id="WFJ-pX-FXq"/>
                 <constraint firstItem="hXg-ZX-qOt" firstAttribute="leading" secondItem="Vw5-EO-ox2" secondAttribute="leading" constant="20" id="bOp-Dy-mEa"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="NFI-hg-RDm"/>
             <point key="canvasLocation" x="50.5" y="31"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="lightTextColor">
+            <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
