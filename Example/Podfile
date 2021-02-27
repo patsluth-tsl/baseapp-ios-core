@@ -6,7 +6,7 @@ target 'baseapp-ios-core-v1_Example' do
   inhibit_all_warnings!
   
   pod 'baseapp-ios-core-v1', :path => '../'
-#  pod 'baseapp-ios-core-v1/ARKit', :path => '../'
+  pod 'baseapp-ios-core-v1/ARKit', :path => '../'
   pod 'baseapp-ios-core-v1/FilePreviewer', :path => '../'
   pod 'SwiftLint'
 

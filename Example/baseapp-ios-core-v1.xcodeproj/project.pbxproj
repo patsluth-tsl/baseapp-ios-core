@@ -474,7 +474,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-baseapp-ios-core-v1_Example/Pods-baseapp-ios-core-v1_Example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/baseapp-ios-core-v1.default-FilePreviewer/FilePreviewer.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/baseapp-ios-core-v1.default-ARKit-FilePreviewer-SceneKit-simd/FilePreviewer.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (

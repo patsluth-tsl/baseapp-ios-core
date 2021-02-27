@@ -2,9 +2,13 @@ PODS:
   - Alamofire (4.9.1)
   - Alertift (4.2.0)
   - AssistantKit (0.7.1)
-  - baseapp-ios-core-v1 (0.2.8):
-    - baseapp-ios-core-v1/Default (= 0.2.8)
-  - baseapp-ios-core-v1/Default (0.2.8):
+  - baseapp-ios-core-v1 (0.2.11):
+    - baseapp-ios-core-v1/Default (= 0.2.11)
+  - baseapp-ios-core-v1/ARKit (0.2.11):
+    - baseapp-ios-core-v1/Default
+    - baseapp-ios-core-v1/SceneKit
+    - baseapp-ios-core-v1/simd
+  - baseapp-ios-core-v1/Default (0.2.11):
     - Alamofire (~> 4.9.1)
     - Alertift (~> 4.2.0)
     - AssistantKit (~> 0.7.1)
@@ -20,7 +24,12 @@ PODS:
     - SnapKit (~> 5.0.1)
     - SwiftDate (~> 6.3.1)
     - SwiftyBeaver (~> 1.9.3)
-  - baseapp-ios-core-v1/FilePreviewer (0.2.8):
+  - baseapp-ios-core-v1/FilePreviewer (0.2.11):
+    - baseapp-ios-core-v1/Default
+  - baseapp-ios-core-v1/SceneKit (0.2.11):
+    - baseapp-ios-core-v1/Default
+    - baseapp-ios-core-v1/simd
+  - baseapp-ios-core-v1/simd (0.2.11):
     - baseapp-ios-core-v1/Default
   - CancelForPromiseKit (1.1.0):
     - CancelForPromiseKit/CorePromise (= 1.1.0)
@@ -77,6 +86,7 @@ PODS:
 
 DEPENDENCIES:
   - baseapp-ios-core-v1 (from `../`)
+  - baseapp-ios-core-v1/ARKit (from `../`)
   - baseapp-ios-core-v1/FilePreviewer (from `../`)
   - SwiftLint
 
@@ -108,7 +118,7 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alertift: 17b37be915cd28edeceabd438e4134d041ea825c
   AssistantKit: 245d28aefcf3aeae240c8ecbe3c62714e3f1c6d4
-  baseapp-ios-core-v1: bbe3e64f55c4a1c7429478d23ef068e1ccf62639
+  baseapp-ios-core-v1: 134ef605db9038e4446573b5936c1068823220b6
   CancelForPromiseKit: 753c8798c31519ab324dad33974b7f8e4a92257b
   Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
@@ -124,6 +134,6 @@ SPEC CHECKSUMS:
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
   SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
 
-PODFILE CHECKSUM: 4047cdfdf4dbf92a366e4307ccd21543b0a8becf
+PODFILE CHECKSUM: dabab6d06b1790913ead1d97ddb2180bdac2672c
 
 COCOAPODS: 1.10.1
