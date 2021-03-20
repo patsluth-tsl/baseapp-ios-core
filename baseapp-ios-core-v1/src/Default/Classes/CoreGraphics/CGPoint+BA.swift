@@ -11,11 +11,11 @@ import Foundation
 
 public extension CGPoint {
 	var integral: CGPoint {
-		return CGPoint(x: Int(self.x), y: Int(self.y))
+		return CGPoint(x: Int(x), y: Int(y))
 	}
 	
 	var rounded: CGPoint {
-		return CGPoint(x: round(self.x), y: round(self.y))
+		return CGPoint(x: round(x), y: round(y))
 	}
     
     

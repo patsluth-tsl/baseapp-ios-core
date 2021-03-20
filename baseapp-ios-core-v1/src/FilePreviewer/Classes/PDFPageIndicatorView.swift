@@ -39,11 +39,10 @@ internal class PDFPageIndicatorView: UIVisualEffectView {
                     
                     self.label.text = "\(pageIndex + 1) of \(self.pdfView!.pageCount)"
                     
-                    let duration = TimeInterval(self.alpha.value(
-                        percentage: self.alpha.percentage(between: 0.0, and: 1.0),
-                        between: 0.0,
-                        and: 0.4
-                    ))
+                    let duration = TimeInterval(
+                        self.alpha.percentage(between: 0.0, and: 1.0)
+                            .value(percentageBetween: 0.0, and: 0.4)
+                    )
                     let curve = UIView.AnimationCurve.linear
                     
                     self.fadeInAnimation = UIViewPropertyAnimator(

@@ -23,28 +23,18 @@ public extension UIColor {
             hex.append("FF")
         }
         
-        let hexValue: UInt64 = {
-            var hexValue: UInt64 = 0
+        let hexValue: UInt32 = {
+            var hexValue: UInt32 = 0
             let scanner = Scanner(string: hex)
             scanner.scanLocation = 0
-            scanner.scanHexInt64(&hexValue)
+            scanner.scanHexInt32(&hexValue)
             return hexValue
         }()
         
-        //        if hex.count == 8 {
-        ////            let r = CGFloat((hexValue & 0xFF000000) >> 24) / 0xFF
-        ////            let g = CGFloat((hexValue & 0x00FF0000) >> 16) / 0xFF
-        ////            let b = CGFloat((hexValue & 0x0000FF00) >> 08) / 0xFF
-        ////            let a = CGFloat((hexValue & 0x000000FF) >> 00) / 0xFF
-        ////
-        ////            self.init(red: r, green: g, blue: b, alpha: a)
-        //        } else {
-        //            return nil
-        //        }
-        self.init(hexValue: UInt(hexValue))
+        self.init(hexValue: hexValue)
     }
     
-    @objc convenience init(hexValue: UInt) {
+    @objc convenience init(hexValue: UInt32) {
         switch hexValue {
         case (0...0xFFFFFF):
             self.init(
@@ -79,7 +69,7 @@ public extension UIColor {
         )
     }
     
-    @objc func toHexValue() -> UInt {
+    @objc func toHexValue() -> UInt32 {
         var r: CGFloat = 0.0
         var g: CGFloat = 0.0
         var b: CGFloat = 0.0
@@ -87,11 +77,11 @@ public extension UIColor {
         
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         
-        let float0xFF = CGFloat(0xFF)
-        return
-            (UInt((r * float0xFF)) << 24) +
-                (UInt((g * float0xFF)) << 16) +
-                (UInt((b * float0xFF)) << 8) +
-                (UInt((a * float0xFF)) << 0)
+        let _r = UInt32(r * CGFloat(0xFF)) << 24
+        let _g = UInt32(g * CGFloat(0xFF)) << 16
+        let _b = UInt32(b * CGFloat(0xFF)) << 8
+        let _a = UInt32(a * CGFloat(0xFF)) << 0
+        
+        return _r | _g | _b | _a
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CGPoint+BA.swift
+//  CGRect+BA.swift
 //  baseapp-ios-core-v1
 //
 //  Created by Pat Sluth on 2017-12-08.
@@ -11,7 +11,7 @@ import Foundation
 
 public extension CGRect {
     var center: CGPoint {
-        return CGPoint(x: self.midX, y: midY)
+        return CGPoint(x: midX, y: midY)
     }
 }
 
