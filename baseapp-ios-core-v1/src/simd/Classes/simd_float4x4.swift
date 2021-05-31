@@ -28,13 +28,17 @@ public extension simd_float4x4 {
     var m43: SCNFloat { return columns.3.z }
     var m44: SCNFloat { return columns.3.w }
     
-	/**
-	Treats matrix as a (right-hand column-major convention) transform matrix
-	and factors out the translation component of the transform.
-	*/
-	var translation: simd_float3 {
-		return simd_float3(m41, m42, m43)
-	}
+    /**
+     Treats matrix as a (right-hand column-major convention) transform matrix
+     and factors out the translation component of the transform.
+     */
+    var translation: simd_float3 {
+        return simd_float3(m41, m42, m43)
+    }
+    
+    var orientation: simd_quatf {
+        return simd_quatf(self)
+    }
     
     var scale: simd_float3 {
         return simd_float3(
@@ -79,10 +83,10 @@ public extension simd_float4x4 {
     
     init(from: simd_float3, to: simd_float3) {
         let distance = simd_float3.distance(from: from, to: to)
-//        guard !distance.isLessThanOrEqualTo(0.0) else {
-//            self = simd_float4x4.zero
-//            return
-//        }
+        //        guard !distance.isLessThanOrEqualTo(0.0) else {
+        //            self = simd_float4x4.zero
+        //            return
+        //        }
         
         // original vector of cylinder above 0,0,0
         let oldPosition = simd_float3(

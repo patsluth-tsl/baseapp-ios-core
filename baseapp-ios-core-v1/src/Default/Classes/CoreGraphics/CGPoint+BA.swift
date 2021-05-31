@@ -17,11 +17,10 @@ public extension CGPoint {
 	var rounded: CGPoint {
 		return CGPoint(x: round(x), y: round(y))
 	}
-    
-    
-    
-    
-    
+}
+
+
+public extension CGPoint {
     static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
     }
@@ -93,6 +92,7 @@ public extension CGPoint {
     }
 }
 
+
 public extension CGPoint {
     /// Returns new `CGPoint` with x
     func with(x: CGFloat) -> CGPoint {
@@ -119,4 +119,40 @@ public extension CGPoint {
 		self.y = y
 		return self
 	}
+}
+
+
+public extension CGPoint {
+    /**
+     Rotates the point from the center `origin` by `angle` radians along the Z axis.
+     
+     - Parameters:
+     - origin: The center of he rotation;
+     - byDegrees: Amount of radians to rotate around the Z axis.
+     
+     - Returns: The rotated point.
+     */
+    func rotated(around origin: CGPoint, by angle: CGFloat) -> CGPoint {
+        let dx = x - origin.x
+        let dy = y - origin.y
+        let radius = sqrt(dx * dx + dy * dy)
+        let azimuth = atan2(dy, dx)
+        let newAzimuth = azimuth + angle
+        let x = origin.x + radius * cos(newAzimuth)
+        let y = origin.y + radius * sin(newAzimuth)
+        return CGPoint(x: x, y: y)
+    }
+    
+    /**
+     Rotate the point from the center `origin` by `angle` radians along the Z axis.
+     
+     - Parameters:
+     - origin: The center of he rotation;
+     - byDegrees: Amount of radians to rotate around the Z axis.
+     */
+    @discardableResult
+    mutating func rotate(around origin: CGPoint, by angle: CGFloat) -> CGPoint {
+        self = self.rotated(around: origin, by: angle)
+        return self
+    }
 }

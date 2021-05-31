@@ -9,11 +9,13 @@
 import Foundation
 
 public extension Comparable {
-    mutating func clamp(to closedRange: ClosedRange<Self>) {
-		self = self.clamped(to: closedRange)
-	}
-
-    func clamped(to closedRange: ClosedRange<Self>) -> Self {
-		return closedRange.clamp(self)
-	}
+    mutating func clamp<R: RangeClamp>(to range: R)
+    where R.B == Self {
+        self = self.clamped(to: range)
+    }
+    
+    func clamped<R: RangeClamp>(to range: R) -> Self
+    where R.B == Self {
+        return range.clamp(self)
+    }
 }

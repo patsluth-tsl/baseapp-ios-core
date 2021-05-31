@@ -7,6 +7,7 @@
 //
 
 import baseapp_ios_core_v1
+import CoreGraphics
 import QuickLook
 import UIKit
 

@@ -80,4 +80,64 @@ public extension UIImage {
         guard let croppedImage = cgImage.cropping(to: rect) else { return nil }
         return UIImage(cgImage: croppedImage, scale: 1, orientation: imageOrientation)
     }
+    
+    public enum StrokePosition {
+        case centre
+        case inside
+        case outside
+    }
+    
+    func imageByApplying(
+        stroke color: UIColor,
+        position: StrokePosition,
+        thickness: CGFloat,
+        quality: CGFloat = 10
+    ) -> UIImage {
+        guard let cgImage = cgImage else { return self }
+        guard let strokeCGImage = imageByApplying(tintColor: color)?.cgImage else { return self }
+        /// Rendering quality of the stroke
+        let step = quality == 0 ? 10 : abs(quality)
+        let oldRect: CGRect
+        let newSize: CGSize
+        let translationVector: CGPoint
+        
+        switch position {
+        case .centre:
+            // swiftlint:disable:next line_length
+            oldRect = CGRect(x: thickness, y: thickness, width: size.width - thickness, height: size.height - thickness)
+            newSize = CGSize(width: size.width + thickness, height: size.height + thickness)
+            translationVector = CGPoint(x: thickness, y: 0)
+        case .inside:
+            // swiftlint:disable:next line_length
+            oldRect = CGRect(x: thickness, y: thickness, width: size.width - (2.0 * thickness), height: size.height - (2.0 * thickness))
+            newSize = CGSize(width: size.width, height: size.height)
+            translationVector = CGPoint(x: thickness, y: 0)
+        case .outside:
+            oldRect = CGRect(x: thickness, y: thickness, width: size.width, height: size.height)
+            newSize = CGSize(width: size.width + (2.0 * thickness), height: size.height + (2.0 * thickness))
+            translationVector = CGPoint(x: thickness, y: 0)
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, scale)
+        
+        guard let context = UIGraphicsGetCurrentContext() else { return self }
+        defer { UIGraphicsEndImageContext() }
+        context.translateBy(x: 0.0, y: newSize.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.interpolationQuality = .high
+        
+        for angle: CGFloat in stride(from: 0, to: 360, by: step) {
+            let vector = translationVector.rotated(around: .zero, by: angle.toRad)
+            context.concatenate(
+                CGAffineTransform(translationX: vector.x, y: vector.y)
+            )
+            context.draw(strokeCGImage, in: oldRect)
+            context.concatenate(
+                CGAffineTransform(translationX: -vector.x, y: -vector.y)
+            )
+        }
+        
+        context.draw(cgImage, in: oldRect)
+        return UIImage(cgImage: context.makeImage() ?? cgImage, scale: scale, orientation: imageOrientation)
+    }
 }
