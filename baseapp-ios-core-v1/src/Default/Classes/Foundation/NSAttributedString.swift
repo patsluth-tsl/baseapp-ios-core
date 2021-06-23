@@ -119,7 +119,7 @@ public extension Collection
 //	return result
 //}
 //
-//// Concats the lhs and rhs and assigns the result to the lhs
+// Concats the lhs and rhs and assigns the result to the lhs
 //infix operator += { associativity right precedence 90 }
 //
 //func +=(inout left: NSMutableAttributedString, right: String) -> NSMutableAttributedString {
@@ -142,7 +142,7 @@ public extension Collection
 //	return left += rhs
 //}
 //
-//// Applies the attributes on the rhs to the string on the lhs
+// Applies the attributes on the rhs to the string on the lhs
 //infix operator && { associativity left precedence 150 }
 //
 //func &&(left: String, right: [String: AnyObject]) -> NSAttributedString {

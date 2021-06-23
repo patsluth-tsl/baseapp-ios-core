@@ -337,10 +337,10 @@
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "baseapp-ios-core-v1_Example" */;
 			buildPhases = (
 				C9B3594043E2ABBC91D7AA15 /* [CP] Check Pods Manifest.lock */,
+				2EEF7AF923CF6D290080FB37 /* Swiftlint */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				2EEF7AF923CF6D290080FB37 /* Swiftlint */,
 				1A26AEE6FECECA926129BF8F /* [CP] Copy Pods Resources */,
 				2E04DA35258423D0004DC161 /* Embed Watch Content */,
 				95A4F30FB96A23B4FD77D690 /* [CP] Embed Pods Frameworks */,
@@ -561,7 +561,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\";\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" lint --config \"$SRCROOT/.swiftlint.yml\" --lenient;\n";
 		};
 		3C6A6CE286C5A71DFF399700 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

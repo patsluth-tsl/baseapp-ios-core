@@ -3,7 +3,7 @@
 //  baseapp-ios-core-v1
 //
 //  Created by Pat Sluth on 2019-03-01.
-//  Copyright © 2017 patsluth. All rights reserved.
+//  Copyright © 2017 SilverLogic. All rights reserved.
 //
 
 #if canImport(DifferenceKit)

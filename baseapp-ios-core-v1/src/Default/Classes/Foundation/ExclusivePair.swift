@@ -9,7 +9,6 @@
 import Foundation
 
 /// Represents two values where one is not nil and the other is nil
-// swiftlint:disable:next generic_type_name
 public enum ExclusivePair<_A, _B> {
 	case A(_A)
 	case B(_B)
@@ -38,6 +37,7 @@ public enum ExclusivePair<_A, _B> {
 		}
 	}
 }
+// swiftlint:disable:previous generic_type_name
 
 extension ExclusivePair: Equatable
 	where _A: Equatable, _B: Equatable {

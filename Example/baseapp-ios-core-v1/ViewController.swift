@@ -87,17 +87,17 @@ class ViewController: UIViewController {
 //
 //
 //extension ViewController: FilePreviewerDelegate {
-////    func previewController<T>(_ controller: QLPreviewController,
-////                              styleProviderType type: T.Type) -> UIBarStyleProvider?
-////        where T : UINavigationBar
-////    {
-////        return UINavigationBar.appearance()
-////    }
+//    func previewController<T>(_ controller: QLPreviewController,
+//                              styleProviderType type: T.Type) -> UIBarStyleProvider?
+//        where T : UINavigationBar
+//    {
+//        return UINavigationBar.appearance()
+//    }
 ////
-////    func previewController<T>(_ controller: QLPreviewController,
-////                              styleProviderType type: T.Type) -> UIBarStyleProvider?
-////        where T : UIToolbar
-////    {
-////        return UIToolbar.appearance()
-////    }
+//    func previewController<T>(_ controller: QLPreviewController,
+//                              styleProviderType type: T.Type) -> UIBarStyleProvider?
+//        where T : UIToolbar
+//    {
+//        return UIToolbar.appearance()
+//    }
 //}

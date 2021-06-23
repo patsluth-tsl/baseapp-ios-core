@@ -3,7 +3,7 @@
 //  FilePreviewer
 //
 //  Created by Pat Sluth on 2017-12-08.
-//  Copyright © 2017 Pat Sluth. All rights reserved.
+//  Copyright © 2017 SilverLogic. All rights reserved.
 //
 
 import Alertift
@@ -262,7 +262,7 @@ private extension FilePreviewController {
 //            fileViewController = fileViewControllers[index]
 //        } else {
 //            fileViewController = FileViewController.createViewControllerFor(fileURL: fileURL)
-////            print("Creating new", String(describing: fileViewController.classForCoder))
+//            print("Creating new", String(describing: fileViewController.classForCoder))
 //            //            self.fileViewControllers.append(fileViewController)
 //        }
         

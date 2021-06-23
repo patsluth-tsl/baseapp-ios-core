@@ -1,8 +1,8 @@
 //
 //  AppLogger.swift
-//  BaseAppV2
+//  baseapp-ios-core-v1
 //
-//  Created by Emanuel  Guerrero on 3/7/17.
+//  Created by Pat Sluth on 2017-10-08.
 //  Copyright © 2017 SilverLogic. All rights reserved.
 //
 

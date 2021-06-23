@@ -3,6 +3,7 @@
 //  baseapp-ios-core-v1
 //
 //  Created by Pat Sluth on 2019-03-01.
+//  Copyright © 2019 SilverLogic. All rights reserved.
 //
 
 #if os(iOS)
@@ -52,7 +53,7 @@ public class UICollectionReusableWithEmbeddedContentView<T>: UICollectionView.Ba
 		let attributes = super.preferredLayoutAttributesFitting(layoutAttributes)
 		
 		//		let size = self.contentView.systemSize(fitting: attributes.size)
-		////		let size = self.contentView.systemSize(horizontal: .required, vertical: .required)
+		//		let size = self.contentView.systemSize(horizontal: .required, vertical: .required)
 		//		attributes.size = size
 		
 		preferredLayoutAttributesProvider?(self, attributes)
