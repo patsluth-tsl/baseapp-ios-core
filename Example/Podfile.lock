@@ -2,21 +2,21 @@ PODS:
   - Alamofire (4.9.1)
   - Alertift (4.2.0)
   - AssistantKit (0.7.1)
-  - baseapp-ios-core-v1 (0.2.15):
-    - baseapp-ios-core-v1/Default (= 0.2.15)
-  - baseapp-ios-core-v1/ARKit (0.2.15):
+  - baseapp-ios-core-v1 (0.2.18):
+    - baseapp-ios-core-v1/Default (= 0.2.18)
+  - baseapp-ios-core-v1/ARKit (0.2.18):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/SceneKit
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/Default (0.2.15):
+  - baseapp-ios-core-v1/Default (0.2.18):
     - Alamofire (~> 4.9.1)
     - Alertift (~> 4.2.0)
     - AssistantKit (~> 0.7.1)
     - CancelForPromiseKit (~> 1.1.0)
     - CancelForPromiseKit/Alamofire
-    - Kingfisher (~> 5.9.0)
+    - Kingfisher (~> 5.14.0)
     - PromiseKit (~> 6.13.1)
-    - R.swift (~> 5.3.0)
+    - R.swift (~> 5.4.0)
     - RxCocoa (~> 6.1.0)
     - RxSwift (~> 6.1.0)
     - RxSwiftExt (~> 6.0.1)
@@ -24,12 +24,12 @@ PODS:
     - SnapKit (~> 5.0.1)
     - SwiftDate (~> 6.3.1)
     - SwiftyBeaver (~> 1.9.3)
-  - baseapp-ios-core-v1/FilePreviewer (0.2.15):
+  - baseapp-ios-core-v1/FilePreviewer (0.2.18):
     - baseapp-ios-core-v1/Default
-  - baseapp-ios-core-v1/SceneKit (0.2.15):
+  - baseapp-ios-core-v1/SceneKit (0.2.18):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/simd (0.2.15):
+  - baseapp-ios-core-v1/simd (0.2.18):
     - baseapp-ios-core-v1/Default
   - CancelForPromiseKit (1.1.0):
     - CancelForPromiseKit/CorePromise (= 1.1.0)
@@ -43,9 +43,9 @@ PODS:
   - CancelForPromiseKit/Foundation (1.1.0):
     - CancelForPromiseKit/CorePromise
     - PromiseKit/Foundation (~> 6.0)
-  - Kingfisher (5.9.0):
-    - Kingfisher/Core (= 5.9.0)
-  - Kingfisher/Core (5.9.0)
+  - Kingfisher (5.14.1):
+    - Kingfisher/Core (= 5.14.1)
+  - Kingfisher/Core (5.14.1)
   - PromiseKit (6.13.1):
     - PromiseKit/CorePromise (= 6.13.1)
     - PromiseKit/Foundation (= 6.13.1)
@@ -58,7 +58,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
-  - R.swift (5.3.0):
+  - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - RxCocoa (6.1.0):
@@ -75,14 +75,14 @@ PODS:
   - RxSwiftExt/RxCocoa (6.0.1):
     - RxCocoa (~> 6.0)
     - RxSwiftExt/Core
-  - SegueManager/iOS (4.2.0)
-  - SegueManager/R.swift (4.2.0):
+  - SegueManager/iOS (5.0.0)
+  - SegueManager/R.swift (5.0.0):
     - R.swift.Library
     - SegueManager/iOS
   - SnapKit (5.0.1)
   - SwiftDate (6.3.1)
-  - SwiftLint (0.41.0)
-  - SwiftyBeaver (1.9.3)
+  - SwiftLint (0.43.1)
+  - SwiftyBeaver (1.9.5)
 
 DEPENDENCIES:
   - baseapp-ios-core-v1 (from `../`)
@@ -118,21 +118,21 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alertift: 17b37be915cd28edeceabd438e4134d041ea825c
   AssistantKit: 245d28aefcf3aeae240c8ecbe3c62714e3f1c6d4
-  baseapp-ios-core-v1: fa629bf3a9cfc8473d3ea2c1f74480c89f159179
+  baseapp-ios-core-v1: 2513903c437126d12e22ce89955678c83b93fc01
   CancelForPromiseKit: 753c8798c31519ab324dad33974b7f8e4a92257b
-  Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
+  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
-  R.swift: 4170fb7161c67be3bc1a847040b79367d69c419f
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
-  SegueManager: 4f0c9e8237fe4b925129f17964caf81d1d6341bf
+  SegueManager: e45796f7351504686468d3777ec614a1f5056365
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
-  SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
-  SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
 
 PODFILE CHECKSUM: dabab6d06b1790913ead1d97ddb2180bdac2672c
 
