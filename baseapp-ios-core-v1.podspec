@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'baseapp-ios-core-v1'
-  s.version          = '0.2.19'
+  s.version          = '0.2.20'
   s.summary          = 'A short description of baseapp-ios-core-v1.'
   s.description      = s.summary
   s.homepage         = 'https://bitbucket.org/silverlogic/baseapp-ios-core-v1'
@@ -29,8 +29,8 @@ Pod::Spec.new do |s|
   
   
   s.subspec 'Default' do |ss|
-      ss.ios.dependency 'RxSwift', '~> 6.1.0'
-      ss.ios.dependency 'RxCocoa', '~> 6.1.0'
+      ss.ios.dependency 'RxSwift', '~> 6.2.0'
+      ss.ios.dependency 'RxCocoa', '~> 6.2.0'
       ss.ios.dependency 'RxSwiftExt', '~> 6.0.1'
       ss.ios.dependency 'PromiseKit', '~> 6.13.1'
       ss.ios.dependency 'CancelForPromiseKit', '~> 1.1.0'
@@ -45,8 +45,8 @@ Pod::Spec.new do |s|
       ss.ios.dependency 'SnapKit', '~> 5.0.1'
       ss.ios.dependency 'SwiftDate', '~> 6.3.1'
       
-      ss.watchos.dependency 'RxSwift', '~> 6.1.0'
-      ss.watchos.dependency 'RxCocoa', '~> 6.1.0'
+      ss.watchos.dependency 'RxSwift', '~> 6.2.0'
+      ss.watchos.dependency 'RxCocoa', '~> 6.2.0'
       ss.watchos.dependency 'RxSwiftExt', '~> 6.0.1'
       ss.watchos.dependency 'PromiseKit', '~> 6.13.1'
       ss.watchos.dependency 'CancelForPromiseKit', '~> 1.1.0'
