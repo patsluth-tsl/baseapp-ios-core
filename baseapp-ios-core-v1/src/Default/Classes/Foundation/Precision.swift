@@ -3,7 +3,7 @@
 //  baseapp-ios-core-v1
 //
 //  Created by Pat Sluth on 2018-06-20.
-//  Copyright © 2018 patsluth. All rights reserved.
+//  Copyright © 2020 SilverLogic. All rights reserved.
 //
 
 import Foundation

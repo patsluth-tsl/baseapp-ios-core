@@ -103,7 +103,7 @@ public extension simd_float4x4 {
         
         let axis = simd_float3.midPoint(from: oldPosition, to: newPosition).normalized
         
-        let q0 = Float(0.0) //cos(angel/2), angle is always 180 or M_PI
+        let q0 = Float(0.0) // cos(angel/2), angle is always 180 or M_PI
         let q1 = Float(axis.x) // x' * sin(angle/2)
         let q2 = Float(axis.y) // y' * sin(angle/2)
         let q3 = Float(axis.z) // z' * sin(angle/2)

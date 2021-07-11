@@ -2,7 +2,8 @@
 //  AspectRatio.swift
 //  baseapp-ios-core-v1
 //
-//  Created by Pat Sluth on 2019-02-25.
+//  Created by Pat Sluth on 2019-03-01.
+//  Copyright © 2019 SilverLogic. All rights reserved.
 //
 
 import AVFoundation

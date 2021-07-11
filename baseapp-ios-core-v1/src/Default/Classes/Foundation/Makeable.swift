@@ -1,8 +1,9 @@
 //
-//  NSObjectProtocol+Makeable.swift
-//  vytality-customer
+//  Makeable+DateInRegion.swift
+//  baseapp-ios-core-v1
 //
-//  Created by Pat Sluth on 2019-02-25.
+//  Created by patsluth on 01/15/2020.
+//  Copyright © 2020 SilverLogic. All rights reserved.
 //
 
 import Foundation

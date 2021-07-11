@@ -22,8 +22,6 @@ public protocol SelectableModelConsumer: ModelConsumer {
 
 #if os(iOS)
 
-//public typealias ModelViewController = UIViewController & ModelConsumer
-//public typealias ModelView = UIView & ModelConsumer
 public protocol ModelViewController: ModelConsumer
 	where Self: UIViewController {
 }
