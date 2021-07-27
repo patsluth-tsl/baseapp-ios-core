@@ -3,7 +3,7 @@
 //  baseapp-ios-core-v1
 //
 //  Created by patsluth on 01/15/2020.
-//  Copyright (c) 2020 patsluth. All rights reserved.
+//  Copyright (c) 2020 SilverLogic. All rights reserved.
 //
 
 import baseapp_ios_core_v1
@@ -50,6 +50,7 @@ class ViewController: UIViewController {
 //            initialPreviewIndex: 0
 //        )
         
+        // FilePreviewer Example
         FilePreviewer.preview(
             from: self,
             fileURLs: [
@@ -70,7 +71,7 @@ class ViewController: UIViewController {
 }
 
 
-//extension ViewController: FilePreviewerDataSource {
+// extension ViewController: FilePreviewerDataSource {
 //    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
 //        return fileURLs.count
 //    }
@@ -83,21 +84,21 @@ class ViewController: UIViewController {
 //    func previewItem(at indexPath: IndexPath) -> QLPreviewItem {
 //        return fileURLs[indexPath.item] as NSURL
 //    }
-//}
+// }
 //
 //
-//extension ViewController: FilePreviewerDelegate {
+// extension ViewController: FilePreviewerDelegate {
 //    func previewController<T>(_ controller: QLPreviewController,
 //                              styleProviderType type: T.Type) -> UIBarStyleProvider?
 //        where T : UINavigationBar
 //    {
 //        return UINavigationBar.appearance()
 //    }
-////
+//
 //    func previewController<T>(_ controller: QLPreviewController,
 //                              styleProviderType type: T.Type) -> UIBarStyleProvider?
 //        where T : UIToolbar
 //    {
 //        return UIToolbar.appearance()
 //    }
-//}
+// }

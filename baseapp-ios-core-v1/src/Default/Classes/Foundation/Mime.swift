@@ -1,3 +1,11 @@
+//
+//  Mime.swift
+//  baseapp-ios-core-v1
+//
+//  Created by Pat Sluth on 3/7/17.
+//  Copyright © 2017 SilverLogic. All rights reserved.
+//
+
 import Foundation
 
 public struct Mime {

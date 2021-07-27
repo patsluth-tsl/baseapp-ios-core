@@ -16,10 +16,6 @@
 		2E04DA2D258423CF004DC161 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E04DA2C258423CF004DC161 /* ComplicationController.swift */; };
 		2E04DA2F258423D0004DC161 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E04DA2E258423D0004DC161 /* Assets.xcassets */; };
 		2E04DA34258423D0004DC161 /* Example.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2E04DA15258423CB004DC161 /* Example.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2E32E729243ABE11009D9E62 /* job-1-3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2E32E725243ABE11009D9E62 /* job-1-3.pdf */; };
-		2E32E72A243ABE11009D9E62 /* job-1-3 copy 2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2E32E726243ABE11009D9E62 /* job-1-3 copy 2.pdf */; };
-		2E32E72B243ABE11009D9E62 /* job-1-3 copy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2E32E727243ABE11009D9E62 /* job-1-3 copy.pdf */; };
-		2E32E72C243ABE11009D9E62 /* job-1-3 copy 3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2E32E728243ABE11009D9E62 /* job-1-3 copy 3.pdf */; };
 		595677C6BB39B9EC52860416 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47A01605BDB50795BAC751 /* Pods_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -97,10 +93,6 @@
 		2E04DA2E258423D0004DC161 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E04DA30258423D0004DC161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E04DA31258423D0004DC161 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		2E32E725243ABE11009D9E62 /* job-1-3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "job-1-3.pdf"; sourceTree = "<group>"; };
-		2E32E726243ABE11009D9E62 /* job-1-3 copy 2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "job-1-3 copy 2.pdf"; sourceTree = "<group>"; };
-		2E32E727243ABE11009D9E62 /* job-1-3 copy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "job-1-3 copy.pdf"; sourceTree = "<group>"; };
-		2E32E728243ABE11009D9E62 /* job-1-3 copy 3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "job-1-3 copy 3.pdf"; sourceTree = "<group>"; };
 		448A337792CC8F2A5562E895 /* Pods_baseapp_ios_core_v1_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_baseapp_ios_core_v1_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		472249341532125C8FE71441 /* Pods-Example Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example Extension.debug.xcconfig"; path = "Target Support Files/Pods-Example Extension/Pods-Example Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		592F8B95881EE18399BFE233 /* Pods_Example_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,10 +236,6 @@
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
-				2E32E726243ABE11009D9E62 /* job-1-3 copy 2.pdf */,
-				2E32E728243ABE11009D9E62 /* job-1-3 copy 3.pdf */,
-				2E32E727243ABE11009D9E62 /* job-1-3 copy.pdf */,
-				2E32E725243ABE11009D9E62 /* job-1-3.pdf */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for baseapp-ios-core-v1";
@@ -449,12 +437,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E32E72B243ABE11009D9E62 /* job-1-3 copy.pdf in Resources */,
-				2E32E729243ABE11009D9E62 /* job-1-3.pdf in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				2E32E72C243ABE11009D9E62 /* job-1-3 copy 3.pdf in Resources */,
-				2E32E72A243ABE11009D9E62 /* job-1-3 copy 2.pdf in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

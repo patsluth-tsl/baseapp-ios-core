@@ -1,6 +1,6 @@
 //
 //  FileCollectionViewCell.swift
-//  FilePreviewer
+//  baseapp-ios-core-v1
 //
 //  Created by Pat Sluth on 2017-08-07.
 //  Copyright © 2017 SilverLogic. All rights reserved.

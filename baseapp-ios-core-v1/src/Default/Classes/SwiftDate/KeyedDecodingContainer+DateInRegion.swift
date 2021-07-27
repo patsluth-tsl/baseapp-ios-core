@@ -1,8 +1,9 @@
 //
-//  DateInRegion+Codable.swift
+//  KeyedEncodingContainer+DateInRegion.swift
 //  baseapp-ios-core-v1
 //
-//  Created by Pat Sluth on 2019-04-04.
+//  Created by patsluth on 01/15/2020.
+//  Copyright (c) 2020 SilverLogic. All rights reserved.
 //
 
 import Foundation

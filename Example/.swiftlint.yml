@@ -74,6 +74,6 @@ file_header:
                     \/\/  .*?
                     \/\/  (baseapp-ios-core-v1)(.*)
                     \/\/
-                    \/\/  (Created by .*? on )((\d{4}-\d{1,2}-\d{1,2})|(\d{1,2}/\d{1,2}/\d{2}))\.$
+                    \/\/  (Created by .*? on )((\d{4}-\d{1,2}-\d{1,2})|(\d{1,2}/\d{1,2}/\d{2,4}))\.$
                     \/\/  Copyright (©|\(c\)) \d{4} SilverLogic\. All rights reserved\.
                     \/\/

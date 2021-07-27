@@ -20,7 +20,7 @@ public extension ThumbnailGenerator {
 }
 
 /// Generate `UIImage` thumbnail from `MediaURL`
-//@available(iOS 10.0, *)
+// @available(iOS 10.0, *)
 public final class ThumbnailGenerator {
     let operationQueue: OperationQueue
     
@@ -150,7 +150,7 @@ protocol ThumbnailGeneratorProtocol: AnyThumbnailGenerator {
     func generate(with options: OptionsType) throws -> KFCrossPlatformImage
 }
 
-//class AnyThumbnailGenerator<>
+// class AnyThumbnailGenerator<>
 
 struct ImageThumbnailGenerator: ThumbnailGeneratorProtocol {
     typealias OptionsType = Options

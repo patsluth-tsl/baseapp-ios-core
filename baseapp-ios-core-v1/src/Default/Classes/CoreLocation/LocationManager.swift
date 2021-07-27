@@ -53,9 +53,11 @@ public final class LocationManager: NSObject {
     public var onUpdate: Observable<(CLLocation, CLHeading)> {
         return Observable.combineLatest(onCurrentLocation, onCurrentHeading)
     }
-    private let _onError = PublishSubject<Error>()
+    private let _currentError = BehaviorRelay<Error?>(value: nil)
     public var onError: Observable<Error> {
-        return _onError.asObservable()
+        return _currentError
+            .asObservable()
+            .unwrap()
     }
     
     private override init() {
@@ -81,6 +83,7 @@ public final class LocationManager: NSObject {
     
     public func requestLocation() -> CancellablePromise<CLLocation> {
         defer {
+            _currentError.accept(nil)
             coreLocationManager.requestLocation()
         }
         return onCurrentLocation.or(LocationManager.shared.onError)
@@ -136,6 +139,6 @@ extension LocationManager: CLLocationManagerDelegate {
     
     public func locationManager(_ manager: CLLocationManager,
                                 didFailWithError error: Error) {
-        _onError.onNext(error)
+        _currentError.accept(error)
     }
 }

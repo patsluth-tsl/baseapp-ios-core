@@ -1,5 +1,5 @@
 //
-// NSManagedObject+BA.swift
+//  NSManagedObject+BA.swift
 //  baseapp-ios-core-v1
 //
 //  Created by Pat Sluth on 2019-11-14.

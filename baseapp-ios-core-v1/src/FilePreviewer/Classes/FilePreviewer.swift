@@ -1,6 +1,6 @@
 //
-//  FilePreviewer.swift
-//  FilePreviewer
+//  baseapp-ios-core-v1.swift
+//  baseapp-ios-core-v1
 //
 //  Created by Pat Sluth on 2017-12-08.
 //  Copyright © 2017 SilverLogic. All rights reserved.
@@ -36,7 +36,7 @@ public enum FilePreviewer {
         from: T,
         fileURLs: [URL],
         initialPreviewIndex: Int = 0
-        ) { //where T: FilePreviewerDataSource & FilePreviewerDelegate {
+        ) { // where T: FilePreviewerDataSource & FilePreviewerDelegate {
         //        guard let initialFileURL = from.previewItem(at: initialIndexPath) as? URL else { return }
         //
         //        guard !initialFileURL.isVideoURL else {
