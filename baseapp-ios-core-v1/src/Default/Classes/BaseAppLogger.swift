@@ -39,6 +39,7 @@ public final class BaseLogger {
     
     fileprivate init() {
         _logger = SwiftyBeaver.self
+        _logger.removeAllDestinations()
         let format = "$DHH:mm:ss$d $C$L$c: $M"
         _logger.addDestination(configure(ConsoleDestination(), {
             $0.format = format
