@@ -121,9 +121,10 @@ extension LocationManager: CLLocationManagerDelegate {
         case .notDetermined, .restricted:
             coreLocationManager.requestWhenInUseAuthorization()
         case .denied:
-            break
+            locationManager(coreLocationManager, didFailWithError: LocationManagerErrors.unauthorized)
         @unknown default:
-            break
+            coreLocationManager.requestWhenInUseAuthorization()
+        //            locationManager(coreLocationManager, didFailWithError: LocationManagerErrors.unauthorized)
         }
     }
     
