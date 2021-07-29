@@ -15,9 +15,9 @@ platform :ios do
  	end
 
 	BUMP_TYPES = [
-		'patch',
-		'minor',
 		'major',
+		'minor',
+		'patch',
 	].freeze
 
 	# Avaliable Lanes
@@ -39,7 +39,7 @@ platform :ios do
 			sh('cd %s; git add . > /dev/null' % [project_dir])
 			sh('cd %s; git add -A > /dev/null')
 			sh('cd %s; git commit -m \'%s\' 2> /dev/null; exit 0' % [project_dir, git_tag_name])
-			sh('cd %s; git push %s $s 2> /dev/null; exit 0' % [project_dir, git_origin, git_branch])
+			sh('cd %s; git push %s %s 2> /dev/null; exit 0' % [project_dir, git_origin, git_branch])
 			sh('cd %s; git tag --delete \'%s\' 2> /dev/null; exit 0' % [project_dir, git_tag_name])
 			sh('cd %s; git push --delete %s \'%s\' 2> /dev/null; exit 0' % [project_dir, git_origin, git_tag_name])
 			sh('cd %s; git tag %s > /dev/null' % [project_dir, git_tag_name])
