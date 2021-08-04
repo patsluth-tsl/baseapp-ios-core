@@ -19,11 +19,11 @@ public extension NSObjectProtocol
 }
 
 // swiftlint:disable:next type_name
-public class UITableViewHeaderFooterWithEmbeddedContentView<T>: UITableView.BaseHeaderFooterView, UIViewWithEmbeddedContent
+open class UITableViewHeaderFooterWithEmbeddedContentView<T>: UITableView.BaseHeaderFooterView, UIViewWithEmbeddedContent
 	where T: UIView {
 	public typealias Embedded = T
     
-	public var embedded: T!
+    public private(set) var embedded: T!
     
 	public override init(reuseIdentifier: String?) {
 		super.init(reuseIdentifier: reuseIdentifier)
@@ -37,7 +37,7 @@ public class UITableViewHeaderFooterWithEmbeddedContentView<T>: UITableView.Base
 		backgroundColor = nil
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
 	

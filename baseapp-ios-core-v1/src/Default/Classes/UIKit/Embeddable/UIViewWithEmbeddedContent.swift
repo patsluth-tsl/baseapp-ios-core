@@ -13,15 +13,15 @@ import UIKit
 public protocol UIViewWithEmbeddedContent: UIView {
 	associatedtype Embedded: UIView
     
-	var embedded: Embedded! { get set }
+	var embedded: Embedded! { get }
 }
 
 extension UIViewWithEmbeddedContent where Embedded: ModelConsumer {
 	public typealias Model = Embedded.Model
 
 	public var model: Embedded.Model! {
-		get { return self.embedded.model }
-		set { self.embedded.model = newValue }
+		get { return embedded.model }
+		set { embedded.model = newValue }
 	}
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol ModelConsumer {
+public protocol ModelConsumer: AnyObject {
 	associatedtype Model
 	
 	var model: Model! { get set }

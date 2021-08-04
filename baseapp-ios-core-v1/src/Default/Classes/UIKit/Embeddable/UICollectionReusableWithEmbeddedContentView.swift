@@ -18,11 +18,11 @@ public extension NSObjectProtocol where Self: UIView {
 }
 
 // swiftlint:disable:next type_name
-public class UICollectionReusableWithEmbeddedContentView<T>: UICollectionView.BaseReusableView, UIViewWithEmbeddedContent where T: UIView {
+open class UICollectionReusableWithEmbeddedContentView<T>: UICollectionView.BaseReusableView, UIViewWithEmbeddedContent where T: UIView {
 	public typealias Embedded = T
 	public typealias PreferredLayoutAttributesProvider = (UICollectionReusableWithEmbeddedContentView<T>, UICollectionViewLayoutAttributes) -> Void
     
-	public var embedded: T!
+    public private(set) var embedded: T!
 	private var preferredLayoutAttributesProvider: PreferredLayoutAttributesProvider? = nil
     
 	public override init(frame: CGRect) {

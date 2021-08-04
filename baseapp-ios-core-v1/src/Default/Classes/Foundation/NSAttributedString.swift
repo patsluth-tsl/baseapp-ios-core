@@ -99,31 +99,6 @@ where Element == NSAttributedStringConvertible {
     }
 }
 
-//
-//public extension Collection
-//where Element == [NSAttributedStringConvertible] {
-//
-////    func joined(by separator: NSAttributedStringConvertible) -> NSAttributedString {
-////        joined(separator: [separator]).reduce(into: NSMutableAttributedString(), {
-////            $0.append($1.attributed)
-////        }).attributed
-////        //        enumerated(self).reduce(into: NSMutableAttributedString(), {
-////        //            $0.append(<#T##attrString: NSAttributedString##NSAttributedString#>)
-////        //        })
-////
-////        //        return map({ "\($0)" }).joined(separator: separator)
-////        //        return reduce(into: NSMutableAttributedString(), { result, element in
-////        //            result.append(element.attributed)
-////        //        }).attributed
-////    }
-//    //
-//    var attributed: NSAttributedString {
-//        return reduce(into: NSMutableAttributedString(), { result, element in
-//            result.append(element.attributed)
-//        }).attributed
-//    }
-//}
-
 
 // Concats the lhs and rhs and returns a NSAttributedString
 // infix operator + { associativity left precedence 140 }

@@ -17,11 +17,11 @@ public extension NSObjectProtocol
 	typealias TVCell = UITableViewWithEmbeddedContentCell<Self>
 }
 
-public class UITableViewWithEmbeddedContentCell<T>: UITableView.BaseCell, UIViewWithEmbeddedContent
+open class UITableViewWithEmbeddedContentCell<T>: UITableView.BaseCell, UIViewWithEmbeddedContent
 	where T: UIView {
 	public typealias Embedded = T
     
-	public var embedded: T!
+	public private(set) var embedded: T!
 	
 	public override var isSelected: Bool {
 		didSet {

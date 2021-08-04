@@ -18,12 +18,12 @@ public extension NSObjectProtocol
 	typealias CVCell = UICollectionViewWithEmbeddedContentCell<Self>
 }
 
-public class UICollectionViewWithEmbeddedContentCell<T>: UICollectionView.BaseCell, UIViewWithEmbeddedContent
+open class UICollectionViewWithEmbeddedContentCell<T>: UICollectionView.BaseCell, UIViewWithEmbeddedContent
 	where T: UIView {
 	public typealias Embedded = T
 	public typealias PreferredLayoutAttributesProvider = (UICollectionViewWithEmbeddedContentCell<T>, UICollectionViewLayoutAttributes) -> Void
     
-	public var embedded: T!
+    public private(set) var embedded: T!
 	private var preferredLayoutAttributesProvider: PreferredLayoutAttributesProvider? = nil
 	
 	public override var isSelected: Bool {
