@@ -25,7 +25,7 @@ public extension Font {
         return withSize(pointSize * percent)
     }
     
-    func withSize(_ fontSize: CGFloat) -> Font! {
+    func size(_ fontSize: CGFloat) -> Font! {
         return Font(descriptor: fontDescriptor, size: fontSize)
     }
     
