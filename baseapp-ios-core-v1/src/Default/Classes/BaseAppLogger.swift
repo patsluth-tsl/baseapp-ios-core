@@ -37,6 +37,13 @@ public let logger = BaseLogger()
 public final class BaseLogger {
     fileprivate let _logger: SwiftyBeaver.Type
     
+    public var debugOnly: Self? {
+        #if DEBUG
+        return self
+        #endif
+        return nil
+    }
+    
     fileprivate init() {
         _logger = SwiftyBeaver.self
         _logger.removeAllDestinations()
@@ -58,12 +65,14 @@ public final class BaseLogger {
 
 public extension BaseLogger {
     @discardableResult
+    @available(*, deprecated, message: "Use logger.debugOnly?.log()")
     func log(file: String = #file,
              function: String = #function,
              line: Int = #line,
              level: LogLevel = .info,
              when: LogWhen = .debugOnly,
-             _ items: Any...) -> Self {
+             _ items: Any...
+    ) -> Self {
         guard !when.shouldSkip else { return self }
         let message = items.joined(by: " ")
         _logger.custom(level: level, message: {
@@ -77,21 +86,71 @@ public extension BaseLogger {
         return self
     }
     
-    @discardableResult
-    func log<T>(
+    func log(
         file: String = #file,
         function: String = #function,
         line: Int = #line,
-        when: LogWhen = .always,
-        error: T
-    ) -> Self where T: Error {
-        return log(
-            file: file,
-            function: function,
-            line: line,
-            level: .error,
-            when: when,
-            type(of: error), error.localizedDescription
-        )
+        _ level: LogLevel,
+        _ items: Any...
+    ) {
+        let message = items.joined(by: " ")
+        _logger.custom(level: level, message: {
+            switch level {
+            case .verbose, .error:
+                return "\(file.fileNameFull).\(function)[\(line)]\n\(message)"
+            default:
+                return message
+            }
+        }())
+    }
+    
+    func verbose(
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line,
+        _ items: Any...
+    ) {
+        log(file: file, function: function, line: line,
+            level: .verbose, items)
+    }
+    
+    func debug(
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line,
+        _ items: Any...
+    ) {
+        log(file: file, function: function, line: line,
+            level: .debug, items)
+    }
+    
+    func info(
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line,
+        _ items: Any...
+    ) {
+        log(file: file, function: function, line: line,
+            level: .info, items)
+    }
+    
+    func warning(
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line,
+        _ items: Any...
+    ) {
+        log(file: file, function: function, line: line,
+            level: .warning, items)
+    }
+    
+    func error<T>(
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line,
+        _ error: T
+    ) where T: Error {
+        log(file: file, function: function, line: line,
+            level: .error, type(of: error), error.localizedDescription)
     }
 }

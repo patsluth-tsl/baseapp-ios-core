@@ -72,7 +72,7 @@ internal class ImageFileViewController: FileViewController {
             .catch({ [weak self] in
                 self?.imageView.image = nil
                 self?.errorLabel.text = "\($0)"
-                logger.log(error: $0)
+                logger.error($0)
             })
             .finally({ [weak self] in
                 self?.imageView.kf.indicator?.stopAnimatingView()

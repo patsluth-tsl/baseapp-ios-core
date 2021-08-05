@@ -27,7 +27,9 @@ extension String: NSAttributedStringConvertible {
         return NSAttributedString(string: self, attributes: attributes)
     }
     
-    public func attributed(_ attributesProvider: NSAttributedString.AttributesProvider) -> NSAttributedString {
+    public func attributed(
+        _ attributesProvider: NSAttributedString.AttributesProvider
+    ) -> NSAttributedString {
         return NSAttributedString(self, attributesProvider)
     }
 }

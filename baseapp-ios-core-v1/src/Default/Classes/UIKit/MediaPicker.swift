@@ -159,9 +159,9 @@ extension MediaPicker: UINavigationControllerDelegate & UIImagePickerControllerD
                     .appendingPathComponent("\(image.hash).png")
                 do {
                     try data.write(to: fileURL)
-                    output =  MediaItem(type: .image, fileURL: fileURL)
+                    output = MediaItem(type: .image, fileURL: fileURL)
                 } catch {
-                    logger.log(error: error)
+                    logger.error(error)
                 }
             }
         } else if let fileURL = info[.imageURL] as? URL {

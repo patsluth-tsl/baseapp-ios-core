@@ -85,7 +85,7 @@ public extension FileDownloader {
                 }
             })
             .recover(policy: .allErrors, { error -> CancellablePromise<URL> in
-                logger.log(error: error)
+                logger.error(error)
                 try? FileManager.default.removeItem(at: fileURL)
                 throw error
             })

@@ -27,7 +27,7 @@ public final class PersistantCodableVariable<T, RawType>: PersistantVariable<T>
             let rawValue = self.userDefaults.value(forKey: self.key)
             value = try Element.decode(rawValue)
         } catch {
-            logger.log(error: error)
+            logger.error(error)
         }
         return value
     }
@@ -37,7 +37,7 @@ public final class PersistantCodableVariable<T, RawType>: PersistantVariable<T>
             let rawValue = try value?.encode(RawType.self)
             self.userDefaults.setValue(rawValue, forKey: self.key)
         } catch {
-            logger.log(error: error)
+            logger.error(error)
         }
     }
 }
