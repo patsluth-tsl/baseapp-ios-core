@@ -11,11 +11,11 @@ import Foundation
 import UIKit
 
 
-public final class UIBarButtonCustomItem<T>: UIBarButtonItem
+open class UIBarButtonCustomItem<T>: UIBarButtonItem
 where T: UIView {
     public override var customView: UIView? {
         didSet {
-            guard customView is T else {
+            guard let _ = customView as? T else {
                 fatalError("customView must be type of \(T.self)")
             }
         }
@@ -25,12 +25,33 @@ where T: UIView {
         return customView as? T
     }
     
-    override init() {
-        self.init(customView: T.make())
+    public override init() {
+        super.init()
+        defer {
+            customView = (customView as? T) ?? T.make()
+        }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        defer {
+            customView = (customView as? T) ?? T.make()
+        }
+    }
+}
+
+
+// MARK: - Makeable
+public extension UIBarButtonCustomItem {
+    typealias CompoundMadeClosure = (UIBarButtonCustomItem<T>, T) -> Void
+    
+    @discardableResult
+    static func make(
+        _ block: CompoundMadeClosure? = nil
+    ) -> Self {
+        return Self.make(customView: T.make(), {
+            block?($0, $0.custom)
+        })
     }
 }
 
@@ -40,6 +61,14 @@ public extension UIBarButtonItem {
     static func make<T>(
         custom type: T.Type,
         _ block: UIBarButtonCustomItem<T>.MadeClosure? = nil
+    ) -> UIBarButtonCustomItem<T> {
+        return UIBarButtonCustomItem<T>.make(block)
+    }
+    
+    @discardableResult
+    static func make<T>(
+        custom type: T.Type,
+        _ block: UIBarButtonCustomItem<T>.CompoundMadeClosure? = nil
     ) -> UIBarButtonCustomItem<T> {
         return UIBarButtonCustomItem<T>.make(block)
     }
