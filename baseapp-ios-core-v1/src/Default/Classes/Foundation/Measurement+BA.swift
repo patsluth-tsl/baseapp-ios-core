@@ -8,10 +8,10 @@
 
 import Foundation
 
-public func floor<U: Unit>(_ measurement: Measurement<U>) -> Measurement<U> {
-    return Measurement<U>(value: Darwin.floor(measurement.value), unit: measurement.unit)
+public func floor<U: Unit>(_ m: Measurement<U>) -> Measurement<U> {
+    return Measurement<U>(value: Darwin.floor(m.value), unit: m.unit)
 }
 
-public func ceil<U: Unit>(_ measurement: Measurement<U>) -> Measurement<U> {
-    return Measurement<U>(value: Darwin.ceil(measurement.value), unit: measurement.unit)
+public func ceil<U: Unit>(_ m: Measurement<U>) -> Measurement<U> {
+    return Measurement<U>(value: Darwin.ceil(m.value), unit: m.unit)
 }
