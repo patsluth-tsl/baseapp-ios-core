@@ -16,7 +16,7 @@ public class PersistantVariable<T>: ObservableType {
     public typealias E = T
     public typealias Serializer = PersistantVariableValueSerializer<T>
     
-    let key: String
+    public let key: String
     let defaultValue: Element
     let serializer: Serializer
     let userDefaults: UserDefaults
@@ -118,8 +118,8 @@ where T: Codable {
 
 /// A property wrapper for `PersistantVariable`
 @propertyWrapper public final class Persistant<T>: PersistantVariable<T> {
-    public var projectedValue: Observable<E> {
-        return asObservable()
+    public var projectedValue: PersistantVariable<T> {
+        return self
     }
     
     public var wrappedValue: E {
