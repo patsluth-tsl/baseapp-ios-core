@@ -28,3 +28,14 @@ public extension Measurement where UnitType: Dimension {
         self = self.rounded(toNearest: unit)
     }
 }
+
+public extension Measurement {
+    init<F: FloatingPointType>(_ value: F, _ unit: UnitType) {
+        self.init(value: value.cast(), unit: unit)
+    }
+}
+
+public typealias MLength = Measurement<UnitLength>
+public typealias MSpeed = Measurement<UnitSpeed>
+public typealias MAngle = Measurement<UnitAngle>
+public typealias MMass = Measurement<UnitMass>

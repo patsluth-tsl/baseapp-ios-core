@@ -101,6 +101,14 @@ where Element == NSAttributedStringConvertible {
     }
 }
 
+public extension Collection
+where Element == String {
+    func joined() -> String {
+        reduce(into: "", {
+            $0.append($1)
+        })
+    }
+}
 
 // Concats the lhs and rhs and returns a NSAttributedString
 // infix operator + { associativity left precedence 140 }
@@ -195,11 +203,10 @@ public struct NSAttributedStringBuilder {
     }
 }
 
-
 public extension NSAttributedString {
     public convenience init(
-        @NSAttributedStringBuilder _ content: () -> [NSAttributedStringConvertible],
-        joined separator: NSAttributedStringConvertible? = nil
+    @NSAttributedStringBuilder _ content: () -> [NSAttributedStringConvertible],
+    joined separator: NSAttributedStringConvertible? = nil
     ) {
         if let sep = separator {
             self.init(attributedString: content().map({ [$0] }).joined(by: sep).joined())
@@ -208,3 +215,28 @@ public extension NSAttributedString {
         }
     }
 }
+
+
+@resultBuilder
+public struct StringBuilder {
+    public static func buildBlock(
+        _ strings: String...
+    ) -> [String] {
+        return strings
+    }
+}
+
+
+public extension String {
+    public init(
+    @StringBuilder _ content: () -> [String],
+    joined separator: String? = nil
+    ) {
+        if let sep = separator {
+            self = content().joined(by: sep)
+        } else {
+            self = content().joined()
+        }
+    }
+}
+
