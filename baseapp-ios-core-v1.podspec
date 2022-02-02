@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'baseapp-ios-core-v1'
-  s.version          = '0.2.37'
+  s.version          = '0.2.38'
   s.summary          = 'A short description of baseapp-ios-core-v1.'
   s.description      = s.summary
   s.homepage         = 'https://bitbucket.org/silverlogic/baseapp-ios-core-v1'
@@ -56,6 +56,7 @@ Pod::Spec.new do |s|
       ss.ios.frameworks = 'Foundation',
       'CoreFoundation',
       'CoreGraphics',
+      'CoreImage',
       'CoreLocation',
       'CoreData',
       'UIKit',
@@ -65,6 +66,7 @@ Pod::Spec.new do |s|
       ss.osx.frameworks = 'Foundation',
       'CoreFoundation',
       'CoreGraphics',
+      'CoreImage',
       'CoreLocation',
       'CoreData',
       'SystemConfiguration'
@@ -80,6 +82,7 @@ Pod::Spec.new do |s|
       ss.watchos.exclude_files = 'baseapp-ios-core-v1/src/Default/Classes/AVKit/**/*',
       'baseapp-ios-core-v1/src/Default/Classes/CoreLocation/**/*',
       'baseapp-ios-core-v1/src/Default/Classes/CoreData/**/*',
+      'baseapp-ios-core-v1/src/Default/Classes/CoreImage/**/*',
       'baseapp-ios-core-v1/src/Default/Classes/MapKit/**/*',
       'baseapp-ios-core-v1/src/Default/Classes/R.Swift/**/*'
       

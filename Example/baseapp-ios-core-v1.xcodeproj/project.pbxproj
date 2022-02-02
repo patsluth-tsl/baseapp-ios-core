@@ -374,21 +374,22 @@
 				TargetAttributes = {
 					2E04DA14258423CB004DC161 = {
 						CreatedOnToolsVersion = 12.2;
-						DevelopmentTeam = 4WJXDP6MU3;
+						DevelopmentTeam = 4SB3F2S2K3;
 						ProvisioningStyle = Automatic;
 					};
 					2E04DA20258423CF004DC161 = {
 						CreatedOnToolsVersion = 12.2;
-						DevelopmentTeam = 4WJXDP6MU3;
+						DevelopmentTeam = 4SB3F2S2K3;
 						ProvisioningStyle = Automatic;
 					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 4WJXDP6MU3;
+						DevelopmentTeam = 4SB3F2S2K3;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 4SB3F2S2K3;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -788,7 +789,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 4WJXDP6MU3;
+				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = Example_Extension;
 				INFOPLIST_FILE = Example/Info.plist;
@@ -822,7 +823,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4WJXDP6MU3;
+				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = Example_Extension;
 				INFOPLIST_FILE = Example/Info.plist;
@@ -854,7 +855,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 4WJXDP6MU3;
+				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Example Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -887,7 +888,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4WJXDP6MU3;
+				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Example Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1014,7 +1015,7 @@
 			baseConfigurationReference = D71C706E1803CE40000CD5A5 /* Pods-baseapp-ios-core-v1_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4WJXDP6MU3;
+				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				INFOPLIST_FILE = "baseapp-ios-core-v1/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1031,7 +1032,7 @@
 			baseConfigurationReference = BEEA49B5F7295E38E6A572EB /* Pods-baseapp-ios-core-v1_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4WJXDP6MU3;
+				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				INFOPLIST_FILE = "baseapp-ios-core-v1/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1047,6 +1048,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F91737A145B05CB927A79F81 /* Pods-baseapp-ios-core-v1_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1069,6 +1071,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0ED32CE304B56ECA81D1194A /* Pods-baseapp-ios-core-v1_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

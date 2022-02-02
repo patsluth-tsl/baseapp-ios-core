@@ -2,13 +2,13 @@ PODS:
   - Alamofire (4.9.1)
   - Alertift (4.2.0)
   - AssistantKit (0.7.1)
-  - baseapp-ios-core-v1 (0.2.36):
-    - baseapp-ios-core-v1/Default (= 0.2.36)
-  - baseapp-ios-core-v1/ARKit (0.2.36):
+  - baseapp-ios-core-v1 (0.2.37):
+    - baseapp-ios-core-v1/Default (= 0.2.37)
+  - baseapp-ios-core-v1/ARKit (0.2.37):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/SceneKit
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/Default (0.2.36):
+  - baseapp-ios-core-v1/Default (0.2.37):
     - Alamofire (~> 4.9.1)
     - Alertift (~> 4.2.0)
     - AssistantKit (~> 0.7.1)
@@ -24,12 +24,12 @@ PODS:
     - SnapKit (~> 5.0.1)
     - SwiftDate (~> 6.3.1)
     - SwiftyBeaver (~> 1.9.3)
-  - baseapp-ios-core-v1/FilePreviewer (0.2.36):
+  - baseapp-ios-core-v1/FilePreviewer (0.2.37):
     - baseapp-ios-core-v1/Default
-  - baseapp-ios-core-v1/SceneKit (0.2.36):
+  - baseapp-ios-core-v1/SceneKit (0.2.37):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/simd (0.2.36):
+  - baseapp-ios-core-v1/simd (0.2.37):
     - baseapp-ios-core-v1/Default
   - CancelForPromiseKit (1.1.0):
     - CancelForPromiseKit/CorePromise (= 1.1.0)
@@ -118,7 +118,7 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alertift: 17b37be915cd28edeceabd438e4134d041ea825c
   AssistantKit: 245d28aefcf3aeae240c8ecbe3c62714e3f1c6d4
-  baseapp-ios-core-v1: 468fa99472a8fed367856867e1da25f01960cadb
+  baseapp-ios-core-v1: 990a20a80734cca54bd5dcba722df1c46a0a9f5a
   CancelForPromiseKit: 753c8798c31519ab324dad33974b7f8e4a92257b
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
