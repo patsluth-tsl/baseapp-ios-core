@@ -12,9 +12,9 @@ import Foundation
 #if os(iOS)
 
 public enum ExecutionTime {
-    public static func of(_ closure: () -> Void, completedIn: (TimeInterval) -> Void) {
+    public static func of(_ closure: () throws -> Void, completedIn: (TimeInterval) -> Void) rethrows {
         let start = CACurrentMediaTime()
-        closure()
+        try closure()
         completedIn(CACurrentMediaTime() - start)
     }
 }

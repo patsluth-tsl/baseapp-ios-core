@@ -23,7 +23,7 @@ public extension Decodable {
             let _decoder = JSONDecoder()
             _decoder.dateDecodingStrategy = .formatted(DateFormatter.properISO8601)
             return _decoder
-            }()
+        }()
         
         switch value {
         case let value as Self:
