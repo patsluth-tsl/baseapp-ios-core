@@ -15,6 +15,7 @@ import CoreServices
 import Foundation
 import PromiseKit
 import UIKit
+import UniformTypeIdentifiers
 
 /// A class for picking images/video from the device
 @available(iOS 11.0, *)
@@ -30,9 +31,16 @@ public final class MediaPicker: NSObject {
         
         // CoreServices type for UIImagePickerController
         fileprivate var kUTType: String {
-            switch self {
-            case .image:    return kUTTypeImage as String
-            case .video:    return kUTTypeMovie as String
+            if #available(iOS 15.0, *) {
+                switch self {
+                case .image:    return UTType.image.identifier
+                case .video:    return UTType.movie.identifier
+                }
+            } else {
+                switch self {
+                case .image:    return kUTTypeImage as String
+                case .video:    return kUTTypeMovie as String
+                }
             }
         }
     }
