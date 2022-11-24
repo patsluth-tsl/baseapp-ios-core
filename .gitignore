@@ -202,3 +202,9 @@ fastlane/.build
 
 ## Ruby
 vendor/bundle
+
+# workspace files are user-specific
+*.sublime-workspace
+**/*.code-workspace
+**/.vscode
+.idea/
