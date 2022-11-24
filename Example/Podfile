@@ -1,7 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'baseapp-ios-core-v1_Example' do
-  platform :ios, '10.0'
+  platform :ios, '13.0'
   use_frameworks!
   inhibit_all_warnings!
   
@@ -17,25 +17,26 @@ target 'baseapp-ios-core-v1_Example' do
 end
 
 target 'Example' do
-  platform :watchos, '3.0'
+  platform :watchos, '6.0'
   use_frameworks!
   inhibit_all_warnings!
-  
+
   pod 'baseapp-ios-core-v1', :path => '../'
 end
 
 target 'Example Extension' do
-  platform :watchos, '3.0'
+  platform :watchos, '6.0'
   use_frameworks!
   inhibit_all_warnings!
-  
+
   pod 'baseapp-ios-core-v1', :path => '../'
 end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      config.build_settings['WATCHOS_DEPLOYMENT_TARGET'] = '6.0'
     end
   end
 end
