@@ -67,3 +67,65 @@ public extension CGRect {
         return self
     }
 }
+
+public extension CGRect {
+    init(bottomMiddle: CGPoint, size: CGSize) {
+        self = CGRect(origin: .zero, size: size).with(bottomMiddle: bottomMiddle)
+    }
+    
+    var bottomMiddle: CGPoint {
+        get {
+            return CGPoint(x: midX, y: maxY)
+        }
+        mutating set {
+            self.origin(CGPoint(
+                x: newValue.x - (size.width / 2.0),
+                y: newValue.y - size.height
+            ))
+        }
+    }
+    
+    /// Returns new `CGRect` with bottomMiddle
+    func with(bottomMiddle: CGPoint) -> CGRect {
+        var rect = self
+        return rect.bottomMiddle(bottomMiddle)
+    }
+    
+    /// Update bottomMiddle
+    @discardableResult
+    mutating func bottomMiddle(_ bottomMiddle: CGPoint) -> CGRect {
+        self.bottomMiddle = bottomMiddle
+        return self
+    }
+}
+
+public extension CGRect {
+    init(topMiddle: CGPoint, size: CGSize) {
+        self = CGRect(origin: .zero, size: size).with(topMiddle: topMiddle)
+    }
+    
+    var topMiddle: CGPoint {
+        get {
+            return CGPoint(x: midX, y: minY)
+        }
+        mutating set {
+            self.origin(CGPoint(
+                x: newValue.x - (size.width / 2.0),
+                y: newValue.y
+            ))
+        }
+    }
+    
+    /// Returns new `CGRect` with topMiddle
+    func with(topMiddle: CGPoint) -> CGRect {
+        var rect = self
+        return rect.topMiddle(topMiddle)
+    }
+    
+    /// Update topMiddle
+    @discardableResult
+    mutating func topMiddle(_ topMiddle: CGPoint) -> CGRect {
+        self.topMiddle = topMiddle
+        return self
+    }
+}

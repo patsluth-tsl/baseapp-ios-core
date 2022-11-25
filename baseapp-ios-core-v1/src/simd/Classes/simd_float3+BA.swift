@@ -1,11 +1,12 @@
 //
-//  simd_float3.swift
+//  simd_float3+BA.swift
 //  baseapp-ios-core-v1
 //
 //  Created by Pat Sluth on 2019-10-16.
 //  Copyright © 2019 SilverLogic. All rights reserved.
 //
 
+import CoreGraphics
 import Foundation
 import SceneKit
 import simd
@@ -176,5 +177,11 @@ public extension simd_float3 {
     mutating func z(_ z: SCNFloat) -> simd_float3 {
         self.z = z
         return self
+    }
+}
+
+public extension simd_float3 {
+    init(point: CGPoint) {
+        self.init(point.x.cast(), point.y.cast(), 0)
     }
 }

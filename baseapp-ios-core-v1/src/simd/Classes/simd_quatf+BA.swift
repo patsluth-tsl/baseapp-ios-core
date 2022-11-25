@@ -1,5 +1,5 @@
 //
-//  simd_quatf.swift
+//  simd_quatf+BA.swift
 //  baseapp-ios-core-v1
 //
 //  Created by Pat Sluth on 2019-10-16.
