@@ -10,7 +10,7 @@ import CoreGraphics
 import simd
 
 
-extension simd_float2 {
+public extension simd_float2 {
     init(point: CGPoint) {
         self.init(point.x.cast(), point.y.cast())
     }
