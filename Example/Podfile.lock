@@ -2,33 +2,33 @@ PODS:
   - Alamofire (4.9.1)
   - Alertift (4.2.0)
   - AssistantKit (0.7.1)
-  - baseapp-ios-core-v1 (0.3.5):
-    - baseapp-ios-core-v1/Default (= 0.3.5)
-  - baseapp-ios-core-v1/ARKit (0.3.5):
+  - baseapp-ios-core-v1 (0.3.6):
+    - baseapp-ios-core-v1/Default (= 0.3.6)
+  - baseapp-ios-core-v1/ARKit (0.3.6):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/SceneKit
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/Default (0.3.5):
+  - baseapp-ios-core-v1/Default (0.3.6):
     - Alamofire (~> 4.9.1)
     - Alertift (~> 4.2.0)
     - AssistantKit (~> 0.7.1)
     - CancelForPromiseKit (~> 1.1.0)
     - CancelForPromiseKit/Alamofire
-    - Kingfisher (~> 7.6.1)
+    - Kingfisher (~> 7.6.2)
     - PromiseKit (~> 6.18.1)
     - R.swift (~> 6.1.0)
-    - RxCocoa (~> 6.5.0)
-    - RxSwift (~> 6.5.0)
-    - RxSwiftExt (~> 6.0.1)
+    - RxCocoa (~> 6.6.0)
+    - RxSwift (~> 6.6.0)
+    - RxSwiftExt (~> 6.2.1)
     - SnapKit (~> 5.0.1)
     - SwiftDate (~> 7.0.0)
     - SwiftyBeaver (~> 1.9.3)
-  - baseapp-ios-core-v1/FilePreviewer (0.3.5):
+  - baseapp-ios-core-v1/FilePreviewer (0.3.6):
     - baseapp-ios-core-v1/Default
-  - baseapp-ios-core-v1/SceneKit (0.3.5):
+  - baseapp-ios-core-v1/SceneKit (0.3.6):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/simd (0.3.5):
+  - baseapp-ios-core-v1/simd (0.3.6):
     - baseapp-ios-core-v1/Default
   - CancelForPromiseKit (1.1.0):
     - CancelForPromiseKit/CorePromise (= 1.1.0)
@@ -58,23 +58,23 @@ PODS:
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
-  - RxCocoa (6.5.0):
-    - RxRelay (= 6.5.0)
-    - RxSwift (= 6.5.0)
-  - RxRelay (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxSwift (6.5.0)
-  - RxSwiftExt (6.0.1):
-    - RxSwiftExt/Core (= 6.0.1)
-    - RxSwiftExt/RxCocoa (= 6.0.1)
-  - RxSwiftExt/Core (6.0.1):
+  - RxCocoa (6.6.0):
+    - RxRelay (= 6.6.0)
+    - RxSwift (= 6.6.0)
+  - RxRelay (6.6.0):
+    - RxSwift (= 6.6.0)
+  - RxSwift (6.6.0)
+  - RxSwiftExt (6.2.1):
+    - RxSwiftExt/Core (= 6.2.1)
+    - RxSwiftExt/RxCocoa (= 6.2.1)
+  - RxSwiftExt/Core (6.2.1):
     - RxSwift (~> 6.0)
-  - RxSwiftExt/RxCocoa (6.0.1):
+  - RxSwiftExt/RxCocoa (6.2.1):
     - RxCocoa (~> 6.0)
     - RxSwiftExt/Core
   - SnapKit (5.0.1)
   - SwiftDate (7.0.0)
-  - SwiftLint (0.43.1)
+  - SwiftLint (0.53.0)
   - SwiftyBeaver (1.9.5)
 
 DEPENDENCIES:
@@ -110,21 +110,21 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alertift: 17b37be915cd28edeceabd438e4134d041ea825c
   AssistantKit: 245d28aefcf3aeae240c8ecbe3c62714e3f1c6d4
-  baseapp-ios-core-v1: 99c579fde1dab4b6179e990d168daa01b9753cd9
+  baseapp-ios-core-v1: e554aab699c44c2382a1fbaee03ee097a9b33dee
   CancelForPromiseKit: 753c8798c31519ab324dad33974b7f8e4a92257b
   Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
-  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
-  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
-  RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
+  RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
+  RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
+  RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
+  RxSwiftExt: 43aaacb6a4d3c69c55e9d1cf4f79920043d13583
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftDate: bbc26e26fc8c0c33fbee8c140c5e8a68293a148a
-  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftLint: 5ce4d6a8ff83f1b5fd5ad5dbf30965d35af65e44
   SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
 
-PODFILE CHECKSUM: 97480b88d0345fe31cdefc66683cf9708013809c
+PODFILE CHECKSUM: 9c95960697099b558b65dc11e2e0d1483b8def24
 
 COCOAPODS: 1.10.1
