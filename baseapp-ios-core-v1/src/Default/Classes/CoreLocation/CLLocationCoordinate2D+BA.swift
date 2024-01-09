@@ -35,34 +35,36 @@ public extension CLLocationCoordinate2D {
         where T: FloatingPointType {
         return bearing(to: location.coordinate)
     }
-
-    func distance(from coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
-//        let lat1 = latitude.toRad
-//        let lat2 = coordinate.latitude.toRad
-//        let Δlon = (coordinate.longitude - longitude).toRad
-//
-//        return acos(sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(Δlon)) * .earth_m
-
-        // Testing above, should be more accurate
-        let lat1 = latitude.toRad
-        let lat2 = coordinate.latitude.toRad
-        let Δlat = (coordinate.latitude - latitude).toRad
-        let Δlong = (coordinate.longitude - longitude).toRad
+    
+    /// Greatest Circle Distance
+    static func greatestCircleDistance(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> CLLocationDistance {
+        let lat1 = from.latitude.toRad
+        let lat2 = to.latitude.toRad
+        let Δlat = (to.latitude - from.latitude).toRad
+        let Δlong = (to.longitude - from.longitude).toRad
         let a = sin(Δlat / 2) * sin(Δlat / 2) + cos(lat1) * cos(lat2) * sin(Δlong / 2) * sin(Δlong / 2)
         let c = 2 * atan2(sqrt(a), sqrt(1 - a))
         let km = .earth_km * c
         return km * 1000
     }
 
+    /// Greatest Circle Distance
+    func distance(from coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
+        return CLLocationCoordinate2D.greatestCircleDistance(from: self, to: coordinate)
+    }
+
+    /// Greatest Circle Distance
     func distance<T>(from coordinate: CLLocationCoordinate2D) -> T
         where T: FloatingPointType {
         return T(distance(from: coordinate))
     }
 
+    /// Greatest Circle Distance
     func distance(from location: CLLocation) -> CLLocationDistance {
         return distance(from: location.coordinate)
     }
 
+    /// Greatest Circle Distance
     func distance<T>(from location: CLLocation) -> T
         where T: FloatingPointType {
         return distance(from: location.coordinate)

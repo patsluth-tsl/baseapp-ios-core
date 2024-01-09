@@ -33,12 +33,12 @@ public extension FloatingPointType {
     
     /// Earths radius (kilometers)
     static var earth_km: Self {
-        return 6378.137
+        return 6_371.009
     }
     
     /// Earths radius (meters)
     static var earth_m: Self {
-        return 6378137
+        return 6_371_009
     }
 	
 	
