@@ -12,6 +12,10 @@ import Foundation
 @available(iOS 11.0, *)
 public extension ARCamera.TrackingState {
     static func == (lhs: Self, rhs: Self) -> Bool {
+        return ARCamera.TrackingState.isEqual(lhs, rhs)
+    }
+    
+    static func isEqual(_ lhs: Self, _ rhs: Self) -> Bool {
         switch (lhs, rhs) {
         case (.notAvailable, .notAvailable):
             return true

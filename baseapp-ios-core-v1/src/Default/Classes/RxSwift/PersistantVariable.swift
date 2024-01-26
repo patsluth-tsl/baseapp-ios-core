@@ -87,7 +87,7 @@ public final class PersistantVariableValueSerializer<T> {
     public let read: (Any) throws -> T?
     public let write: (T?) throws -> Any
     
-    init(read: @escaping (Any) throws -> T?, write: @escaping (T?) throws -> Any) {
+    public init(read: @escaping (Any) throws -> T?, write: @escaping (T?) throws -> Any) {
         self.read = read
         self.write = write
     }
