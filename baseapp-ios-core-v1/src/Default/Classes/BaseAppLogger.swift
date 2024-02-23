@@ -7,7 +7,7 @@
 //
 
 #if os(iOS)
-import AssistantKit
+import DeviceKit
 #endif
 import Foundation
 import SwiftyBeaver
@@ -54,7 +54,7 @@ public final class BaseLogger {
         _logger.addDestination(configure(FileDestination(), {
             $0.format = (ProcessInfo.isRunningUnitTests) ? "$M" : format
             #if os(iOS)
-            if Device.isSimulator {
+            if Device.current.isSimulator {
                 $0.logFileURL = URL(fileURLWithPath: "/tmp/swiftybeaver.log")
             }
             #endif

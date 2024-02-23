@@ -9,9 +9,9 @@
 #if os(iOS)
 
 import Alertift
-import AssistantKit
 import CancelForPromiseKit
 import CoreServices
+import DeviceKit
 import Foundation
 import PromiseKit
 import UIKit
@@ -29,23 +29,25 @@ public final class MediaPicker: NSObject {
         case image
         case video
         
-        // CoreServices type for UIImagePickerController
+        /// CoreServices type for UIImagePickerController
         fileprivate var kUTType: String {
             if #available(iOS 15.0, *) {
                 switch self {
-                case .image:    return UTType.image.identifier
-                case .video:    return UTType.movie.identifier
+                case .image:    
+                    return UTType.image.identifier
+                case .video:    
+                    return UTType.movie.identifier
                 }
             } else {
                 switch self {
-                case .image:    return kUTTypeImage as String
-                case .video:    return kUTTypeMovie as String
+                case .image:    
+                    return kUTTypeImage as String
+                case .video:    
+                    return kUTTypeMovie as String
                 }
             }
         }
     }
-    
-    
     
     private let (promise, resolver) = CancellablePromise<MediaItem>.pending()
     
@@ -54,7 +56,7 @@ public final class MediaPicker: NSObject {
             viewController?.set(associatedObject: "\(type(of: self))", object: self)
             
             if viewController == nil {
-                self.imagePickerController.dismiss(animated: true, completion: nil)
+                imagePickerController.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -63,10 +65,6 @@ public final class MediaPicker: NSObject {
         $0.delegate = self
         $0.allowsEditing = true
     })
-    
-    
-    
-    
     
     private override init() {
         fatalError("\(#function) not supported")
@@ -96,7 +94,7 @@ public final class MediaPicker: NSObject {
             self.imagePickerController.present(from: viewController)
         }
         
-        guard !Device.isSimulator else {
+        guard !Device.current.isSimulator else {
             executeAction(.photoLibrary)
             return
         }
@@ -145,9 +143,9 @@ public extension MediaPicker {
 private extension MediaPicker {
     private func didSelect(output: MediaItem?) {
         if let output = output {
-            self.resolver.fulfill(output)
+            resolver.fulfill(output)
         } else {
-            self.resolver.reject(PMKError.cancelled)
+            resolver.reject(PMKError.cancelled)
         }
         viewController = nil
     }
