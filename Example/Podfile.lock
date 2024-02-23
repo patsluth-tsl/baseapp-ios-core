@@ -1,19 +1,18 @@
 PODS:
   - Alamofire (4.9.1)
   - Alertift (4.2.0)
-  - AssistantKit (0.7.1)
-  - baseapp-ios-core-v1 (0.3.8):
-    - baseapp-ios-core-v1/Default (= 0.3.8)
-  - baseapp-ios-core-v1/ARKit (0.3.8):
+  - baseapp-ios-core-v1 (0.3.9):
+    - baseapp-ios-core-v1/Default (= 0.3.9)
+  - baseapp-ios-core-v1/ARKit (0.3.9):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/SceneKit
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/Default (0.3.8):
+  - baseapp-ios-core-v1/Default (0.3.9):
     - Alamofire (~> 4.9.1)
     - Alertift (~> 4.2.0)
-    - AssistantKit (~> 0.7.1)
     - CancelForPromiseKit (~> 1.1.0)
     - CancelForPromiseKit/Alamofire
+    - DeviceKit (~> 5.2.2)
     - Kingfisher (~> 7.6.2)
     - PromiseKit (~> 6.18.1)
     - R.swift (~> 6.1.0)
@@ -23,12 +22,12 @@ PODS:
     - SnapKit (~> 5.0.1)
     - SwiftDate (~> 7.0.0)
     - SwiftyBeaver (~> 1.9.3)
-  - baseapp-ios-core-v1/FilePreviewer (0.3.8):
+  - baseapp-ios-core-v1/FilePreviewer (0.3.9):
     - baseapp-ios-core-v1/Default
-  - baseapp-ios-core-v1/SceneKit (0.3.8):
+  - baseapp-ios-core-v1/SceneKit (0.3.9):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/simd (0.3.8):
+  - baseapp-ios-core-v1/simd (0.3.9):
     - baseapp-ios-core-v1/Default
   - CancelForPromiseKit (1.1.0):
     - CancelForPromiseKit/CorePromise (= 1.1.0)
@@ -42,6 +41,7 @@ PODS:
   - CancelForPromiseKit/Foundation (1.1.0):
     - CancelForPromiseKit/CorePromise
     - PromiseKit/Foundation (~> 6.0)
+  - DeviceKit (5.2.2)
   - Kingfisher (7.6.2)
   - PromiseKit (6.18.1):
     - PromiseKit/CorePromise (= 6.18.1)
@@ -87,8 +87,8 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Alertift
-    - AssistantKit
     - CancelForPromiseKit
+    - DeviceKit
     - Kingfisher
     - PromiseKit
     - R.swift
@@ -109,9 +109,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alertift: 17b37be915cd28edeceabd438e4134d041ea825c
-  AssistantKit: 245d28aefcf3aeae240c8ecbe3c62714e3f1c6d4
-  baseapp-ios-core-v1: 071605ec8f45293d64034a7284e0b3e88dc3ebbb
+  baseapp-ios-core-v1: 2ef185138a004c948edba073bbf8b684a14dceab
   CancelForPromiseKit: 753c8798c31519ab324dad33974b7f8e4a92257b
+  DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
   Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
@@ -127,4 +127,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9c95960697099b558b65dc11e2e0d1483b8def24
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.15.0
