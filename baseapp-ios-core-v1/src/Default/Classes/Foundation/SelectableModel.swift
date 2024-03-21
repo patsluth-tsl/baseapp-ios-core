@@ -14,7 +14,7 @@ import RxSwift
 import UIKit
 
 
-public struct SelectableModel<Base> {
+public class SelectableModel<Base> {
     public let base: Base
     public let isSelected: BehaviorRelay<Bool>
     
@@ -27,8 +27,8 @@ public struct SelectableModel<Base> {
 
 // MARK: - Equatable
 extension SelectableModel: Equatable
-    where Base: Equatable {
-    public static func == (lhs: Self, rhs: Self) -> Bool {
+where Base: Equatable {
+    public static func == (lhs: SelectableModel<Base>, rhs: SelectableModel<Base>) -> Bool {
         return (lhs.base == rhs.base)
     }
 }
@@ -36,7 +36,7 @@ extension SelectableModel: Equatable
 
 // MARK: - Hashable
 extension SelectableModel: Hashable
-    where Base: Hashable {
+where Base: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(self.base.hashValue)
         hasher.combine(self.isSelected.value)
@@ -48,7 +48,7 @@ extension SelectableModel: Hashable
 
 // MARK: - Differentiable, ContentEquatable
 public extension SelectableModel: Differentiable, ContentEquatable
-    where Base: Differentiable {
+where Base: Differentiable {
     typealias DifferenceIdentifier = Base.DifferenceIdentifier
     
     var differenceIdentifier: SelectableModel<Base>.DifferenceIdentifier {
