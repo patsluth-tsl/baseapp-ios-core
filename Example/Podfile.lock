@@ -1,17 +1,18 @@
 PODS:
   - Alamofire (4.9.1)
   - Alertift (4.2.0)
-  - baseapp-ios-core-v1 (0.3.9):
-    - baseapp-ios-core-v1/Default (= 0.3.9)
-  - baseapp-ios-core-v1/ARKit (0.3.9):
+  - baseapp-ios-core-v1 (0.3.12):
+    - baseapp-ios-core-v1/Default (= 0.3.12)
+  - baseapp-ios-core-v1/ARKit (0.3.12):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/SceneKit
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/Default (0.3.9):
+  - baseapp-ios-core-v1/Default (0.3.12):
     - Alamofire (~> 4.9.1)
     - Alertift (~> 4.2.0)
     - CancelForPromiseKit (~> 1.1.0)
     - CancelForPromiseKit/Alamofire
+    - CoreStore (~> 9.2.0)
     - DeviceKit (~> 5.2.2)
     - Kingfisher (~> 7.6.2)
     - PromiseKit (~> 6.18.1)
@@ -22,12 +23,12 @@ PODS:
     - SnapKit (~> 5.0.1)
     - SwiftDate (~> 7.0.0)
     - SwiftyBeaver (~> 1.9.3)
-  - baseapp-ios-core-v1/FilePreviewer (0.3.9):
+  - baseapp-ios-core-v1/FilePreviewer (0.3.12):
     - baseapp-ios-core-v1/Default
-  - baseapp-ios-core-v1/SceneKit (0.3.9):
+  - baseapp-ios-core-v1/SceneKit (0.3.12):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/simd (0.3.9):
+  - baseapp-ios-core-v1/simd (0.3.12):
     - baseapp-ios-core-v1/Default
   - CancelForPromiseKit (1.1.0):
     - CancelForPromiseKit/CorePromise (= 1.1.0)
@@ -41,6 +42,7 @@ PODS:
   - CancelForPromiseKit/Foundation (1.1.0):
     - CancelForPromiseKit/CorePromise
     - PromiseKit/Foundation (~> 6.0)
+  - CoreStore (9.2.0)
   - DeviceKit (5.2.2)
   - Kingfisher (7.6.2)
   - PromiseKit (6.18.1):
@@ -88,6 +90,7 @@ SPEC REPOS:
     - Alamofire
     - Alertift
     - CancelForPromiseKit
+    - CoreStore
     - DeviceKit
     - Kingfisher
     - PromiseKit
@@ -109,8 +112,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alertift: 17b37be915cd28edeceabd438e4134d041ea825c
-  baseapp-ios-core-v1: 2ef185138a004c948edba073bbf8b684a14dceab
+  baseapp-ios-core-v1: 5a3a491de42be98c4f114ef30ec3f3923d04cc19
   CancelForPromiseKit: 753c8798c31519ab324dad33974b7f8e4a92257b
+  CoreStore: 6e7e2010ce7b8ad9cf7348c650020c3d7ea0afb2
   DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
   Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
@@ -125,6 +129,6 @@ SPEC CHECKSUMS:
   SwiftLint: 5ce4d6a8ff83f1b5fd5ad5dbf30965d35af65e44
   SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
 
-PODFILE CHECKSUM: 9c95960697099b558b65dc11e2e0d1483b8def24
+PODFILE CHECKSUM: c5b79272b89c1ee268becb2c7cf5d0d0f37344af
 
 COCOAPODS: 1.15.0

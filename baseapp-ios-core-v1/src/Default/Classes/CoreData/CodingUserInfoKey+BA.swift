@@ -7,10 +7,11 @@
 //
 
 import CoreData
+import CoreStore
 import Foundation
 
 public extension CodingUserInfoKey {
-    public static let managedObjectContext = CodingUserInfoKey(
-        rawValue: "\(NSManagedObjectContext.self)"
+    public static let dataStack = CodingUserInfoKey(
+        rawValue: "\(DataStack.self)"
     )!
 }

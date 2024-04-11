@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import CoreStore
 import Foundation
 
 // swiftlint:disable:next type_name
@@ -36,12 +37,25 @@ where T: NSDecodableManagedObject {
         
         public init(from decoder: Decoder) throws {
             let container = try decoder.singleValueContainer()
-            let context = decoder.userInfo[.managedObjectContext] as? NSManagedObjectContext
-            let entity = T.entity(for: context)
+            guard let dataStack = decoder.userInfo[.dataStack] as? DataStack else {
+                fatalError("Decoder userInfo.dataStack is null!")
+            }
+            let _object = try dataStack.perform(
+                synchronous: { (transaction) in
+                    let _object = transaction.create(Into<T>())
+                    try _object.update(with: decoder)
+                    return _object
+                },
+                waitForAllObservers: false
+            )
+            object = try dataStack.fetchExisting(_object)!
             
-            object = T(entity: entity, insertInto: context)
-            
-            try object.update(with: decoder)
+//            let context = decoder.userInfo[.managedObjectContext] as? NSManagedObjectContext
+//            let entity = T.entity(for: context)
+//            
+//            object = T(entity: entity, insertInto: context)
+//            
+//            try object.update(with: decoder)
         }
     }
     
@@ -63,15 +77,36 @@ where T: NSDecodableManagedObject {
         
         public init(from decoder: Decoder) throws {
             let container = try decoder.singleValueContainer()
-            let context = decoder.userInfo[.managedObjectContext] as? NSManagedObjectContext
-            let entity = T.entity(for: context)
-            let fetchRequest = T.uniqueFetchRequest(
-                matching: try T.identityAttribute(from: decoder)
+            guard let dataStack = decoder.userInfo[.dataStack] as? DataStack else {
+                fatalError("Decoder userInfo.dataStack is null!")
+            }
+//            let entity = T.entity(for: dataStack.unsafeContext())
+//            let fetchRequest = T.uniqueFetchRequest(
+//                matching: try T.identityAttribute(from: decoder)
+//            )
+            let identityAttribute = try T.identityAttribute(from: decoder)
+            let predicate = NSPredicate(format: "\(identityAttribute.keyPath) == \(identityAttribute.cVarArg)")
+            
+            let _object = try dataStack.perform(
+                synchronous: { (transaction) in
+                    let _object = try transaction.fetchOne(From<T>(), Where<T>(predicate)) ?? transaction.create(Into<T>())
+                    try _object.update(with: decoder)
+                    return _object
+                },
+                waitForAllObservers: false
             )
+            object = try dataStack.fetchExisting(_object)!
             
-            object = try context?.fetchFirst(fetchRequest) ?? T(entity: entity, insertInto: context)
             
-            try object.update(with: decoder)
+//            dataStack?.fetchOne(From<T>, Where<T>(NSPredicate(
+//                format: "\(identityAttribute.keyPath) == \(identityAttribute.cVarArg)"
+//            )))
+            
+            
+            
+//            object = try context?.fetchFirst(fetchRequest) ?? T(entity: entity, insertInto: context)
+            
+//            try object.update(with: decoder)
         }
     }
     
