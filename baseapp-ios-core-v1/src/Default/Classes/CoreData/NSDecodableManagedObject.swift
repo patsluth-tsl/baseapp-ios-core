@@ -49,13 +49,6 @@ where T: NSDecodableManagedObject {
                 waitForAllObservers: false
             )
             object = try dataStack.fetchExisting(_object)!
-            
-//            let context = decoder.userInfo[.managedObjectContext] as? NSManagedObjectContext
-//            let entity = T.entity(for: context)
-//            
-//            object = T(entity: entity, insertInto: context)
-//            
-//            try object.update(with: decoder)
         }
     }
     
@@ -80,13 +73,8 @@ where T: NSDecodableManagedObject {
             guard let dataStack = decoder.userInfo[.dataStack] as? DataStack else {
                 fatalError("Decoder userInfo.dataStack is null!")
             }
-//            let entity = T.entity(for: dataStack.unsafeContext())
-//            let fetchRequest = T.uniqueFetchRequest(
-//                matching: try T.identityAttribute(from: decoder)
-//            )
             let identityAttribute = try T.identityAttribute(from: decoder)
             let predicate = NSPredicate(format: "\(identityAttribute.keyPath) == \(identityAttribute.cVarArg)")
-            
             let _object = try dataStack.perform(
                 synchronous: { (transaction) in
                     let _object = try transaction.fetchOne(From<T>(), Where<T>(predicate)) ?? transaction.create(Into<T>())
@@ -96,17 +84,6 @@ where T: NSDecodableManagedObject {
                 waitForAllObservers: false
             )
             object = try dataStack.fetchExisting(_object)!
-            
-            
-//            dataStack?.fetchOne(From<T>, Where<T>(NSPredicate(
-//                format: "\(identityAttribute.keyPath) == \(identityAttribute.cVarArg)"
-//            )))
-            
-            
-            
-//            object = try context?.fetchFirst(fetchRequest) ?? T(entity: entity, insertInto: context)
-            
-//            try object.update(with: decoder)
         }
     }
     
