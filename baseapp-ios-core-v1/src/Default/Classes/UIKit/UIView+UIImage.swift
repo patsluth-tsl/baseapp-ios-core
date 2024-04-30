@@ -41,7 +41,7 @@ public extension UIView {
         case .graphicsImageRenderer:
             let format = UIGraphicsImageRendererFormat.default().configure({
                 $0.opaque = opaque
-                $0.scale = 0
+                $0.scale = scale
             })
             return UIGraphicsImageRenderer(size: bounds.size, format: format).image(actions: {
                 layer.render(in: $0.cgContext)
