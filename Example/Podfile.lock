@@ -1,13 +1,13 @@
 PODS:
   - Alamofire (4.9.1)
   - Alertift (4.2.0)
-  - baseapp-ios-core-v1 (0.3.12):
-    - baseapp-ios-core-v1/Default (= 0.3.12)
-  - baseapp-ios-core-v1/ARKit (0.3.12):
+  - baseapp-ios-core-v1 (0.4.3):
+    - baseapp-ios-core-v1/Default (= 0.4.3)
+  - baseapp-ios-core-v1/ARKit (0.4.3):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/SceneKit
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/Default (0.3.12):
+  - baseapp-ios-core-v1/Default (0.4.3):
     - Alamofire (~> 4.9.1)
     - Alertift (~> 4.2.0)
     - CancelForPromiseKit (~> 1.1.0)
@@ -16,19 +16,19 @@ PODS:
     - DeviceKit (~> 5.2.2)
     - Kingfisher (~> 7.6.2)
     - PromiseKit (~> 6.18.1)
-    - R.swift (~> 6.1.0)
+    - R.swift (~> 7.3.2)
     - RxCocoa (~> 6.6.0)
     - RxSwift (~> 6.6.0)
     - RxSwiftExt (~> 6.2.1)
     - SnapKit (~> 5.0.1)
     - SwiftDate (~> 7.0.0)
     - SwiftyBeaver (~> 1.9.3)
-  - baseapp-ios-core-v1/FilePreviewer (0.3.12):
+  - baseapp-ios-core-v1/FilePreviewer (0.4.3):
     - baseapp-ios-core-v1/Default
-  - baseapp-ios-core-v1/SceneKit (0.3.12):
+  - baseapp-ios-core-v1/SceneKit (0.4.3):
     - baseapp-ios-core-v1/Default
     - baseapp-ios-core-v1/simd
-  - baseapp-ios-core-v1/simd (0.3.12):
+  - baseapp-ios-core-v1/simd (0.4.3):
     - baseapp-ios-core-v1/Default
   - CancelForPromiseKit (1.1.0):
     - CancelForPromiseKit/CorePromise (= 1.1.0)
@@ -57,9 +57,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.18.1):
     - PromiseKit/CorePromise
-  - R.swift (6.1.0):
-    - R.swift.Library (~> 5.3.0)
-  - R.swift.Library (5.3.0)
+  - R.swift (7.3.2)
   - RxCocoa (6.6.0):
     - RxRelay (= 6.6.0)
     - RxSwift (= 6.6.0)
@@ -95,7 +93,6 @@ SPEC REPOS:
     - Kingfisher
     - PromiseKit
     - R.swift
-    - R.swift.Library
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -112,14 +109,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alertift: 17b37be915cd28edeceabd438e4134d041ea825c
-  baseapp-ios-core-v1: 5a3a491de42be98c4f114ef30ec3f3923d04cc19
+  baseapp-ios-core-v1: 931750df81b92f3c6bc7ef7c1c4aa983b46b0477
   CancelForPromiseKit: 753c8798c31519ab324dad33974b7f8e4a92257b
   CoreStore: 6e7e2010ce7b8ad9cf7348c650020c3d7ea0afb2
   DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
   Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
-  R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
-  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
@@ -131,4 +127,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: c5b79272b89c1ee268becb2c7cf5d0d0f37344af
 
-COCOAPODS: 1.15.0
+COCOAPODS: 1.10.1
