@@ -143,24 +143,6 @@ internal class FilePreviewController: UIViewController {
         fileViewControllers.removeAll()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    override func viewWillTransition(to size: CGSize,
-                                     with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        
-        //        guard let viewControllers = self.pageViewController.viewControllers else { return }
-        //        for viewController in viewControllers {
-        //            viewController.viewWillTransition(to: size, with: coordinator)
-        //        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         guard let segueIdentifier = SegueIdentifiers(rawValue: identifier) else { return }

@@ -24,10 +24,6 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor.black
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -59,14 +55,6 @@ class ViewController: UIViewController {
             ],
             initialPreviewIndex: 0
         )
-    }
-    
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    public override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
     }
 }
 
@@ -102,3 +90,5 @@ class ViewController: UIViewController {
 //        return UIToolbar.appearance()
 //    }
 // }
+
+// swiftlint:enable line_length

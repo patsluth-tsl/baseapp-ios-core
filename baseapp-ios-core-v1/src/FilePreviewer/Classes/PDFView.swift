@@ -51,7 +51,7 @@ internal class PDFView: PDFKit.PDFView {
                                 retainSelf: true)
                 .asDriver(onErrorJustReturn: .zero)
                 .unwrap()
-                .drive(onNext: { [weak self] contentOffset in
+                .drive(onNext: { [weak self] _ in
                     guard let `self` = self else { return }
                     guard self.scrollView != nil else { return }
                     self.scrolledPageIndex = {

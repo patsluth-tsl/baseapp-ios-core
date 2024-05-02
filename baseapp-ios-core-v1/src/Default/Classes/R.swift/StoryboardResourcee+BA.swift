@@ -9,10 +9,10 @@
 #if os(iOS)
 
 import PromiseKit
-import Rswift
+import RswiftResources
 import UIKit
 
-public extension StoryboardResourceWithInitialControllerType {
+public extension StoryboardReference where Self: RswiftResources.InitialControllerContainer {
     @discardableResult
     func instantiateInitial(_ _viewController: ((InitialController) -> Void)? = nil) -> InitialController {
         let viewController = instantiateInitialViewController()!
@@ -25,19 +25,23 @@ public extension StoryboardResourceWithInitialControllerType {
     }
 }
 
-public extension StoryboardResourceType {
+public extension StoryboardReference {
     @discardableResult
     func instantiateResource<T>(
-        _ _resource: (Self) -> StoryboardViewControllerResource<T>,
+        _ _resource: (Self) -> StoryboardViewControllerIdentifier<T>,
         _ _viewController: ((T) -> Void)? = nil
-    ) -> T {
+    ) -> T
+    where T: UIViewController {
         let viewController = UIKit.UIStoryboard(resource: self)
-            .instantiateViewController(withResource: _resource(self))!
+            .instantiateViewController(withIdentifier: _resource(self))!
         _viewController?(viewController)
         return viewController
     }
     
-    func instantiateResource<T>(_ _resource: (Self) -> StoryboardViewControllerResource<T>) -> Guarantee<T> {
+    func instantiateResource<T>(
+        _ _resource: (Self) -> StoryboardViewControllerIdentifier<T>
+    ) -> Guarantee<T>
+    where T: UIViewController {
        return Guarantee<T>.value(instantiateResource(_resource))
     }
 }

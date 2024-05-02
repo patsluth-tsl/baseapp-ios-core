@@ -80,15 +80,4 @@ internal class VideoFileViewController: FileViewController {
         avPlayerViewController.player = AVPlayer(url: fileURL)
         avPlayerViewController.player?.allowsExternalPlayback = true
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewWillTransition(
-        to size: CGSize,
-        with coordinator: UIViewControllerTransitionCoordinator
-    ) {
-        super.viewWillTransition(to: size, with: coordinator)
-    }
 }

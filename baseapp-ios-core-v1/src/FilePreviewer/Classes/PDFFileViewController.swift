@@ -81,10 +81,6 @@ internal class PDFFileViewController: FileViewController {
 		pdfView.scaleToFit(true)
 	}
 	
-    override func viewDidDisappear(_ animated: Bool) {
-		super.viewDidDisappear(animated)
-	}
-	
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         
