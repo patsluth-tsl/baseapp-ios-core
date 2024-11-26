@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'baseapp-ios-core-v1'
-  s.version          = '0.5.1'
+  s.version          = '0.5.2'
   s.summary          = 'A short description of baseapp-ios-core-v1.'
   s.description      = s.summary
   s.homepage         = 'https://bitbucket.org/silverlogic/baseapp-ios-core-v1'
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
       ss.ios.dependency 'SwiftyBeaver', '~> 1.9.3'
       ss.ios.dependency 'R.swift', '~> 7.3.2'
       ss.ios.dependency 'Alertift', '~> 4.2.0'
-      ss.ios.dependency 'DeviceKit', '~> 5.2.2'
+      ss.ios.dependency 'DeviceKit'
       ss.ios.dependency 'SnapKit', '~> 5.0.1'
       ss.ios.dependency 'SwiftDate', '~> 7.0.0'
       ss.ios.dependency 'CoreStore', '~> 9.2.0'

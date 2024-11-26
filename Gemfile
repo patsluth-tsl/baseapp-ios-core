@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "bundler"
 gem "fastlane"
-gem "cocoapods"
+gem "cocoapods", "~> 1.14.3"
 gem "colorize"
 
 plugins_path = File.join(File.dirname(__FILE__), "fastlane", "Pluginfile")
